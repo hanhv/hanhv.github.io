@@ -184,7 +184,43 @@ h1 {
     margin-bottom: 14px;
   }
 
-  a {
+a {
     color: #337ab7;
   }
 
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 5px;
+}
+
+th, td {
+    padding: 12px; /* Controls spacing within each cell */
+    border: 0.5px solid #ddd;
+    text-align: left;
+    vertical-align: top;
+} 
+
+th {
+    background-color: transparent;
+    border-bottom: 1px solid #ddd; /* Adds a subtle border for distinction */
+}
+
+
+/* Ensure paragraphs within table cells have consistent bottom margin */
+td > p {
+    margin: 0;
+    padding-bottom: 12px; /* Controls vertical spacing between paragraphs */
+}
+
+/* Remove bottom padding for the last paragraph in a cell */
+td p:last-child {
+    padding-bottom: 0;
+}
+
+/* Add this to your main.css or style section */
+.space-above {
+    margin-top: 30px; /* Adjust the value as needed */
+}
+ 
