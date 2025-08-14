@@ -1,0 +1,226 @@
+
+
+body {
+    background-color: #e9ebee;
+}
+
+
+.wrap {
+    background: white;
+} 
+
+.bd-navbar {
+    z-index:1; /*Add this*/
+    min-height: 4rem;
+	font-size: 17px;
+}
+
+#navbar_main > * {
+    font-weight: 600;
+    z-index:1; /*Add this*/ 
+}
+
+#wrapper {
+    margin-top: 40px;
+}
+
+#avatar > img {
+    width: 44px;
+    /* height: 44px; */
+}
+.avatar_main_page {
+    text-align: center;
+    vertical-align: middle;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media  only screen and (min-width: 1200px) {
+    .avatar_main_page {
+        /* width: 70%; */
+        height: auto; 
+    }
+}
+
+.nav-link {
+    display: block;
+    padding: .2rem 0rem;
+}
+
+.active >a{
+    font-weight: 600;
+    border-color: #3e69dc !important;
+    border-color: transparent;
+    border-style: solid;	
+    border-width: 0 0 .125em;
+}
+
+.text_noted {
+    color: #05091beb;
+}
+.no_border {
+    border: None !important;
+}
+
+
+.list_no_padding > li {
+    padding: 0.25rem 0.5rem;
+}
+
+.noted {
+    margin-bottom: 20px;
+    /* font-weight: 400; */
+}
+
+#list_links li a {
+    color: #333;
+	font-weight: 600;
+}
+
+
+#list_links li a:hover {
+    color: #3e69dc !important;
+	font-weight: 600;
+}
+
+
+
+@media (max-width: 576px) {
+    .avatar_block {
+        display: None;
+    }
+
+    .avatar_main_page {
+        display: None;
+    }
+	
+	.active >a{
+	border-width: 0 0 0;
+	}
+	
+}
+
+
+.button {
+    font-weight: 600 !important;
+    color: #333;
+    border-color: #3e69dc; 
+	font-size: 17px;
+}
+
+
+.button:active, .button:hover {
+    color: #3e69dc;
+    /* background-color: #d2ddfa; */
+    border-color: #3e69dc;
+}
+
+
+.button:focus {
+    box-shadow: 0 0 0 3px rgba(#ffe484, .25);
+  }
+
+  
+  .nav-item{
+    text-align: right;
+}
+
+
+.wrap {
+padding: 16px;
+}
+
+/* .sticky {
+position: fixed;
+top: 0;
+width: 100%;
+}
+
+.sticky + .container {
+padding-top: 60px;
+} */
+
+ol li {
+    margin-left: 20px;
+}
+
+ul li {
+    margin-left: 20px;
+}
+
+.flex-wrapper {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: space-between;
+
+    margin-top: 20px;
+    margin-bottom: 30px;
+    
+  }
+
+
+  .footer {
+    color: #fff;
+    min-height: 70px;
+    font-size: 16px;
+    padding: 1em;
+    border-top: 1px solid rgba(0, 0, 0, .1);
+    background-color: #282C2F;
+}
+
+#site-info {
+    text-align: center;
+    margin: 0;
+    padding-top: 10px;
+	font-size: 17px;
+}
+
+h1 {
+    /* font-weight: bold; */
+    font-size: 36px;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 14px;
+  }
+
+a {
+    color: #337ab7;
+  }
+
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 5px;
+}
+
+th, td {
+    padding: 12px; /* Controls spacing within each cell */
+    border: 0.5px solid #ddd;
+    text-align: left;
+    vertical-align: top;
+} 
+
+th {
+    background-color: transparent;
+    border-bottom: 1px solid #ddd; /* Adds a subtle border for distinction */
+}
+
+
+/* Ensure paragraphs within table cells have consistent bottom margin */
+td > p {
+    margin: 0;
+    padding-bottom: 12px; /* Controls vertical spacing between paragraphs */
+}
+
+/* Remove bottom padding for the last paragraph in a cell */
+td p:last-child {
+    padding-bottom: 0;
+}
+
+/* Add this to your main.css or style section */
+.space-above {
+    margin-top: 30px; /* Adjust the value as needed */
+}
+ 
