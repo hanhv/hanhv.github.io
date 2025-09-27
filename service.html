@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Hanh Vo">
+    <meta name="keywords" content="Hanh Vo, math, asu, luxembourg">
+    <title>Hanh Vo - Service</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="static/css/main.css">
+    <link rel="icon" href="static/img/favicon.ico">
+
+    <!-- Required JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+</head>
+
+<body id="body">
+
+    <nav class="navbar navbar-expand-sm navbar-light bg-light bd-navbar" id="navbar_main">
+        <div class="container">
+            <a href="index.html" class="button btn">Hanh Vo</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto" id="list_links">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="research.html">Research</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="teaching/index.html">Teaching</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="service.html">Service</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="flex-wrapper">
+            <div class="wrap">
+                <div class="row">
+                    <h1 class="entry-title">Service</h1>
+
+                    <!-- Service -->
+                    <div class="col col-12">
+                        <div class="card mb-3 no_border">
+                            <div class="card-header space-above" style="font-weight: bold;">Co-organizing</div>
+                            <div class="card-body">
+                                <!-- Co-organizing --> 
+                                <div class="card-text">
+                                    <ul class="list-group list_no_padding" style="list-style-type: square;">
+                                        <li class="no_border">
+                                            <p>Geometry/Topology Seminar, Arizona State University, US.</p>
+                                        </li>
+                                        <li class="no_border">
+                                            <p>Joint Mathematics Meetings (JMM 2025): AMS Special Session on Results on Curves and Surfaces Inspired by Experiments, Seattle, WA, US, January 2025.</p>
+                                        </li>
+                                        <li class="no_border">
+                                            <p>AMS Fall Western Sectional Meeting: Special Session on Surfaces, 3-manifolds and hyperbolic geometry, University of California, Riverside, CA, US, October 2024.</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                
+				<!--<hr color="#e9ebee" size="2" width="100%" style="margin-top: 18px;">   -->
+				
+				
+                                <!-- Co-organizing -->
+                            </div>
+                        </div>
+
+                        <div class="card mb-3 no_border">
+                            <div class="card-header" style="font-weight: bold;">Outreach</div>
+                            <div class="card-body">
+                                <div class="card-text">
+                                    <ul class="list-group list_no_padding" style="list-style-type: square;">
+                                        <li class="no_border">
+                                            <p>Volunteer/Poster presenter/Speaker: ASU Homecoming, Open Door, Celebration of Women in Math Day.</p>
+                                        </li>
+                                        <li class="no_border">
+                                            <p>Comic book co-writer: The science comic <a href="https://sciencecomics.uni.lu/comics-vol-2/" target="_blank" rel="noopener noreferrer">"LUX:plorations Vol. 2 – A Universe of Research"</a>.</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!-- Outreach -->
+                            </div>
+                        </div>
+                        <!-- done all -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        window.onscroll = function() { myFunction(); };
+
+        var navbar = document.getElementById("navbar_main");
+        var sticky = navbar.offsetTop;
+
+        function myFunction() {
+            if (window.pageYOffset >= sticky) {
+                navbar.classList.add("sticky");
+            } else {
+                navbar.classList.remove("sticky");
+            }
+        }
+    </script>
+
+    <div class="footer">
+        <div id="site-info">Hanh Vo - Mathematics</div>
+    </div>
+
+</body>
+
+</html>
