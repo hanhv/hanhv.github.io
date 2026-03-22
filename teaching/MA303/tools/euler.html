@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ODE Numerical Methods | Hanh Vo</title>
+    
+    <link rel="stylesheet" href="../../../style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        /* BALANCED WIDTH (80%) */
+        .tool-container {
+            max-width: 80% !important; 
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+                
+        /* Section Title Styling (Clickable Header) */
+        .section-title-link {
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .section-title {
+            font-size: 0.75rem;
+            font-weight: 800;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            border-bottom: 2px solid var(--purdue-gold);
+            display: inline-block;
+            padding-bottom: 3px;
+            margin-bottom: 10px;
+            margin-top: 45px;
+            color: #000;
+            transition: 0.2s ease;
+        }
+
+        .section-title-link:hover .section-title {
+            color: var(--purdue-gold);
+            border-bottom-color: var(--text-main);
+        }
+
+        .dashboard { 
+            display: grid; 
+            grid-template-columns: 340px 1fr; 
+            gap: 30px; 
+            margin-top: 25px;
+            align-items: start;
+        }
+
+        main { min-width: 0; }
+
+        @media (max-width: 1150px) { 
+            .dashboard { grid-template-columns: 1fr; } 
+            .tool-container { max-width: 100% !important; }
+        }
+
+        .panel { 
+            background: #ffffff; 
+            padding: 20px; 
+            border-radius: 8px; 
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+        }
+
+        /* INPUTS */
+        .input-box { margin-bottom: 12px; }
+        label { 
+            display: block; 
+            font-size: 0.65rem; 
+            font-weight: 700; 
+            text-transform: uppercase; 
+            color: #64748b; 
+            margin-bottom: 4px; 
+        }
+        input, select { 
+            width: 100%; padding: 10px; border: 1.5px solid #e2e8f0; 
+            border-radius: 6px; font-size: 0.9rem; box-sizing: border-box;
+        }
+        .math-font { font-family: 'Fira Code', monospace; background: #f8fafc; font-weight: 600; }
+
+        /* BUTTON ENHANCEMENTS with Purdue Gold Hover */
+        .btn { 
+            width: 100%; 
+            padding: 14px; 
+            background: #1e293b; /* Dark Navy default */
+            color: white; 
+            border: none; 
+            border-radius: 6px; 
+            font-weight: 700; 
+            cursor: pointer; 
+            font-size: 0.95rem; 
+            transition: all 0.2s ease; /* Smooth transition for all properties */
+            margin-top: 10px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .btn:hover { 
+            background: #CEB888; /* Purdue Gold */
+            color: #1e293b; /* Dark Navy Text */
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Click: Shrink and Darken from Gold */
+        .btn:active {
+            background: #A39169; /* Darker Gold for 'press' effect */
+            transform: translateY(0px) scale(0.98);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Focus: accessibility ring */
+        .btn:focus {
+            outline: 2px solid #CEB888; /* Purdue Gold outline */
+            outline-offset: 2px;
+        }
+
+        /* PLOT & TABLE */
+        #plot { height: 450px; width: 100%; margin-bottom: 25px; }
+        .table-wrap { overflow-x: auto; border-radius: 8px; border: 1px solid #e2e8f0; background: #fff; }
+        table.data-table { width: 100%; border-collapse: collapse; font-size: 0.78rem; }
+        table.data-table th { background: #f8fafc; padding: 12px 6px; color: #64748b; border: 1px solid #e2e8f0; font-weight: 700; font-size: 0.65rem; text-transform: uppercase;}
+        table.data-table td { padding: 8px 6px; border: 1px solid #f1f5f9; text-align: center; font-variant-numeric: tabular-nums;}
+        .err-val { color: #dc2626; font-size: 0.7rem; background: #fffafb; }
+        .exact-col { background: #fcfcfc; font-weight: 600; }
+
+        #plot.panel {
+        padding: 0 !important;   /* Removes the 20px gap at the top/sides */
+        display: block;
+        overflow: hidden;        /* Keeps the graph inside the rounded corners */
+    }
+
+        /* SYNTAX GUIDE */
+        .syntax-card { background: #f1f5f9; padding: 12px; border-radius: 8px; margin: 15px 0; border: 1px solid #cbd5e1; }
+        .syntax-table { width: 100%; font-size: 0.7rem; border-collapse: collapse; }
+        .syntax-table td { padding: 4px; border-bottom: 1px solid #dee2e6; }
+        .code-snippet { color: #6366f1; font-weight: 600; font-family: monospace; }
+
+
+        /* VISIBLE METHODOLOGY BOX */
+        .method-box {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #f8fafc; /* Light grayish-blue background */
+            border: 1px solid #e2e8f0;   /* Visible light border */
+            border-radius: 8px;          /* Rounded corners to match panels */
+            box-shadow: inset 0 1px 2px rgba(0,0,0,0.02); /* Slight depth */
+        }
+
+        .method-box h3 {
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 0.8rem;
+            color: #1e293b;
+            margin: 12px 0 4px 0; 
+            letter-spacing: 0.5px;
+        }
+
+        .method-box h3:first-of-type { margin-top: 0; }
+
+        .method-box p {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-bottom: 5px;
+            line-height: 1.3;
+        }
+
+        /* FIX: This forces the MathJax SVG to actually shrink */
+        .method-box mjx-container {
+            font-size: 1rem !important; 
+            margin: 8px 0 !important;
+            display: block !important;
+            max-width: 100%;
+            overflow-x: auto;
+            overflow-y: hidden;
+        }
+
+        /* Removes extra padding MathJax sometimes adds */
+        mjx-container[display="true"] {
+            margin: 0 !important;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="top-nav">
+        <div class="nav-container">
+            <a href="../../../index.html" class="nav-logo">Hanh Vo</a>
+            <div class="nav-links">
+                <a href="../../../index.html">Home</a>
+                <a href="../../../research.html">Research</a>
+                <a href="../../../teaching.html" class="active">Teaching</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="tool-container">
+        <header style="margin-top: 25px;">
+            <a href="../index.html" class="section-title-link" title="Back to MA 30300 Course Page">
+                <span class="section-title">MA 30300: Differential Equations</span>
+            </a>
+            <h1 style="font-weight: 800; letter-spacing: -1px; margin-top: 5px;">Numerical Methods Implementation</h1>
+        </header>
+
+        <div class="dashboard">
+            <aside class="panel">
+                <div class="input-box">
+                    <label>Presets</label>
+                    <select id="preset" onchange="loadPreset()">
+                        <option value="custom">-- Custom Input --</option>
+                        <option value="linear">Linear: y' = x + y</option>
+                        <option value="cooling">Newton's Cooling</option>
+                        <option value="logistic">Logistic Growth</option>
+                        <option value="oscillatory">Oscillatory</option>
+                    </select>
+                </div>
+
+                <div class="input-box">
+                    <label>ODE: dy/dx = f(x,y)</label>
+                    <input type="text" id="ode" class="math-font" value="x + y">
+                </div>
+
+                <div class="input-box">
+                    <label>Exact Solution y(x)</label>
+                    <input type="text" id="exact" class="math-font" value="2*Math.exp(x) - x - 1" placeholder="Leave blank to skip error calculation">
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                    <div class="input-box"><label>x₀</label><input type="number" id="x0" value="0"></div>
+                    <div class="input-box"><label>y₀</label><input type="number" id="y0" value="1"></div>
+                    <div class="input-box"><label>Step (h)</label><input type="number" id="h" value="0.2" step="0.05"></div>
+                    <div class="input-box"><label>Steps (n)</label><input type="number" id="n" value="10"></div>
+                </div>
+
+
+                <button class="btn" onclick="runSimulation()">Run Computation</button>
+
+
+                <div class="syntax-card">
+                    <label style="color: #1e293b; margin-bottom: 5px;">Syntax Guide</label>
+                    <table class="syntax-table">
+                        <tr><td>x²</td><td class="code-snippet">x**2</td><td>eˣ</td><td class="code-snippet">Math.exp(x)</td></tr>
+                        <tr><td>sin(x)</td><td class="code-snippet">Math.sin(x)</td><td>ln(x)</td><td class="code-snippet">Math.log(x)</td></tr>
+                        <tr><td>π</td><td class="code-snippet">Math.PI</td><td>√x</td><td class="code-snippet">Math.sqrt(x)</td></tr>
+                    </table>
+                </div>
+
+
+
+                <div class="method-box">
+                    <label style="font-size: 0.6rem; letter-spacing: 1px; margin-bottom: 8px; display: block; border-bottom: 1px solid #e2e8f0;">
+                        Methodology
+                    </label>
+                    
+                    <h3>Euler</h3> 
+                    \( y_{n+1} = y_n + h \cdot f_n \)
+                
+                    <h3>Improved Euler</h3> 
+                    \( y_{n+1} = y_n + \frac{h}{2}(k_1 + k_2) \)
+                
+                    <h3>RK4</h3> 
+                    \( y_{n+1} = y_n + \frac{h}{6}(k_1 + 2k_2 + 2k_3 + k_4) \)
+                </div>
+                 
+ 
+            </aside>
+
+            <main>
+                <div id="plot" class="panel"></div>
+                
+                <div class="table-wrap">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th rowspan="2">n</th>
+                                <th rowspan="2">xₙ</th>
+                                <th rowspan="2">Exact y(x)</th>
+                                <th colspan="2">Euler</th>
+                                <th colspan="2">Improved Euler</th>
+                                <th colspan="2">RK4</th>
+                            </tr>
+                            <tr style="font-size: 0.6rem; background: #fafbfc;">
+                                <th>Value</th><th>Abs. Error</th>
+                                <th>Value</th><th>Abs. Error</th>
+                                <th>Value</th><th>Abs. Error</th>
+                            </tr>
+                        </thead>
+                        <tbody id="log"></tbody>
+                    </table>
+                </div>
+            </main>
+        </div>
+
+        
+    </div>
+    <footer class="footer-signature" style="margin-top: 50px;">
+        <p>© 2026 Hanh Vo • Department of Mathematics • Purdue University</p>
+    </footer>
+
+<script>
+    /* SOLVER LOGIC */
+    function getFullData(x0, y0, h, n, f, exactF) {
+        let data = [];
+        let state = { euler: y0, improved: y0, rk4: y0, x: x0 };
+        for (let i = 0; i <= n; i++) {
+            let exactVal = exactF ? exactF(state.x) : null;
+            data.push({
+                n: i, x: state.x, exact: exactVal,
+                euler: { y: state.euler, err: exactVal !== null ? Math.abs(state.euler - exactVal) : null },
+                improved: { y: state.improved, err: exactVal !== null ? Math.abs(state.improved - exactVal) : null },
+                rk4: { y: state.rk4, err: exactVal !== null ? Math.abs(state.rk4 - exactVal) : null }
+            });
+            if (i < n) {
+                state.euler += h * f(state.x, state.euler);
+                let k1_imp = f(state.x, state.improved);
+                let k2_imp = f(state.x + h, state.improved + h * k1_imp);
+                state.improved += (h / 2) * (k1_imp + k2_imp);
+                let k1 = f(state.x, state.rk4);
+                let k2 = f(state.x + h/2, state.rk4 + h*k1/2);
+                let k3 = f(state.x + h/2, state.rk4 + h*k2/2);
+                let k4 = f(state.x + h, state.rk4 + h*k3);
+                state.rk4 += (h / 6) * (k1 + 2*k2 + 2*k3 + k4);
+                state.x += h;
+            }
+        }
+        return data;
+    }
+
+    /* UI LOGIC */
+    const presets = {
+        linear: { ode: "x + y", exact: "2*Math.exp(x) - x - 1", x0: 0, y0: 1, h: 0.2, n: 10 },
+        cooling: { ode: "-0.1*(y - 20)", exact: "20 + 60*Math.exp(-0.1*x)", x0: 0, y0: 80, h: 2, n: 15 },
+        logistic: { ode: "y*(1 - y/10)", exact: "10 / (1 + 9*Math.exp(-x))", x0: 0, y0: 1, h: 0.5, n: 20 },
+        oscillatory: { ode: "y * Math.cos(x)", exact: "Math.exp(Math.sin(x))", x0: 0, y0: 1, h: 0.2, n: 30 }
+    };
+
+    function loadPreset() {
+        const val = document.getElementById('preset').value;
+        
+        if (val === 'custom') {
+            // 1. Clear the text input values
+            document.getElementById('ode').value = "";
+            document.getElementById('exact').value = "";
+            
+            // 2. Set placeholders to guide the student
+            document.getElementById('ode').placeholder = "e.g., x + y";
+            document.getElementById('exact').placeholder = "e.g., Math.exp(x)";
+            
+            // 3. Reset numeric parameters to neutral defaults
+            document.getElementById('x0').value = 0;
+            document.getElementById('y0').value = 1;
+            document.getElementById('h').value = 0.1;
+            document.getElementById('n').value = 10;
+            
+            // 4. Clear the results from the screen
+            document.getElementById('log').innerHTML = ""; // Clears Table
+            Plotly.purge('plot'); // Clears Graph
+            
+            return; // Exit the function so it doesn't try to run a simulation with empty boxes
+        }
+
+        // If a real preset is chosen, load the data
+        const p = presets[val];
+        document.getElementById('ode').value = p.ode;
+        document.getElementById('exact').value = p.exact;
+        document.getElementById('x0').value = p.x0;
+        document.getElementById('y0').value = p.y0;
+        document.getElementById('h').value = p.h;
+        document.getElementById('n').value = p.n;
+        
+        // Auto-run for presets
+        runSimulation();
+    }
+
+    function runSimulation() {
+        const x0 = parseFloat(document.getElementById('x0').value);
+        const y0 = parseFloat(document.getElementById('y0').value);
+        const h = parseFloat(document.getElementById('h').value);
+        const n = parseInt(document.getElementById('n').value);
+        const odeStr = document.getElementById('ode').value;
+        const exactStr = document.getElementById('exact').value.trim();
+
+        try {
+            const f = new Function('x', 'y', `return ${odeStr};`);
+            const exactF = (exactStr !== "") ? new Function('x', `return ${exactStr};`) : null;
+            const data = getFullData(x0, y0, h, n, f, exactF);
+            
+            let tableHTML = "";
+            data.forEach(d => {
+                const exStr = (d.exact !== null) ? d.exact.toFixed(5) : "---";
+                const fmtErr = (err) => (err !== null) ? err.toExponential(2) : "---";
+                tableHTML += `<tr><td>${d.n}</td><td>${d.x.toFixed(2)}</td><td class="exact-col">${exStr}</td><td>${d.euler.y.toFixed(5)}</td><td class="err-val">${fmtErr(d.euler.err)}</td><td>${d.improved.y.toFixed(5)}</td><td class="err-val">${fmtErr(d.improved.err)}</td><td>${d.rk4.y.toFixed(5)}</td><td class="err-val">${fmtErr(d.rk4.err)}</td></tr>`;
+            });
+            document.getElementById('log').innerHTML = tableHTML;
+
+            const traces = [
+                { x: data.map(d=>d.x), y: data.map(d=>d.euler.y), name: 'Euler', mode: 'lines+markers', line:{color:'#94a3b8'} },
+                { x: data.map(d=>d.x), y: data.map(d=>d.improved.y), name: 'Improved Euler', mode: 'lines+markers', line:{color:'#6366f1'} },
+                { x: data.map(d=>d.x), y: data.map(d=>d.rk4.y), name: 'RK4', mode: 'lines+markers', line:{color:'#10b981', width: 3} }
+            ];
+            if (exactF) {
+                let exX = [], exY = [];
+                for(let t=x0; t<=x0+(h*n); t+=(h*n/100)) { exX.push(t); exY.push(exactF(t)); }
+                traces.push({x: exX, y: exY, name: 'Exact Solution', line:{color:'#1e293b', dash:'dot'}});
+            }
+            Plotly.newPlot('plot', traces, { margin: {t:30, b:40, l:50, r:20}, legend: {orientation: 'h', x:0.5, xanchor:'center', y:-0.15}, xaxis: { title: 'x' }, yaxis: { title: 'y' } }, {responsive: true});
+        } catch(e) { alert("Check math syntax! Error: " + e.message); }
+    }
+    runSimulation();
+</script>
+</body>
+</html>

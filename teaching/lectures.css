@@ -1,0 +1,260 @@
+/* ==========================================================================
+   LECTURE NOTES STYLES (MA303 / Teaching)
+   Consolidated for Hanh Vo - Purdue University
+   ========================================================================== */
+
+/* 1. GLOBAL VARIABLES & FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital@1&family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --text-main: #1a1a1a;
+    --text-muted: #666666;
+    --purdue-gold: #CEB888;
+    --border-light: #f0f0f0;
+    --bg-white: #ffffff;
+    --brand-blue: #007bff;
+}
+
+/* 2. BASE LAYOUT */
+body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    line-height: 1.6;
+    color: var(--text-main);
+    background-color: var(--bg-white);
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* 3. HEADERS & TYPOGRAPHY */
+h2 { 
+    margin-top: 40px;
+    font-weight: 700;
+}
+
+/* Section Title Styling (Clickable Header) */
+.section-title-link {
+    text-decoration: none;
+    display: inline-block;
+}
+
+.section-title {
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    border-bottom: 2px solid var(--purdue-gold);
+    display: inline-block;
+    padding-bottom: 3px;
+    margin-bottom: 10px;
+    margin-top: 45px;
+    color: #000;
+    transition: 0.2s ease;
+}
+
+.section-title-link:hover .section-title {
+    color: var(--purdue-gold);
+    border-bottom-color: var(--text-main);
+}
+
+/* Chapter/Sub-topic Italic Style */
+.sub-section-label {
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    font-family: 'Libre Baskerville', serif;
+    font-style: italic; 
+    font-size: 1.4rem;
+    color: #010f1d;
+    font-weight: 500;
+}
+
+h3 { 
+    color: #2c3e50; 
+    border-bottom: 3px solid var(--purdue-gold);  
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+h4 { 
+    color: #34495e;  
+    padding-left: 15px;
+    margin-top: 10px;
+}
+
+/* 4. CONTENT BOXES */
+.goal, .definition, .theorem, .example, .important, .warning, .solution {
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px 0;
+    color: var(--text-main) !important;
+}
+
+.goal, .definition {
+    background-color: #f1f9f1;
+    border: 1px solid #28a745;
+    border-left: 6px solid #28a745;
+}
+
+.theorem {
+    background-color: #fff9e6;
+    border: 1px solid #ffc107;
+    border-left: 6px solid #ffc107;
+}
+
+.example {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-left: 6px solid var(--brand-blue);
+}
+
+.important {
+    background-color: #eef9fb;
+    border: 1px solid #17a2b8;
+    border-left: 6px solid #17a2b8;
+}
+
+.warning {
+    background-color: #fff5f5;
+    border: 1px solid #dc3545;
+    border-left: 6px solid #dc3545;
+}
+
+/* Problem Statement Box */
+.problem-box {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-left: 5px solid #5f4fd9;
+    margin-bottom: 20px;
+}
+
+ol {
+    margin-left: 20px;
+    padding-left: 20px;
+}
+
+li {
+    margin-left: 20px;
+    margin-bottom: 15px;
+}
+
+/* Solution Box */
+.solution {
+    background-color: #fdfdfd;
+    border: 1px dashed #ced4da;
+    border-left: 4px solid #28a745;
+    padding: 15px;
+    margin-top: 10px;
+}
+
+/* 5. TABLE OF CONTENTS (TOC) */
+.toc-container {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 8px;
+    max-width: fit-content;
+    border: 1px solid var(--border-light);
+}
+
+.toc-container h2 {
+    margin-top: 0;
+    font-size: 1.2rem;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.toc-container ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.toc-container > ul > li {
+    margin-top: 12px;
+}
+
+.toc-container > ul > li > a {
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--text-main);
+}
+
+.toc-container ul ul {
+    padding-left: 20px; 
+    margin-top: 5px;
+    border-left: 2px solid var(--purdue-gold);
+}
+
+.toc-container ul ul li a {
+    font-weight: 400;
+    font-size: 0.95em;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.toc-container a:hover {
+    color: var(--purdue-gold) !important;
+    text-decoration: underline;
+    padding-left: 4px;
+}
+
+/* 6. MATH & TABLES */
+.mjx-container {
+    display: inline-grid !important;
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    vertical-align: middle;
+    padding: 5px 0;
+}
+
+mjx-container[display="true"] {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    margin: 1em 0 !important;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 20px 0;
+}
+
+th, td {
+    border: 1px solid var(--border-light);
+    padding: 12px;
+}
+
+/* 7. ACCESSIBILITY */
+:focus {
+    outline: 3px solid var(--purdue-gold);
+    outline-offset: 2px;
+}
+
+.skip-link {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+.skip-link:focus {
+    position: static;
+    width: auto;
+    height: auto;
+    background: var(--purdue-gold);
+    padding: 10px;
+    color: black;
+}
+
+/* BALANCED WIDTH (%) */
+.notes-container {
+    max-width: 70% !important; 
+    margin: 0 auto;
+    padding: 0 20px;
+}

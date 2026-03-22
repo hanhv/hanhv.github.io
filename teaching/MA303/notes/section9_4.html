@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MA 30300 Notes | Hanh Vo</title>
+    
+    
+    <link rel="stylesheet" href="../../../style.css">
+    <link rel="stylesheet" href="../../lectures.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <nav class="top-nav" aria-label="Main Navigation">
+        <div class="nav-container">
+            <a href="../../../index.html" class="nav-logo">Hanh Vo</a>
+            <div class="nav-links">
+                <a href="../../../index.html">Home</a>
+                <a href="../../../research.html">Research</a>
+                <a href="../../../teaching.html" class="active">Teaching</a>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="notes-container">
+        <header>
+            <a href="../index.html" class="section-title-link" title="Back to MA 30300 Course Page">
+                <span class="section-title">MA 30300: Differential Equations</span>
+            </a>
+            <h1>Lecture 9.4: Applications of Fourier Series</h1>
+        </header>
+
+        <main id="main-content">
+            <section class="goal" aria-label="Learning Goals">
+                <p><strong>Goal:</strong> We are solving the non-homogeneous equation \(mx'' + cx' + kx = F(t)\) where we use <strong>Fourier Series</strong> to solve for periodic force.</p>
+            </section>
+
+            <figure style="text-align: center; margin: 20px 0;">
+                <img src="../pictures/msd.png" 
+                     alt="Diagram of a mass-spring-damper system. A mass m is connected to a spring k and a damper c. An external force F(t) is applied, and displacement is labeled x(t)." 
+                     style="max-width: 50%; height: auto;">
+                <figcaption>A mass \(m\) with spring \(k\) and damper \(c\). External force \(F(t)\) results in position \(x(t)\).</figcaption>
+            </figure>
+
+            <nav class="toc-container" aria-label="Table of Contents">
+                <h2>Contents</h2>
+                <ul>
+                    <li>
+                        <a href="#case1">1. Case 1: Undamped Motion (c=0)</a>
+                        <ul>
+                            <li><a href="#ex1">Example: Steady Periodic Solution</a></li>
+                            <li><a href="#ex2">Example: Steady Periodic Solution</a></li>
+                            <li><a href="#resonance">Special Case: Pure Resonance</a></li>
+                            <li><a href="#ex-res1">Example: Resonance Check 1</a></li>
+                            <li><a href="#ex-res2">Example: Resonance Check 2</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#case2">2. Case 2: Damped Forced Motion (c > 0)</a>
+                        <ul>
+                            <li><a href="#ex3">Example: Damped Steady Periodic Solution</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+
+            <hr style="margin: 40px 0; border: 0; border-top: 1px solid var(--border-light);">
+
+            <section id="case1">
+                <h2 class="sub-section-label">1. Case 1: Undamped Motion (\(c=0\))</h2>
+                <p>In this case, the equation simplifies to \(mx'' + kx = F(t)\).</p>
+
+                <div class="example" id="ex1">
+                    <h3>Example 1.1: Steady Periodic Solution (Square Wave)</h3>
+                    <p>Find \(x_{sp}(t)\) for \(x'' + 5x = F(t)\) where \(F(t)\) is a \(2\pi\)-periodic square wave:
+                    \[ F(t) = \begin{cases} 3 & 0 < t < \pi \\ -3 & \pi < t < 2\pi \end{cases} \]</p>
+                    
+                    <div class="solution">
+                        <h4>1. Derive Fourier Coefficients (\(b_n\))</h4>
+                        <p>Since \(F(t)\) is an odd function with period \(T=2\pi\), its Fourier series contains only sine terms. The coefficients are:</p>
+                        \[ b_n = \frac{2}{\pi} \int_{0}^{\pi} 3 \sin(nt) \, dt = \frac{6}{n\pi} [-\cos(nt)]_0^\pi = \frac{6}{n\pi} (1 - (-1)^n) \]
+                        <p>This evaluates to \(b_n = \frac{12}{n\pi}\) for \(n\) odd, and \(b_n = 0\) for \(n\) even.</p>
+                
+                        <h4>2. Compute Derivatives and Substitute</h4>
+                        <p>Assume a steady periodic solution of the form \(x_{sp}(t) = \sum_{n=1}^{\infty} c_n \sin(nt)\). To substitute this into the differential equation, we first find the second derivative term-by-term:</p>
+                        \[ x_{sp}'(t) = \sum_{n=1}^{\infty} n c_n \cos(nt) \implies x_{sp}''(t) = \sum_{n=1}^{\infty} -n^2 c_n \sin(nt) \]
+                        <p>Now, substitute \(x_{sp}''(t)\) and \(x_{sp}(t)\) into the ODE \(x'' + 5x = F(t)\):</p>
+                        \[ \left( \sum_{n=1}^{\infty} -n^2 c_n \sin(nt) \right) + 5 \left( \sum_{n=1}^{\infty} c_n \sin(nt) \right) = \sum_{n=1}^{\infty} b_n \sin(nt) \]
+                        <p>Factor out the \(\sin(nt)\) terms on the left-hand side to group the coefficients:</p>
+                        \[ \sum_{n=1}^{\infty} (5 - n^2) c_n \sin(nt) = \sum_{n=1}^{\infty} b_n \sin(nt) \]
+                
+                        <h4>3. Equate Coefficients and Check for Resonance</h4>
+                        <p>By equating the coefficients of \(\sin(nt)\) for each \(n\), we obtain the algebraic equation:</p>
+                        \[ (5 - n^2) c_n = b_n \]
+                        <p>Since \(n\) is always an integer (\(n = 1, 2, 3, \dots\)), it follows that \(n^2 \neq 5\) for any \(n\). Therefore, for all \(n\) we can solve for \(c_n\):</p>
+                        \[ c_n = \frac{b_n}{5 - n^2} \]
+                
+                        <h4>4. Final Series Solution</h4> 
+                        <p>Substituting \(b_n = \frac{12}{n\pi}\) for odd values of \(n\):</p>
+                        \[ x_{sp}(t) = \sum_{n=1, 3, 5...}^{\infty} \frac{12}{n\pi(5 - n^2)} \sin(nt) \]
+                    </div>
+                </div>
+
+
+                <div class="example" id="ex2">
+                    <h3>Example 1.2: Steady Periodic Solution</h3>
+                    <p>Find \(x_{sp}(t)\) for \(x'' + 3x = F(t)\), where \(F(t)\) is an odd function of period \(2\pi\) with \(F(t) = 9t\) for \(0 < t < \pi\).</p>
+                    
+                    <div class="solution">
+                        <h4>1. Derive Fourier Coefficients (\(b_n\))</h4>
+                        <p>Since \(F(t)\) is an odd function with period \(T=2\pi\), its Fourier series consists only of sine terms. We calculate the coefficients \(b_n\) using integration by parts:</p>
+                        \[ b_n = \frac{2}{\pi} \int_{0}^{\pi} 9t \sin(nt) \, dt = \frac{18}{\pi} \left[ \frac{-t \cos(nt)}{n} + \frac{\sin(nt)}{n^2} \right]_0^\pi \]
+                        \[ b_n = \frac{18}{\pi} \left( \frac{-\pi \cos(n\pi)}{n} + 0 \right) = \frac{-18 (-1)^n}{n} = \frac{18(-1)^{n+1}}{n} \]
+                
+                        <h4>2. Compute Derivatives and Substitute</h4>
+                        <p>Assume a steady periodic solution of the form \(x_{sp}(t) = \sum_{n=1}^{\infty} c_n \sin(nt)\). To substitute this into the differential equation \(x'' + 3x = F(t)\), we find the second derivative:</p>
+                        \[ x_{sp}'(t) = \sum_{n=1}^{\infty} n c_n \cos(nt) \implies x_{sp}''(t) = \sum_{n=1}^{\infty} -n^2 c_n \sin(nt) \]
+                        <p>Substituting both into the left-hand side of the ODE:</p>
+                        \[ \left( \sum_{n=1}^{\infty} -n^2 c_n \sin(nt) \right) + 3 \left( \sum_{n=1}^{\infty} c_n \sin(nt) \right) = \sum_{n=1}^{\infty} b_n \sin(nt) \]
+                        <p>Factoring the sine terms to group the coefficients:</p>
+                        \[ \sum_{n=1}^{\infty} (3 - n^2) c_n \sin(nt) = \sum_{n=1}^{\infty} b_n \sin(nt) \]
+                
+                        <h4>3. Equate Coefficients</h4>
+                        <p>By comparing the coefficients of \(\sin(nt)\) on both sides for each integer \(n\), we get:</p>
+                        \[ (3 - n^2) c_n = b_n \]
+                        <p>Since \(n\) is an integer (\(n = 1, 2, 3, \dots\)), \(n^2\) will never equal \(3\). Because \(3 - n^2 \neq 0\), we can safely solve for \(c_n\):</p>
+                        \[ c_n = \frac{b_n}{3 - n^2} = \frac{18(-1)^{n+1}}{n(3 - n^2)} \]
+                
+                        <h4>4. Final Series Solution</h4>
+                        <p>Substituting the expression for \(c_n\) back into the assumed form of \(x_{sp}(t)\):</p>
+                        \[ x_{sp}(t) = \sum_{n=1}^{\infty} \frac{18(-1)^{n+1}}{n(3 - n^2)} \sin(nt) \]
+                    </div>
+                </div>
+
+                <h3 id="resonance" style="color: #d9534f; margin-top: 30px;">1.3 Special Case: Pure Resonance</h3>
+                <div class="theorem">
+                    <p><strong>Pure Resonance:</strong> Occurs if there exists an integer \(n\) such that the driving frequency \(\omega_n\) equals the natural frequency \(\omega_0 = \sqrt{k/m}\).</p>
+                </div>
+
+                <div class="example" id="ex-res1">
+                    <h3>Example 1.4: Pure Resonance Check</h3>
+                    <p>Determine if pure resonance occurs for \(9x'' + 36x = F(t)\), where \(F(t)\) is an odd function of period \(2L = 2\) with \(F(t) = 3\) for \(0 < t < 1\).</p>
+                    
+                    <div class="solution">
+                        <p>To determine if pure resonance occurs, we compare the <strong>natural frequency</strong> of the system to the <strong>driving frequencies</strong> found in the Fourier series of the forcing function \( F(t) \).</p>
+                    
+                        <h4>1. Find the Natural Frequency \(\omega_0\)</h4>
+                        <p>\[ \omega_0 = \sqrt{\frac{k}{m}} = \sqrt{\frac{36}{9}} = 2 \]</p>
+                    
+                        <hr>
+                    
+                        <h4>2. Find the Driving Frequencies \(\omega_n\)</h4>
+                        <p>The forcing function \( F(t) \) is an odd function with period \( 2L = 2 \), which means \( L = 1 \). The Fourier series for an odd function consists of sine terms with frequencies:</p>
+                        <p>\[ \omega_n = \frac{n\pi}{L} = \frac{n\pi}{1} = n\pi \quad \text{for } n = 1, 2, 3, \dots \]</p>
+                    
+                        <hr>
+                    
+                        <h4>3. Check for Resonance</h4>
+                        <p>Pure resonance occurs if there exists an integer \( n \) such that the driving frequency matches the natural frequency:</p>
+                        <p>\[ \omega_n = \omega_0 \]</p>
+                        <p>\[ n\pi = 2 \]</p>
+                        <p>Solving for \( n \):</p>
+                        <p>\[ n = \frac{2}{\pi} \approx 0.637 \]</p>
+                        
+                        <p>Since \( \frac{2}{\pi} \) is <strong>not an integer</strong>, there is no term in the Fourier series of \( F(t) \) that matches the natural frequency of the system.</p>
+                    
+                        <p><strong>Conclusion:</strong> Pure resonance <strong>does not occur</strong>.</p>
+                    </div>
+                </div>
+                <div class="example" id="ex-res2">
+                    <h3>Example 1.5: Pure Resonance Check (Comparison)</h3>
+                    Consider a mass-spring system with \(m = 2\) and \(k = 32\). Determine if pure resonance occurs when the system is driven by the following periodic forces (\(T = 2\pi\)):
+                    <ol type="a">
+                        <li>
+                            <strong>Square Wave:</strong> 
+                            \[ F(t) = \begin{cases} 1 & 0 < t < \pi \\ -1 & -\pi < t < 0 \end{cases} \]
+                        </li>
+                        <li>
+                            <strong>Sawtooth Wave:</strong> 
+                            \[ F(t) = t, \quad -\pi < t < \pi \]
+                        </li>
+                    </ol>
+                
+                    <div class="solution">
+                        <h3>1. Calculate Natural Frequency</h3>
+                        <p>For a system with \(m = 2\) and \(k = 32\), the natural frequency is:</p>
+                        <p>\[ \omega_0 = \sqrt{\frac{k}{m}} = \sqrt{\frac{32}{2}} = 4 \]</p>
+                    
+                        <hr>
+                    
+                        <h3>2. Case (a): Square Wave</h3>
+                        <p>The Fourier sine coefficients for the Square Wave on \((0, \pi)\) are:</p>
+                        <p>\[ b_n = \frac{2}{\pi} \int_{0}^{\pi} (1) \sin(nt) \, dt = \frac{2}{n\pi} \left[ 1 - \cos(n\pi) \right] \]</p>
+                        <ul>
+                            <li><strong>If \(n\) is even:</strong> \( \cos(n\pi) = 1 \implies b_n = 0 \).</li>
+                            <li><strong>If \(n\) is odd:</strong> \( \cos(n\pi) = -1 \implies b_n = \frac{4}{n\pi} \).</li>
+                        </ul>
+                        <p>The driving frequencies are \( \omega_n = \{1, 3, 5, \dots\} \). Since \( 4 \) is not in this set, <strong>pure resonance does not occur.</strong></p>
+                    
+                        <hr>
+                    
+                        <h3>3. Case (b): Sawtooth Wave</h3>
+                        <p>The Fourier sine coefficients for \( F(t) = t \) are found via integration by parts:</p>
+                        <p>\[ b_n = \frac{2}{\pi} \int_{0}^{\pi} t \sin(nt) \, dt = \frac{2}{\pi} \left[ \frac{-t\cos(nt)}{n} + \frac{\sin(nt)}{n^2} \right]_{0}^{\pi} = \frac{-2\cos(n\pi)}{n} \]</p>
+                        <ul>
+                            <li>For any integer \( n \), \( b_n = \frac{2}{n}(-1)^{n+1} \).</li>
+                            <li>Specifically, for \( n=4 \), \( b_4 = -\frac{1}{2} \neq 0 \).</li>
+                        </ul>
+                        <p>The driving frequencies are \( \omega_n = \{1, 2, 3, 4, \dots\} \). Since \( \omega_4 = \omega_0 = 4 \), <strong>pure resonance occurs.</strong></p>
+                    
+                        
+                    
+                        <table border="1" style="width:100%; text-align:center; border-collapse: collapse; margin-top: 10px;">
+                            <tr style="background-color: #f2f2f2;">
+                                <th>Waveform</th>
+                                <th>Harmonics (\(n\))</th>
+                                <th>Term \(n=4\) Present?</th>
+                                <th>Resonance?</th>
+                            </tr>
+                            <tr>
+                                <td>Square</td>
+                                <td>Odd only</td>
+                                <td>No (\(b_4 = 0\))</td>
+                                <td>No</td>
+                            </tr>
+                            <tr>
+                                <td>Sawtooth</td>
+                                <td>All Integers</td>
+                                <td>Yes (\(b_4 \neq 0\))</td>
+                                <td><strong>Yes</strong></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+
+
+                
+
+            </section>
+
+            <section id="case2">
+                <h2 class="sub-section-label">2. Case 2: Damped Forced Motion (\(c > 0\))</h2>
+                <div class="theorem">
+                    <p>For \(mx'' + cx' + kx = F(t)\), the response to \(F_0 \sin(\omega t)\) is \(x(t) = C \sin(\omega t - \alpha)\):</p>
+                    \[ C = \frac{F_0}{\sqrt{(k - m\omega^2)^2 + (c\omega)^2}}, \quad \tan \alpha = \frac{c\omega}{k - m\omega^2} \]
+                </div>
+
+                <div class="example" id="ex3">
+                    <h3>Example 2.1: Damped Steady Periodic Solution</h3>
+                    <p><strong>m = 5, c = 0.4, k = 245.</strong> \(F(t)\) is a square wave (amplitude 3).</p>
+                    
+                    <div class="solution" spellcheck="false">
+                        <div style="margin-bottom: 25px;">
+                            <h3>1. Determine Forcing Coefficients \(B_n\)</h3>
+                            <p>The forcing function \(F(t)\) is an odd square wave with amplitude \(A = 3\) and period \(T = 2\pi\) (\(L = \pi\)). The Fourier sine coefficients are derived as follows:</p>
+                            <p>\[ B_n = \frac{2}{\pi} \int_{0}^{\pi} 3 \sin(nt) \, dt = \frac{6}{n\pi} (1 - \cos(n\pi)) \]</p>
+                            <ul>
+                                <li>If \(n\) is even: \( \cos(n\pi) = 1 \implies B_n = \frac{6}{n\pi}(1 - 1) = 0 \)</li>
+                                <li>If \(n\) is odd: \( \cos(n\pi) = -1 \implies B_n = \frac{6}{n\pi}(1 - (-1)) = \frac{12}{n\pi} \)</li>
+                            </ul>
+                            <p>The first four nonzero terms correspond to \(n = 1, 3, 5, 7\).</p>
+                        </div>
+                    
+                        
+                    
+                        <div style="margin-bottom: 25px;">
+                            <h3>2. Physical System Parameters</h3>
+                            <p>Given \(m = 5\), \(c = 0.4\), and \(k = 245\). The steady-state amplitude \(C_n\) and phase \(\alpha_n\) for each harmonic are:</p>
+                            <p>\[ C_n = \frac{B_n}{\sqrt{(245 - 5n^2)^2 + (0.4n)^2}}, \quad \alpha_n = \operatorname{atan2}(0.4n, 245 - 5n^2) \]</p>
+                        </div>
+                    
+                        <div style="margin-bottom: 25px;">
+                            <h3>3. Numerical Results</h3>
+                            <table border="1" style="width:100%; text-align:center; border-collapse: collapse;">
+                                <tr style="background-color: #f2f2f2;">
+                                    <th style="padding: 8px;">\(n\)</th>
+                                    <th style="padding: 8px;">Forcing (\(B_n\))</th>
+                                    <th style="padding: 8px;">Amplitude (\(C_n\))</th>
+                                    <th style="padding: 8px;">Phase (\(\alpha_n\))</th>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 8px;">1</td>
+                                    <td>3.8197</td>
+                                    <td><strong>0.0159</strong></td>
+                                    <td>0.0017 rad</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 8px;">3</td>
+                                    <td>1.2732</td>
+                                    <td><strong>0.0064</strong></td>
+                                    <td>0.0060 rad</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 8px;">5</td>
+                                    <td>0.7639</td>
+                                    <td><strong>0.0064</strong></td>
+                                    <td>0.0167 rad</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 8px;">7</td>
+                                    <td>0.5457</td>
+                                    <td><strong>0.1949</strong></td>
+                                    <td>1.5708 (\(\pi/2\))</td>
+                                </tr>
+                            </table>
+                            <p style="margin-top: 15px;"><strong>Observation:</strong> The term \(n=7\) dominates the motion because the driving frequency matches the natural frequency \(\omega_0 = \sqrt{245/5} = 7\) (even though its input force coefficient \(B_7\) is smaller than \(B_1\)), leading to <strong>practical-resonance</strong>.</p>
+                        </div>
+                    
+                        
+                    
+                        <div style="margin-top: 25px;">
+                            <h3>4. Final Series Expansion</h3>
+                            <p>The first four nonzero terms of the steady periodic solution are:</p>
+                            
+                            <div style="overflow-x: auto; white-space: nowrap; padding: 10px 0;">
+                                \[ x_{sp}(t) \approx 0.0159 \sin(t - 0.002) + 0.0064 \sin(3t - 0.006) + 0.0064 \sin(5t - 0.017) + 0.1949 \sin(7t - 1.571) \]
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        
+    </div>
+
+    <footer class="footer-signature">
+        <p>© 2026 Hanh Vo • Department of Mathematics • Purdue University</p>
+    </footer>
+</body>
+</html>

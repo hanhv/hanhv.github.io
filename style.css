@@ -1,0 +1,252 @@
+/* 1. FONTS & GLOBAL VARIABLES */
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital@1&family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --text-main: #1a1a1a;
+    --text-muted: #666666;
+    --purdue-gold: #CEB888;
+    --border-light: #f0f0f0;
+    --bg-white: #ffffff;
+}
+
+/* 2. RESET & BASE STYLES */
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+
+/* Updated to ensure footer stays at bottom */
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    color: var(--text-main);
+    line-height: 1.6;
+    background-color: var(--bg-white);
+    -webkit-font-smoothing: antialiased;
+    
+    /* Flexbox stack to push footer down */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* 3. LAYOUT CONTAINERS */
+.container {
+    width: 100%; /* Prevents collapse */
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 60px 40px;
+    flex: 1; /* This pushes the footer to the bottom */
+}
+
+/* 4. NAVIGATION */
+.top-nav {
+    border-bottom: 1px solid var(--border-light);
+    padding: 24px 0;
+    position: sticky;
+    top: 0;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(5px);
+    z-index: 100;
+}
+
+.nav-container {
+    max-width: 850px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+}
+
+.nav-logo {
+    font-weight: 700;
+    text-decoration: none;
+    color: #000;
+    font-size: 1.3rem;
+    letter-spacing: -0.5px;
+    transition: 0.2s ease;
+}
+
+.nav-logo:hover {
+    color: var(--purdue-gold);
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-muted);
+    margin-left: 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: 0.2s ease;
+}
+
+.nav-links a.active {
+    color: #000;
+    border-bottom: 2px solid var(--purdue-gold);
+    padding-bottom: 4px;
+}
+
+.nav-links a:hover {
+    color: var(--purdue-gold);
+}
+
+/* 5. HEADERS & TITLES */
+header { margin-bottom: 40px; }
+
+h1 { 
+    font-size: 3rem; 
+    font-weight: 800; 
+    letter-spacing: -1.5px; 
+    margin-bottom: 8px; 
+    line-height: 1.1; 
+}
+
+.section-title {
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    border-bottom: 2px solid var(--purdue-gold);
+    display: inline-block;
+    padding-bottom: 3px;
+    margin-bottom: 10px;
+    margin-top: 45px;
+    color: #000;
+}
+
+/* 6. LECTURE NOTES: CHAPTER TITLES */
+.sub-section-label {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-family: 'Libre Baskerville', serif;
+    font-style: italic; 
+    font-size: 1rem;
+    color: #010f1d;
+    font-weight: 500;
+    text-transform: none;
+    letter-spacing: 0;
+}
+
+/* 7. LIST & TABLE STYLES */
+.section-list { list-style: none; }
+
+.section-item {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.section-item:last-child { border-bottom: none; }
+
+.section-link {
+    font-weight: 500;
+    text-decoration: none;
+    color: #000;
+    font-size: 1.05rem;
+    transition: color 0.2s;
+}
+
+.section-link:hover { color: var(--purdue-gold); }
+
+.item-desc {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-top: 2px;
+}
+
+.table-wrap {
+    margin-top: 25px;
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    overflow-x: auto;
+    max-height: 500px; 
+    overflow-y: auto; 
+}
+
+table.data-table th {
+    position: sticky;
+    top: 0;
+    background: var(--bg-white);
+    z-index: 10;
+}
+
+/* 8. TALKS & SEMINARS */
+.talks-list p {
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--text-main);
+}
+
+/* 9. FOOTER (Updated for Sticky Bottom) */
+.footer-signature {
+    width: 100%;
+    flex-shrink: 0; /* Prevents footer from squishing */
+    padding: 30px 0;
+    border-top: 1px solid var(--border-light);
+}
+
+.footer-signature p {
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 0 30px;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+}
+
+/* 10. MOBILE RESPONSIVENESS */
+@media (max-width: 600px) {
+    h1 { font-size: 2.2rem; }
+    
+    /* Change the first 0 to 40px to give space at top and bottom */
+    .container { 
+        padding: 40px 20px; 
+    }
+    
+    /* Keep nav-container tighter if you prefer */
+    .nav-container { 
+        padding: 0 20px; 
+    }
+
+    .footer-signature p { padding: 0 20px; }
+    .nav-links { display: flex; gap: 10px; }
+    .nav-links a { margin-left: 0; font-size: 0.8rem; }
+}
+
+/* 11. PROFILE LAYOUT */
+.profile-flex {
+    display: flex;
+    gap: 50px;           
+    align-items: flex-start;
+    margin-top: 40px;
+}
+
+.profile-text {
+    flex: 2;
+}
+
+.profile-text .section-title {
+    margin-top: 0 !important; 
+}
+
+.profile-image-container {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end; 
+    padding-top: 5px; 
+}
+
+.profile-photo {
+    width: 100%;
+    max-width: 260px;
+    height: auto;
+    border-radius: 12px;
+    border: 3px solid var(--purdue-gold);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
