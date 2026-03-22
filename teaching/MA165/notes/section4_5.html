@@ -10,6 +10,13 @@
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .sign-table { width: 100%; border-collapse: collapse; margin: 20px 0; text-align: center; background: #fff; }
+        .sign-table th, .sign-table td { border: 1px solid #dfe3e8; padding: 10px; }
+        .sign-table th { background-color: #f8f9fa; color: #333; }
+        .table-wrapper { overflow-x: auto; margin-bottom: 25px; border-radius: 4px; border: 1px solid #eee; }
+        .math-scroll { overflow-x: auto; white-space: nowrap; padding: 10px 0; margin: 10px 0; }
+    </style>
 </head>
 <body>
 
@@ -36,43 +43,192 @@
 
         <main id="main-content">
             <section class="goal" aria-label="Learning Goals">
-                <p><strong>Goal:</strong> Solve classic optimization problems, including the <strong>Farmer-Enclosing-Pen</strong>, <strong>Cylinder/Box</strong>, and <strong>Crossing-River</strong> problems, by maximizing or minimizing functions under given restrictions.</p>
+                <p><strong>Goal:</strong> Solve classic optimization problems, including the <strong>Farmer-Enclosing-Pen</strong>, <strong>Cylinder/Box</strong>, and <strong>Inscribed Figures</strong>, by maximizing or minimizing functions under given restrictions.</p>
+            </section>
+
+            <section class="guidelines-box" style="background-color: #fdfdfd; border: 1px solid #c8ced3; padding: 25px; border-radius: 8px; margin: 20px 0;">
+                <h2 style="margin-top: 0; color: #2c3e50; border-bottom: 1px solid #eee; padding-bottom: 10px;">Guidelines for Optimization Problems</h2>
+                
+                <ol style="line-height: 1.6; margin-top: 20px;">
+                    <li><strong>Read and Organize:</strong> Read carefully, identify variables, and organize info with a <strong>picture</strong>.</li>
+                    <li><strong>Objective Function:</strong> Identify the function to be optimized. Write it in terms of the variables.</li>
+                    <li><strong>Constraints:</strong> Identify restrictions and write them as equations.</li>
+                    <li><strong>Eliminate Variables:</strong> Use constraints to write the objective in terms of <strong>one</strong> variable.</li>
+                    <li><strong>Interval of Interest:</strong> Find the physical domain (e.g., lengths must be positive).</li>
+                    <li><strong>Verify:</strong> Use methods of calculus to find the absolute maximum or minimum value of the objective function on the interval of interest. If necessary, check the endpoints.</li>
+                </ol>
             </section>
 
             <nav class="toc-container" aria-label="Table of Contents">
                 <h2>Contents</h2>
                 <ul>
-                    <li>
-                        <a href="#section1">1. The Farmer-Enclosing-Pen Problem</a>
-                        <ul>
-                            <li><a href="#ex1-1">Example 1.1: Maximum Area with Divider</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#section2">2. Geometric Figures under Restrictions</a></li>
+                    <li><a href="#ex11.1">Example 11.1: The Divided Pen</a></li>
+                    <li><a href="#ex11.2">Example 11.2: Pens Against Barn</a></li>
+                    <li><a href="#ex11.3">Example 11.3: Open-Top Box</a></li>
+                    <li><a href="#ex11.4">Example 11.4: Cylindrical Barrel</a></li>
+                    <li><a href="#ex11.5">Example 11.5: Inscribed Triangle</a></li>
                 </ul>
             </nav>
 
             <hr style="margin: 40px 0; border: 0; border-top: 1px solid var(--border-light);">
 
-            <section id="section1">
-                <h2 class="sub-section-label">1. The Farmer-Enclosing-Pen Problem</h2>
-                <div class="example" id="ex1-1">
-                    <h3>Example 1.1: Maximum Area with Divider</h3>
-                    <p>A farmer has 400 feet of fencing to build a rectangular pen. The pen needs to be in the shape of a rectangle with a straight divider in the middle that separates the pen into two congruent rectangles. What is the maximum possible area inside the pen?</p>
+            
+            <section id="ex11.1" class="example">
+                <h3>Example Problem 11.1: The Divided Pen</h3>
+                <p>A farmer has 400 feet of fencing to build a rectangular pen. The pen needs to be in the shape of a rectangle with a straight vertical divider in the middle that separates the pen into two congruent rectangles. What is the maximum possible area inside the pen?</p>
+                
+                <div class="image-wrapper" style="overflow-x: auto; padding: 10px 0;">
+                    <img src="pictures/PicturesExam3/pen_diagram.png" alt="A large rectangle with a vertical divider. Horizontal side is x, vertical sides and divider are y." style="max-width: 300px; height: auto; display: block; margin: 0 auto; width: 400px;">
+                </div>
+            
+                <div class="solution">
+                    <p><strong>Solution:</strong> Let \(y\) be the length of the vertical divider (and the two vertical ends) and \(x\) be the total horizontal length.</p>
                     
-                    <div class="solution">
-                        <p><strong>Solution:</strong></p>
-                         
+                    <div class="math-scroll">
+                        Constraint: \(2x + 3y = 400 \implies y = \frac{400 - 2x}{3} = \frac{400}{3} - \frac{2}{3}x\)
+                    </div>
+            
+                    <p><strong>Interval:</strong> Since \(x > 0\) and \(y > 0\), we have \(\frac{400}{3} - \frac{2}{3}x > 0 \implies x < 200\). Interval: \((0, 200)\).</p>
+                    
+                    <div class="math-scroll">
+                        <strong>Objective:</strong> \(A(x) = x\left(\frac{400}{3} - \frac{2}{3}x\right) = \frac{400}{3}x - \frac{2}{3}x^2\)
+                    </div>
+            
+                    <div class="math-scroll">
+                        \[ A'(x) = \frac{400}{3} - \frac{4}{3}x = 0 \implies x = 100 \]
+                    </div>
+                    
+                    <div class="table-wrapper">
+                        <table class="sign-table">
+                            <tr>
+                                <th>Interval</th>
+                                <th>\((0, 100)\)</th>
+                                <th>\(x = 100\)</th>
+                                <th>\((100, 200)\)</th>
+                            </tr>
+                            <tr>
+                                <td>\(A'(x)\)</td>
+                                <td>\(+\)</td>
+                                <td>\(0\)</td>
+                                <td>\(-\)</td>
+                            </tr>
+                            <tr>
+                                <td>\(A(x)\)</td>
+                                <td>Increasing \(\nearrow\)</td>
+                                <td>Absolute Max</td>
+                                <td>Decreasing \(\searrow\)</td>
+                            </tr>
+                        </table>
+                    </div>
+            
+                    <div class="math-scroll">
+                        Maximum Area: \(A = (100)\left(\frac{400}{3} - \frac{2}{3}\cdot 100\right) = (100)\left(\frac{200}{3}\right) = \frac{20000}{3} \text{ ft}^2\).
                     </div>
                 </div>
             </section>
 
-            <section id="section2">
-                <h2 class="sub-section-label">2. Geometric Figures under Restrictions</h2> 
-            </section>
-        </main>
+            <section id="ex11.2" class="example">
+                <h3>Example Problem 11.2: Pens Against Barn</h3>
+                <p>A farmer plans to make four identical and adjacent rectangular pens against a barn. Each with an area of \(100\text{ m}^2\), what are the dimensions of each pen that minimize the amount of fence that must be used?</p>
+                <div class="solution">
+                    <p><strong>Solution:</strong> Fencing 5 segments of length \(x\) and 4 segments of length \(y\).</p>
+                    <div class="math-scroll">
+                        Constraint: \(xy = 100 \implies y = \frac{100}{x}\)
+                    </div>
+                    <p><strong>Interval:</strong> \(x \in (0, \infty)\)</p>
+                    <div class="math-scroll">
+                        <strong>Objective:</strong> \(L(x) = 5x + 4\left(\frac{100}{x}\right) = 5x + \frac{400}{x}\)
+                    </div>
+                    <div class="math-scroll">\[ L'(x) = 5 - \frac{400}{x^2} = 0 \implies x^2 = 80 \implies x = 4\sqrt{5} \]</div>
 
-        
+                    <div class="table-wrapper">
+                        <table class="sign-table">
+                            <tr><th>Interval</th><th>\((0, 4\sqrt{5})\)</th><th>\(x = 4\sqrt{5}\)</th><th>\((4\sqrt{5}, \infty)\)</th></tr>
+                            <tr><td>\(L'(x)\)</td><td>\(-\)</td><td>\(0\)</td><td>\(+\)</td></tr>
+                            <tr><td>\(L(x)\)</td><td>Decreasing \(\searrow\)</td><td>Absolute Min</td><td>Increasing \(\nearrow\)</td></tr>
+                        </table>
+                    </div>
+                    <div class="math-scroll">
+                        Dimensions: \(x = 4\sqrt{5} \text{ m}\) and \(y = \frac{100}{4\sqrt{5}} = 5\sqrt{5} \text{ m}\).
+                    </div>
+                </div>
+            </section>
+
+            <section id="ex11.3" class="example">
+                <h3>Example Problem 11.3: Open-Top Box</h3>
+                <p>A rectangular box has width twice the length (no top). If surface area is \(400\text{ cm}^2\), find the height of the box with the largest volume.</p>
+                <div class="solution">
+                    <p><strong>Solution:</strong> Let length = \(l\), width = \(2l\), and height = \(h\).</p>
+                    <div class="math-scroll">
+                        Constraint: \(2l^2 + 6lh = 400 \implies h = \frac{400-2l^2}{6l}\)
+                    </div>
+                    <p><strong>Interval:</strong> \(l \in \left(0, \sqrt{200}\right)\).</p>
+                    <div class="math-scroll">
+                        <strong>Objective:</strong> \(V(l) = 2l^2\left(\frac{400-2l^2}{6l}\right) = \frac{400l - 2l^3}{3}\)
+                    </div>
+                    <div class="math-scroll">\[ V'(l) = \frac{400 - 6l^2}{3} = 0 \implies l^2 = \frac{200}{3} \implies l = \frac{10\sqrt{6}}{3} \]</div>
+                    <div class="table-wrapper">
+                        <table class="sign-table">
+                            <tr><th>Interval</th><th>\(\left(0, \frac{10\sqrt{6}}{3}\right)\)</th><th>\(l = \frac{10\sqrt{6}}{3}\)</th><th>\(\left(\frac{10\sqrt{6}}{3}, \sqrt{200}\right)\)</th></tr>
+                            <tr><td>\(V'(l)\)</td><td>\(+\)</td><td>\(0\)</td><td>\(-\)</td></tr>
+                            <tr><td>\(V(l)\)</td><td>Increasing \(\nearrow\)</td><td>Absolute Max</td><td>Decreasing \(\searrow\)</td></tr>
+                        </table>
+                    </div>
+                    <div class="math-scroll">
+                        Resulting Height: \(h = \frac{10\sqrt{6}}{9} \text{ cm}\).
+                    </div>
+                </div>
+            </section>
+
+            <section id="ex11.4" class="example">
+                <h3>Example Problem 11.4: Cylindrical Barrel</h3>
+                <p>A cylindrical barrel is to be made that has a volume of \(6\pi\text{ ft}^3\). The material for the top and bottom cost 4 dollars/ft\(^2\) and the material for the side costs 6 dollars/ft\(^2\). Find the radius of the barrel that will minimize the cost of production.</p>
+                <div class="solution">
+                    <div class="math-scroll">
+                        Constraint: \(\pi r^2 h = 6\pi \implies h = \frac{6}{r^2}\)
+                    </div>
+                    <p><strong>Interval:</strong> \(r \in (0, \infty)\)</p>
+                    <div class="math-scroll">
+                        <strong>Objective:</strong> \(C(r) = 8\pi r^2 + \frac{72\pi}{r}\)
+                    </div>
+                    <div class="math-scroll">\[ C'(r) = 16\pi r - \frac{72\pi}{r^2} = 0 \implies r = \sqrt[3]{\frac{9}{2}} \]</div>
+                    <div class="table-wrapper">
+                        <table class="sign-table">
+                            <tr><th>Interval</th><th>\(\left(0, \sqrt[3]{\frac{9}{2}}\right)\)</th><th>\(r = \sqrt[3]{\frac{9}{2}}\)</th><th>\(\left(\sqrt[3]{\frac{9}{2}}, \infty\right)\)</th></tr>
+                            <tr><td>\(C'(r)\)</td><td>\(-\)</td><td>\(0\)</td><td>\(+\)</td></tr>
+                            <tr><td>\(C(r)\)</td><td>Decreasing \(\searrow\)</td><td>Absolute Min</td><td>Increasing \(\nearrow\)</td></tr>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <section id="ex11.5" class="example">
+                <h3>Example Problem 11.5: Inscribed Triangle</h3>
+                <p>What is the largest area of an isosceles triangle inscribed in a circle of radius 1?</p>
+                <div class="solution">
+                    <p><strong>Variables:</strong> \(x\) = distance center to base, \(y\) = half-base. <strong>Interval:</strong> \(x \in (-1, 1)\).</p>
+                    <div class="math-scroll">
+                        Height: \(h = 1 + x\). Constraint: \(x^2 + y^2 = 1 \implies y = \sqrt{1-x^2}\).
+                    </div>
+                    <div class="math-scroll">
+                        <strong>Objective:</strong> \(A(x) = (1+x)\sqrt{1-x^2}\)
+                    </div>
+                    <div class="math-scroll">\[ A'(x) = \frac{1-x-2x^2}{\sqrt{1-x^2}} = 0 \implies x = \frac{1}{2} \]</div>
+                    <div class="table-wrapper">
+                        <table class="sign-table">
+                            <tr><th>Interval</th><th>\((-1, 1/2)\)</th><th>\(x = 1/2\)</th><th>\((1/2, 1)\)</th></tr>
+                            <tr><td>\(A'(x)\)</td><td>\(+\)</td><td>\(0\)</td><td>\(-\)</td></tr>
+                            <tr><td>\(A(x)\)</td><td>Increasing \(\nearrow\)</td><td>Absolute Max</td><td>Decreasing \(\searrow\)</td></tr>
+                        </table>
+                    </div>
+                    <div class="math-scroll">
+                        Max Area: \(A = \frac{3\sqrt{3}}{4}\).
+                    </div>
+                </div>
+            </section>
+
+            
+        </main>
     </div>
 
     <footer class="footer-signature">

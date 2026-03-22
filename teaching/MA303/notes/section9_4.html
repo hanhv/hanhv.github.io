@@ -79,31 +79,40 @@
                 <div class="example" id="ex1">
                     <h3>Example 1.1: Steady Periodic Solution (Square Wave)</h3>
                     <p>Find \(x_{sp}(t)\) for \(x'' + 5x = F(t)\) where \(F(t)\) is a \(2\pi\)-periodic square wave:
-                    \[ F(t) = \begin{cases} 3 & 0 < t < \pi \\ -3 & \pi < t < 2\pi \end{cases} \]</p>
+                    <div style="overflow-x: auto; white-space: nowrap; padding: 10px 0;">
+                        <div style="overflow-x: auto; white-space: nowrap; padding: 10px 0;">
+                        \[ F(t) = \begin{cases} 3 & 0 < t < \pi \\ -3 & \pi < t < 2\pi \end{cases}  \] </div></p>
                     
                     <div class="solution">
                         <h4>1. Derive Fourier Coefficients (\(b_n\))</h4>
                         <p>Since \(F(t)\) is an odd function with period \(T=2\pi\), its Fourier series contains only sine terms. The coefficients are:</p>
-                        \[ b_n = \frac{2}{\pi} \int_{0}^{\pi} 3 \sin(nt) \, dt = \frac{6}{n\pi} [-\cos(nt)]_0^\pi = \frac{6}{n\pi} (1 - (-1)^n) \]
+                        <div style="overflow-x: auto; white-space: nowrap; padding: 10px 0;">
+                        \[ b_n = \frac{2}{\pi} \int_{0}^{\pi} 3 \sin(nt) \, dt = \frac{6}{n\pi} [-\cos(nt)]_0^\pi = \frac{6}{n\pi} (1 - (-1)^n)  \] </div>
                         <p>This evaluates to \(b_n = \frac{12}{n\pi}\) for \(n\) odd, and \(b_n = 0\) for \(n\) even.</p>
                 
                         <h4>2. Compute Derivatives and Substitute</h4>
                         <p>Assume a steady periodic solution of the form \(x_{sp}(t) = \sum_{n=1}^{\infty} c_n \sin(nt)\). To substitute this into the differential equation, we first find the second derivative term-by-term:</p>
-                        \[ x_{sp}'(t) = \sum_{n=1}^{\infty} n c_n \cos(nt) \implies x_{sp}''(t) = \sum_{n=1}^{\infty} -n^2 c_n \sin(nt) \]
+                        <div style="overflow-x: auto; white-space: nowrap; padding: 10px 0;">
+                        \[ x_{sp}'(t) = \sum_{n=1}^{\infty} n c_n \cos(nt) \implies x_{sp}''(t) = \sum_{n=1}^{\infty} -n^2 c_n \sin(nt)  \] </div>
                         <p>Now, substitute \(x_{sp}''(t)\) and \(x_{sp}(t)\) into the ODE \(x'' + 5x = F(t)\):</p>
-                        \[ \left( \sum_{n=1}^{\infty} -n^2 c_n \sin(nt) \right) + 5 \left( \sum_{n=1}^{\infty} c_n \sin(nt) \right) = \sum_{n=1}^{\infty} b_n \sin(nt) \]
+                        <div style="overflow-x: auto; white-space: nowrap; padding: 10px 0;">
+                        \[ \left( \sum_{n=1}^{\infty} -n^2 c_n \sin(nt) \right) + 5 \left( \sum_{n=1}^{\infty} c_n \sin(nt) \right) = \sum_{n=1}^{\infty} b_n \sin(nt)  \] </div>
                         <p>Factor out the \(\sin(nt)\) terms on the left-hand side to group the coefficients:</p>
-                        \[ \sum_{n=1}^{\infty} (5 - n^2) c_n \sin(nt) = \sum_{n=1}^{\infty} b_n \sin(nt) \]
+                        <div style="overflow-x: auto; white-space: nowrap; padding: 10px 0;">
+                        \[ \sum_{n=1}^{\infty} (5 - n^2) c_n \sin(nt) = \sum_{n=1}^{\infty} b_n \sin(nt)  \] </div>
                 
                         <h4>3. Equate Coefficients and Check for Resonance</h4>
                         <p>By equating the coefficients of \(\sin(nt)\) for each \(n\), we obtain the algebraic equation:</p>
-                        \[ (5 - n^2) c_n = b_n \]
+                        <div style="overflow-x: auto; white-space: nowrap; padding: 10px 0;">
+                        \[ (5 - n^2) c_n = b_n  \] </div>
                         <p>Since \(n\) is always an integer (\(n = 1, 2, 3, \dots\)), it follows that \(n^2 \neq 5\) for any \(n\). Therefore, for all \(n\) we can solve for \(c_n\):</p>
-                        \[ c_n = \frac{b_n}{5 - n^2} \]
+                        <div style="overflow-x: auto; white-space: nowrap; padding: 10px 0;">
+                        \[ c_n = \frac{b_n}{5 - n^2}  \] </div>
                 
                         <h4>4. Final Series Solution</h4> 
                         <p>Substituting \(b_n = \frac{12}{n\pi}\) for odd values of \(n\):</p>
-                        \[ x_{sp}(t) = \sum_{n=1, 3, 5...}^{\infty} \frac{12}{n\pi(5 - n^2)} \sin(nt) \]
+                        <div style="overflow-x: auto; white-space: nowrap; padding: 10px 0;">
+                        \[ x_{sp}(t) = \sum_{n=1, 3, 5...}^{\infty} \frac{12}{n\pi(5 - n^2)} \sin(nt)  \] </div>
                     </div>
                 </div>
 
@@ -115,26 +124,34 @@
                     <div class="solution">
                         <h4>1. Derive Fourier Coefficients (\(b_n\))</h4>
                         <p>Since \(F(t)\) is an odd function with period \(T=2\pi\), its Fourier series consists only of sine terms. We calculate the coefficients \(b_n\) using integration by parts:</p>
-                        \[ b_n = \frac{2}{\pi} \int_{0}^{\pi} 9t \sin(nt) \, dt = \frac{18}{\pi} \left[ \frac{-t \cos(nt)}{n} + \frac{\sin(nt)}{n^2} \right]_0^\pi \]
-                        \[ b_n = \frac{18}{\pi} \left( \frac{-\pi \cos(n\pi)}{n} + 0 \right) = \frac{-18 (-1)^n}{n} = \frac{18(-1)^{n+1}}{n} \]
+                        <div style="overflow-x: auto; white-space: nowrap; padding: 10px 0;">
+                        \[ b_n = \frac{2}{\pi} \int_{0}^{\pi} 9t \sin(nt) \, dt = \frac{18}{\pi} \left[ \frac{-t \cos(nt)}{n} + \frac{\sin(nt)}{n^2} \right]_0^\pi  \] </div>
+                        <div style="overflow-x: auto; white-space: nowrap; padding: 10px 0;">
+                        \[ b_n = \frac{18}{\pi} \left( \frac{-\pi \cos(n\pi)}{n} + 0 \right) = \frac{-18 (-1)^n}{n} = \frac{18(-1)^{n+1}}{n}  \] </div>
                 
                         <h4>2. Compute Derivatives and Substitute</h4>
                         <p>Assume a steady periodic solution of the form \(x_{sp}(t) = \sum_{n=1}^{\infty} c_n \sin(nt)\). To substitute this into the differential equation \(x'' + 3x = F(t)\), we find the second derivative:</p>
-                        \[ x_{sp}'(t) = \sum_{n=1}^{\infty} n c_n \cos(nt) \implies x_{sp}''(t) = \sum_{n=1}^{\infty} -n^2 c_n \sin(nt) \]
+                        <div style="overflow-x: auto; white-space: nowrap; padding: 10px 0;">
+                        \[ x_{sp}'(t) = \sum_{n=1}^{\infty} n c_n \cos(nt) \implies x_{sp}''(t) = \sum_{n=1}^{\infty} -n^2 c_n \sin(nt)  \] </div>
                         <p>Substituting both into the left-hand side of the ODE:</p>
-                        \[ \left( \sum_{n=1}^{\infty} -n^2 c_n \sin(nt) \right) + 3 \left( \sum_{n=1}^{\infty} c_n \sin(nt) \right) = \sum_{n=1}^{\infty} b_n \sin(nt) \]
+                        <div style="overflow-x: auto; white-space: nowrap; padding: 10px 0;">
+                        \[ \left( \sum_{n=1}^{\infty} -n^2 c_n \sin(nt) \right) + 3 \left( \sum_{n=1}^{\infty} c_n \sin(nt) \right) = \sum_{n=1}^{\infty} b_n \sin(nt)  \] </div>
                         <p>Factoring the sine terms to group the coefficients:</p>
-                        \[ \sum_{n=1}^{\infty} (3 - n^2) c_n \sin(nt) = \sum_{n=1}^{\infty} b_n \sin(nt) \]
+                        <div style="overflow-x: auto; white-space: nowrap; padding: 10px 0;">
+                        \[ \sum_{n=1}^{\infty} (3 - n^2) c_n \sin(nt) = \sum_{n=1}^{\infty} b_n \sin(nt)  \] </div>
                 
                         <h4>3. Equate Coefficients</h4>
                         <p>By comparing the coefficients of \(\sin(nt)\) on both sides for each integer \(n\), we get:</p>
-                        \[ (3 - n^2) c_n = b_n \]
+                        <div style="overflow-x: auto; white-space: nowrap; padding: 10px 0;">
+                        \[ (3 - n^2) c_n = b_n  \] </div>
                         <p>Since \(n\) is an integer (\(n = 1, 2, 3, \dots\)), \(n^2\) will never equal \(3\). Because \(3 - n^2 \neq 0\), we can safely solve for \(c_n\):</p>
-                        \[ c_n = \frac{b_n}{3 - n^2} = \frac{18(-1)^{n+1}}{n(3 - n^2)} \]
+                        <div style="overflow-x: auto; white-space: nowrap; padding: 10px 0;">
+                        \[ c_n = \frac{b_n}{3 - n^2} = \frac{18(-1)^{n+1}}{n(3 - n^2)}  \] </div>
                 
                         <h4>4. Final Series Solution</h4>
                         <p>Substituting the expression for \(c_n\) back into the assumed form of \(x_{sp}(t)\):</p>
-                        \[ x_{sp}(t) = \sum_{n=1}^{\infty} \frac{18(-1)^{n+1}}{n(3 - n^2)} \sin(nt) \]
+                        <div style="overflow-x: auto; white-space: nowrap; padding: 10px 0;">
+                        \[ x_{sp}(t) = \sum_{n=1}^{\infty} \frac{18(-1)^{n+1}}{n(3 - n^2)} \sin(nt)  \] </div>
                     </div>
                 </div>
 
@@ -151,22 +168,27 @@
                         <p>To determine if pure resonance occurs, we compare the <strong>natural frequency</strong> of the system to the <strong>driving frequencies</strong> found in the Fourier series of the forcing function \( F(t) \).</p>
                     
                         <h4>1. Find the Natural Frequency \(\omega_0\)</h4>
-                        <p>\[ \omega_0 = \sqrt{\frac{k}{m}} = \sqrt{\frac{36}{9}} = 2 \]</p>
+                        <p><div style="overflow-x: auto; white-space: nowrap; padding: 10px 0;">
+                        \[ \omega_0 = \sqrt{\frac{k}{m}} = \sqrt{\frac{36}{9}} = 2  \] </div></p>
                     
                         <hr>
                     
                         <h4>2. Find the Driving Frequencies \(\omega_n\)</h4>
                         <p>The forcing function \( F(t) \) is an odd function with period \( 2L = 2 \), which means \( L = 1 \). The Fourier series for an odd function consists of sine terms with frequencies:</p>
-                        <p>\[ \omega_n = \frac{n\pi}{L} = \frac{n\pi}{1} = n\pi \quad \text{for } n = 1, 2, 3, \dots \]</p>
+                        <p><div style="overflow-x: auto; white-space: nowrap; padding: 10px 0;">
+                        \[ \omega_n = \frac{n\pi}{L} = \frac{n\pi}{1} = n\pi \quad \text{for } n = 1, 2, 3, \dots  \] </div></p>
                     
                         <hr>
                     
                         <h4>3. Check for Resonance</h4>
                         <p>Pure resonance occurs if there exists an integer \( n \) such that the driving frequency matches the natural frequency:</p>
-                        <p>\[ \omega_n = \omega_0 \]</p>
-                        <p>\[ n\pi = 2 \]</p>
+                        <p><div style="overflow-x: auto; white-space: nowrap; padding: 10px 0;">
+                        \[ \omega_n = \omega_0  \] </div></p>
+                        <p><div style="overflow-x: auto; white-space: nowrap; padding: 10px 0;">
+                        \[ n\pi = 2  \] </div></p>
                         <p>Solving for \( n \):</p>
-                        <p>\[ n = \frac{2}{\pi} \approx 0.637 \]</p>
+                        <p><div style="overflow-x: auto; white-space: nowrap; padding: 10px 0;">
+                        \[ n = \frac{2}{\pi} \approx 0.637  \] </div></p>
                         
                         <p>Since \( \frac{2}{\pi} \) is <strong>not an integer</strong>, there is no term in the Fourier series of \( F(t) \) that matches the natural frequency of the system.</p>
                     
@@ -179,27 +201,41 @@
                     <ol type="a">
                         <li>
                             <strong>Square Wave:</strong> 
-                            \[ F(t) = \begin{cases} 1 & 0 < t < \pi \\ -1 & -\pi < t < 0 \end{cases} \]
+                            <div style="overflow-x: auto; white-space: nowrap; padding: 10px 0;">
+                        \[ F(t) = \begin{cases} 1 & 0 < t < \pi \\ -1 & -\pi < t < 0 \end{cases}  \] </div>
                         </li>
                         <li>
                             <strong>Sawtooth Wave:</strong> 
-                            \[ F(t) = t, \quad -\pi < t < \pi \]
+                            <div style="overflow-x: auto; white-space: nowrap; padding: 10px 0;">
+                        \[ F(t) = t, \quad -\pi < t < \pi  \] </div>
                         </li>
                     </ol>
                 
                     <div class="solution">
                         <h3>1. Calculate Natural Frequency</h3>
                         <p>For a system with \(m = 2\) and \(k = 32\), the natural frequency is:</p>
-                        <p>\[ \omega_0 = \sqrt{\frac{k}{m}} = \sqrt{\frac{32}{2}} = 4 \]</p>
+                        <p><div style="overflow-x: auto; white-space: nowrap; padding: 10px 0;">
+                        \[ \omega_0 = \sqrt{\frac{k}{m}} = \sqrt{\frac{32}{2}} = 4  \] </div></p>
                     
                         <hr>
                     
                         <h3>2. Case (a): Square Wave</h3>
                         <p>The Fourier sine coefficients for the Square Wave on \((0, \pi)\) are:</p>
-                        <p>\[ b_n = \frac{2}{\pi} \int_{0}^{\pi} (1) \sin(nt) \, dt = \frac{2}{n\pi} \left[ 1 - \cos(n\pi) \right] \]</p>
+                        <p><div style="overflow-x: auto; white-space: nowrap; padding: 10px 0;">
+                        \[ b_n = \frac{2}{\pi} \int_{0}^{\pi} (1) \sin(nt) \, dt = \frac{2}{n\pi} \left[ 1 - \cos(n\pi) \right]  \] </div></p>
                         <ul>
-                            <li><strong>If \(n\) is even:</strong> \( \cos(n\pi) = 1 \implies b_n = 0 \).</li>
-                            <li><strong>If \(n\) is odd:</strong> \( \cos(n\pi) = -1 \implies b_n = \frac{4}{n\pi} \).</li>
+                            <li>
+                                <strong>If \(n\) is even:</strong>
+                                <div style="overflow-x: auto; overflow-y: hidden; margin: 5px 0;">
+                                    \( \cos(n\pi) = 1 \implies b_n = 0 \)
+                                </div>
+                            </li>
+                            <li>
+                                <strong>If \(n\) is odd:</strong>
+                                <div style="overflow-x: auto; overflow-y: hidden; margin: 5px 0;">
+                                    \( \cos(n\pi) = -1 \implies b_n = \frac{4}{n\pi} \)
+                                </div>
+                            </li>
                         </ul>
                         <p>The driving frequencies are \( \omega_n = \{1, 3, 5, \dots\} \). Since \( 4 \) is not in this set, <strong>pure resonance does not occur.</strong></p>
                     
@@ -207,7 +243,8 @@
                     
                         <h3>3. Case (b): Sawtooth Wave</h3>
                         <p>The Fourier sine coefficients for \( F(t) = t \) are found via integration by parts:</p>
-                        <p>\[ b_n = \frac{2}{\pi} \int_{0}^{\pi} t \sin(nt) \, dt = \frac{2}{\pi} \left[ \frac{-t\cos(nt)}{n} + \frac{\sin(nt)}{n^2} \right]_{0}^{\pi} = \frac{-2\cos(n\pi)}{n} \]</p>
+                        <p><div style="overflow-x: auto; white-space: nowrap; padding: 10px 0;">
+                        \[ b_n = \frac{2}{\pi} \int_{0}^{\pi} t \sin(nt) \, dt = \frac{2}{\pi} \left[ \frac{-t\cos(nt)}{n} + \frac{\sin(nt)}{n^2} \right]_{0}^{\pi} = \frac{-2\cos(n\pi)}{n}  \] </div></p>
                         <ul>
                             <li>For any integer \( n \), \( b_n = \frac{2}{n}(-1)^{n+1} \).</li>
                             <li>Specifically, for \( n=4 \), \( b_4 = -\frac{1}{2} \neq 0 \).</li>
@@ -215,27 +252,28 @@
                         <p>The driving frequencies are \( \omega_n = \{1, 2, 3, 4, \dots\} \). Since \( \omega_4 = \omega_0 = 4 \), <strong>pure resonance occurs.</strong></p>
                     
                         
-                    
-                        <table border="1" style="width:100%; text-align:center; border-collapse: collapse; margin-top: 10px;">
-                            <tr style="background-color: #f2f2f2;">
-                                <th>Waveform</th>
-                                <th>Harmonics (\(n\))</th>
-                                <th>Term \(n=4\) Present?</th>
-                                <th>Resonance?</th>
-                            </tr>
-                            <tr>
-                                <td>Square</td>
-                                <td>Odd only</td>
-                                <td>No (\(b_4 = 0\))</td>
-                                <td>No</td>
-                            </tr>
-                            <tr>
-                                <td>Sawtooth</td>
-                                <td>All Integers</td>
-                                <td>Yes (\(b_4 \neq 0\))</td>
-                                <td><strong>Yes</strong></td>
-                            </tr>
-                        </table>
+                        <div style="overflow-x: auto; width: 100%; margin-top: 10px;">
+                            <table border="1" style="width:100%; text-align:center; border-collapse: collapse; margin-top: 10px;">
+                                <tr style="background-color: #f2f2f2;">
+                                    <th>Waveform</th>
+                                    <th>Harmonics (\(n\))</th>
+                                    <th>Term \(n=4\) Present?</th>
+                                    <th>Resonance?</th>
+                                </tr>
+                                <tr>
+                                    <td>Square</td>
+                                    <td>Odd only</td>
+                                    <td>No (\(b_4 = 0\))</td>
+                                    <td>No</td>
+                                </tr>
+                                <tr>
+                                    <td>Sawtooth</td>
+                                    <td>All Integers</td>
+                                    <td>Yes (\(b_4 \neq 0\))</td>
+                                    <td><strong>Yes</strong></td>
+                                </tr>
+                            </table>
+                        </div>
                     </div>
                 </div>
 
@@ -249,7 +287,8 @@
                 <h2 class="sub-section-label">2. Case 2: Damped Forced Motion (\(c > 0\))</h2>
                 <div class="theorem">
                     <p>For \(mx'' + cx' + kx = F(t)\), the response to \(F_0 \sin(\omega t)\) is \(x(t) = C \sin(\omega t - \alpha)\):</p>
-                    \[ C = \frac{F_0}{\sqrt{(k - m\omega^2)^2 + (c\omega)^2}}, \quad \tan \alpha = \frac{c\omega}{k - m\omega^2} \]
+                    <div style="overflow-x: auto; white-space: nowrap; padding: 10px 0;">
+                        \[ C = \frac{F_0}{\sqrt{(k - m\omega^2)^2 + (c\omega)^2}}, \quad \tan \alpha = \frac{c\omega}{k - m\omega^2}  \] </div>
                 </div>
 
                 <div class="example" id="ex3">
@@ -260,10 +299,21 @@
                         <div style="margin-bottom: 25px;">
                             <h3>1. Determine Forcing Coefficients \(B_n\)</h3>
                             <p>The forcing function \(F(t)\) is an odd square wave with amplitude \(A = 3\) and period \(T = 2\pi\) (\(L = \pi\)). The Fourier sine coefficients are derived as follows:</p>
-                            <p>\[ B_n = \frac{2}{\pi} \int_{0}^{\pi} 3 \sin(nt) \, dt = \frac{6}{n\pi} (1 - \cos(n\pi)) \]</p>
+                            <p><div style="overflow-x: auto; white-space: nowrap; padding: 10px 0;">
+                        \[ B_n = \frac{2}{\pi} \int_{0}^{\pi} 3 \sin(nt) \, dt = \frac{6}{n\pi} (1 - \cos(n\pi))  \] </div></p>
                             <ul>
-                                <li>If \(n\) is even: \( \cos(n\pi) = 1 \implies B_n = \frac{6}{n\pi}(1 - 1) = 0 \)</li>
-                                <li>If \(n\) is odd: \( \cos(n\pi) = -1 \implies B_n = \frac{6}{n\pi}(1 - (-1)) = \frac{12}{n\pi} \)</li>
+                                <li>
+                                    <strong>If \(n\) is even:</strong>
+                                    <div style="overflow-x: auto; padding: 10px 0;">
+                                        \[ \cos(n\pi) = 1 \implies B_n = \frac{6}{n\pi}(1 - 1) = 0 \]
+                                    </div>
+                                </li>
+                                <li>
+                                    <strong>If \(n\) is odd:</strong>
+                                    <div style="overflow-x: auto; padding: 10px 0;">
+                                        \[ \cos(n\pi) = -1 \implies B_n = \frac{6}{n\pi}(1 - (-1)) = \frac{12}{n\pi} \]
+                                    </div>
+                                </li>
                             </ul>
                             <p>The first four nonzero terms correspond to \(n = 1, 3, 5, 7\).</p>
                         </div>
@@ -273,10 +323,11 @@
                         <div style="margin-bottom: 25px;">
                             <h3>2. Physical System Parameters</h3>
                             <p>Given \(m = 5\), \(c = 0.4\), and \(k = 245\). The steady-state amplitude \(C_n\) and phase \(\alpha_n\) for each harmonic are:</p>
-                            <p>\[ C_n = \frac{B_n}{\sqrt{(245 - 5n^2)^2 + (0.4n)^2}}, \quad \alpha_n = \operatorname{atan2}(0.4n, 245 - 5n^2) \]</p>
+                            <p><div style="overflow-x: auto; white-space: nowrap; padding: 10px 0;">
+                        \[ C_n = \frac{B_n}{\sqrt{(245 - 5n^2)^2 + (0.4n)^2}}, \quad \alpha_n = \operatorname{atan2}(0.4n, 245 - 5n^2)  \] </div></p>
                         </div>
                     
-                        <div style="margin-bottom: 25px;">
+                        <div style="margin-bottom: 25px; overflow-x: auto; white-space: nowrap; padding: 10px 0;">
                             <h3>3. Numerical Results</h3>
                             <table border="1" style="width:100%; text-align:center; border-collapse: collapse;">
                                 <tr style="background-color: #f2f2f2;">
@@ -319,8 +370,8 @@
                             <h3>4. Final Series Expansion</h3>
                             <p>The first four nonzero terms of the steady periodic solution are:</p>
                             
-                            <div style="overflow-x: auto; white-space: nowrap; padding: 10px 0;">
-                                \[ x_{sp}(t) \approx 0.0159 \sin(t - 0.002) + 0.0064 \sin(3t - 0.006) + 0.0064 \sin(5t - 0.017) + 0.1949 \sin(7t - 1.571) \]
+                            <div style="overflow-x: auto; white-space: nowrap; padding: 10px 0;"> 
+                            \[ x_{sp}(t) \approx 0.0159 \sin(t - 0.002) + 0.0064 \sin(3t - 0.006) + 0.0064 \sin(5t - 0.017) + 0.1949 \sin(7t - 1.571)  \] 
                             </div>
                         </div>
 
