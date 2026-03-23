@@ -6,12 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MA 30300 Notes | Hanh Vo</title>
 
-
-    <link rel="stylesheet" href="../../../style.css">
-    <link rel="stylesheet" href="../../lectures.css">
+    <link rel="stylesheet" href="../../../style.css" />
+    <link rel="stylesheet" href="../../lectures.css" />
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 </head>
 
 <body>
@@ -424,46 +426,44 @@
                     </p>
                 </div>
 
-                <div style="margin-bottom: 25px; overflow-x: auto; white-space: nowrap; padding: 10px 0;">
-                    <h3>3. Numerical Results</h3>
-                    <table border="1" style="width:100%; text-align:center; border-collapse: collapse;">
-                        <tr style="background-color: #f2f2f2;">
-                            <th style="padding: 8px;">\(n\)</th>
-                            <th style="padding: 8px;">Forcing (\(B_n\))</th>
-                            <th style="padding: 8px;">Amplitude (\(C_n\))</th>
-                            <th style="padding: 8px;">Phase (\(\alpha_n\))</th>
-                        </tr>
-                        <tr>
-                            <td style="padding: 8px;">1</td>
-                            <td>3.8197</td>
-                            <td><strong>0.0159</strong></td>
-                            <td>0.0017 rad</td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 8px;">3</td>
-                            <td>1.2732</td>
-                            <td><strong>0.0064</strong></td>
-                            <td>0.0060 rad</td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 8px;">5</td>
-                            <td>0.7639</td>
-                            <td><strong>0.0064</strong></td>
-                            <td>0.0167 rad</td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 8px;">7</td>
-                            <td>0.5457</td>
-                            <td><strong>0.1949</strong></td>
-                            <td>1.5708 (\(\pi/2\))</td>
-                        </tr>
-                    </table>
-                    <p style="margin-top: 15px;"><strong>Observation:</strong> The term \(n=7\) dominates the motion
-                        because the driving frequency matches the natural frequency \(\omega_0 = \sqrt{245/5} = 7\)
-                        (even though its input force coefficient \(B_7\) is smaller than \(B_1\)), leading to
-                        <strong>practical-resonance</strong>.
-                    </p>
-                </div>
+                <h3>3. Numerical Results</h3>
+                <table border="1" style="width:100%; text-align:center; border-collapse: collapse;">
+                    <tr style="background-color: #f2f2f2;">
+                        <th style="padding: 8px;">\(n\)</th>
+                        <th style="padding: 8px;">Forcing (\(B_n\))</th>
+                        <th style="padding: 8px;">Amplitude (\(C_n\))</th>
+                        <th style="padding: 8px;">Phase (\(\alpha_n\))</th>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px;">1</td>
+                        <td>3.8197</td>
+                        <td><strong>0.0159</strong></td>
+                        <td>0.0017 rad</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px;">3</td>
+                        <td>1.2732</td>
+                        <td><strong>0.0064</strong></td>
+                        <td>0.0060 rad</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px;">5</td>
+                        <td>0.7639</td>
+                        <td><strong>0.0064</strong></td>
+                        <td>0.0167 rad</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px;">7</td>
+                        <td>0.5457</td>
+                        <td><strong>0.1949</strong></td>
+                        <td>1.5708 (\(\pi/2\))</td>
+                    </tr>
+                </table>
+                <p style="margin-top: 15px;"><strong>Observation:</strong> The term \(n=7\) dominates the motion
+                    because the driving frequency matches the natural frequency \(\omega_0 = \sqrt{245/5} = 7\)
+                    (even though its input force coefficient \(B_7\) is smaller than \(B_1\)), leading to
+                    <strong>practical-resonance</strong>.
+                </p>
 
 
 

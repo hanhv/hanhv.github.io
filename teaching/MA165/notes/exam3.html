@@ -1,16 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MA 16500 Study Guide | Exam 3</title>
-    
+
     <link rel="stylesheet" href="../../../style.css">
     <link rel="stylesheet" href="../../lectures.css">
-    
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </head>
+
 <body>
 
     <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -33,11 +40,17 @@
             </a>
             <h1>Study Guide for Exam 3</h1>
             <p>Version: March 22, 2026</p>
+
+            <button class="print-btn" onclick="window.print()">
+                <i class="fa-solid fa-print"></i> Print
+            </button>
+
         </header>
 
         <main id="main-content">
             <section class="goal" aria-label="Learning Goals">
-                <p><strong>Goal:</strong> Comprehensive review of applications of differentiation, including extrema, Mean Value Theorem, L'Hospital's Rule, and Optimization.</p>
+                <p><strong>Goal:</strong> Comprehensive review of applications of differentiation, including extrema,
+                    Mean Value Theorem, L'Hospital's Rule, and Optimization.</p>
             </section>
 
             <nav class="toc-container" aria-label="Table of Contents">
@@ -62,17 +75,22 @@
             <section id="section1">
                 <h2 class="sub-section-label">1. Absolute Maximum and Minimum</h2>
                 <div class="theorem">
-                    <p>1. You are supposed to know how to find the absolute maximum and absolute minimum of a function \(f\) defined on the closed interval \([a,b]\), by comparing the values on the end points \(f(a), f(b)\) and the values on the critical value(s) \(f(c)\)('s). You should know what the definition of a critical value is.</p>
+                    <p>1. You are supposed to know how to find the absolute maximum and absolute minimum of a function
+                        \(f\) defined on the closed interval \([a,b]\), by comparing the values on the end points
+                        \(f(a), f(b)\) and the values on the critical value(s) \(f(c)\)('s). You should know what the
+                        definition of a critical value is.</p>
                 </div>
 
                 <div class="example" id="ex1-1">
                     <h3>Example Problem 1.1</h3>
-                    <p>Find the absolute maximum/minimum and local maximum/minimum of the function defined by \(f(x) = 3x^4 - 16x^3 + 18x^2\) on the closed interval \([-1,4]\).</p>
+                    <p>Find the absolute maximum/minimum and local maximum/minimum of the function defined by \(f(x) =
+                        3x^4 - 16x^3 + 18x^2\) on the closed interval \([-1,4]\).</p>
                 </div>
 
                 <div class="example" id="ex1-2">
                     <h3>Example Problem 1.2</h3>
-                    <p>Find the absolute maximum and absolute minimum values of the function \(f\) on the given interval.</p>
+                    <p>Find the absolute maximum and absolute minimum values of the function \(f\) on the given
+                        interval.</p>
                     <ul>
                         <li>(a) \(f(x) = x^{2/3}\) on \([-1,8]\)</li>
                         <li>(b) \(f(x) = xe^{-x}\) on \([-4,6]\)</li>
@@ -89,14 +107,16 @@
                     <div style="overflow-x: auto; white-space: nowrap; padding: 10px 0;">
                         \[f(x) = 4\sin^3(x)+21\sin^2(x)-24\sin(x).\]
                     </div>
-                    <p>Find its absolute maximum value and absolute minimum value on the interval \([-\dfrac{\pi}{2}, \dfrac{\pi}{2}]\).</p>
+                    <p>Find its absolute maximum value and absolute minimum value on the interval \([-\dfrac{\pi}{2},
+                        \dfrac{\pi}{2}]\).</p>
                 </div>
             </section>
 
             <section id="section2">
                 <h2 class="sub-section-label">2. 1st and 2nd Derivative Tests</h2>
                 <div class="theorem">
-                    <p>2. You are supposed to be able to use the 1st Derivative Test, as well as the 2nd Derivative Test, to find the local maximum and local minimum of a function.</p>
+                    <p>2. You are supposed to be able to use the 1st Derivative Test, as well as the 2nd Derivative
+                        Test, to find the local maximum and local minimum of a function.</p>
                 </div>
 
                 <div class="example" id="ex2-1">
@@ -105,13 +125,15 @@
                     <div style="overflow-x: auto; white-space: nowrap; padding: 10px 0;">
                         \[f'(x) = (x + 2)^2(x + 1)(x - 1)^3(x - 3)^2(x -5).\]
                     </div>
-                    <p>Find the values of \(x\) for which the function \(f\) takes (a) local maximum, and (b) local minimum.</p>
+                    <p>Find the values of \(x\) for which the function \(f\) takes (a) local maximum, and (b) local
+                        minimum.</p>
                 </div>
 
                 <div class="example" id="ex2-2">
                     <h3>Example Problem 2.2</h3>
                     <p>(a) Find the critical numbers of the function \(f(x) = x^8(x - 4)^7\).</p>
-                    <p>(b) What does the Second Derivative Test tell you about the behavior of \(f\) at these critical numbers?</p>
+                    <p>(b) What does the Second Derivative Test tell you about the behavior of \(f\) at these critical
+                        numbers?</p>
                     <p>(c) What does the First Derivative Test tell you that the Second Derivative test does not?</p>
                 </div>
             </section>
@@ -121,9 +143,11 @@
                 <div class="example">
                     <h3>Example Problem 3.1</h3>
                     <p>Below is given the graph of \(y=f'(x)\).</p>
-                    <img src="pictures/PicturesExam3/derivative.png" alt="Derivative Graph" style="max-width: 300px; display: block; margin: 20px auto;">
+                    <img src="pictures/PicturesExam3/derivative.png" alt="Derivative Graph"
+                        style="max-width: 300px; display: block; margin: 20px auto;">
                     <p>Which of the following can be the graph of \(y=f(x)\).</p>
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; text-align: center;">
+                    <div
+                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; text-align: center;">
                         <div>A. <img src="pictures/PicturesExam3/f-incorrect1.png" style="width: 100%;"></div>
                         <div>B. <img src="pictures/PicturesExam3/f-incorrect2.png" style="width: 100%;"></div>
                         <div>C. <img src="pictures/PicturesExam3/f-incorrect3.png" style="width: 100%;"></div>
@@ -136,12 +160,14 @@
             <section id="section4">
                 <h2 class="sub-section-label">4. Concavity and Inflection Points</h2>
                 <div class="theorem">
-                    <p>4. You are supposed to tell whether the graph of a function is concave up/down, and find its inflection points, by looking at the second derivative of the function.</p>
+                    <p>4. You are supposed to tell whether the graph of a function is concave up/down, and find its
+                        inflection points, by looking at the second derivative of the function.</p>
                 </div>
 
                 <div class="example" id="ex4-1">
                     <h3>Example Problem 4.1</h3>
-                    <p>Determine how the concavity changes for the function \(f(x) = \dfrac{1}{2}x - \sin(x)\) on the interval \((0, 3\pi)\).</p>
+                    <p>Determine how the concavity changes for the function \(f(x) = \dfrac{1}{2}x - \sin(x)\) on the
+                        interval \((0, 3\pi)\).</p>
                 </div>
 
                 <div class="example" id="ex4-2">
@@ -155,27 +181,35 @@
 
                 <div class="example" id="ex4-3">
                     <h3>Example Problem 4.3</h3>
-                    <p>How many inflection points does the graph of the function \(y = f(x) = x^5 - 5x^4 + 25 x\) have ?</p>
+                    <p>How many inflection points does the graph of the function \(y = f(x) = x^5 - 5x^4 + 25 x\) have ?
+                    </p>
                 </div>
 
                 <div class="example" id="ex4-4">
                     <h3>Example Problem 4.4</h3>
-                    <p>We have a function whose first derivative is given by the formula \(f'(x) = (x - 1)^2(x + 3)^3\). Find the local extrema and the inflection points of the function.</p>
+                    <p>We have a function whose first derivative is given by the formula \(f'(x) = (x - 1)^2(x + 3)^3\).
+                        Find the local extrema and the inflection points of the function.</p>
                 </div>
             </section>
 
             <section id="section5">
                 <h2 class="sub-section-label">5. L'Hospital's Rule (\(0/0, \infty/\infty\))</h2>
                 <div class="theorem">
-                    <p>5. You are supposed to know how to compute the limits using L'Hospital's Rule, under the provision that the limits are formally of the form \(\displaystyle \frac{0}{0}, \frac{\pm \infty}{\pm \infty}\).</p>
+                    <p>5. You are supposed to know how to compute the limits using L'Hospital's Rule, under the
+                        provision that the limits are formally of the form \(\displaystyle \frac{0}{0}, \frac{\pm
+                        \infty}{\pm \infty}\).</p>
                 </div>
                 <div class="example">
                     <h3>Example Problem 5.1</h3>
                     <div style="overflow-x: auto; white-space: nowrap; padding: 10px 0;">
-                        <p>(a) \(\lim_{x \rightarrow \infty}\dfrac{\ln(x)}{\sqrt{x}}\) &nbsp;&nbsp;&nbsp; (b) \(\lim_{x \rightarrow 0}\dfrac{1 - \cos x}{3x^2}\)</p>
-                        <p>(c) \(\lim_{x \rightarrow 0}\dfrac{e^{7x} - \cos 2x}{\tan (3x)}\) &nbsp;&nbsp;&nbsp; (d) \(\lim_{x \rightarrow 0}\dfrac{\sin x}{1 - x^2}\)</p>
-                        <p>(e) \(\lim_{x \rightarrow 0}\dfrac{3x - \sin (3x)}{5x - \tan (5x)}\) &nbsp;&nbsp;&nbsp; (f) \(\lim_{x \rightarrow 0}\dfrac{\tan x - x}{x^3}\)</p>
-                        <p>(g) \(\lim_{x \rightarrow 0}\dfrac{\ln\left(\dfrac{\sin x}{x}\right)}{x^2}\) &nbsp;&nbsp;&nbsp; (h) \(\lim_{x \rightarrow 0}\dfrac{\ln \left(\cos(5x)\right)}{x^2}\)</p>
+                        <p>(a) \(\lim_{x \rightarrow \infty}\dfrac{\ln(x)}{\sqrt{x}}\) &nbsp;&nbsp;&nbsp; (b) \(\lim_{x
+                            \rightarrow 0}\dfrac{1 - \cos x}{3x^2}\)</p>
+                        <p>(c) \(\lim_{x \rightarrow 0}\dfrac{e^{7x} - \cos 2x}{\tan (3x)}\) &nbsp;&nbsp;&nbsp; (d)
+                            \(\lim_{x \rightarrow 0}\dfrac{\sin x}{1 - x^2}\)</p>
+                        <p>(e) \(\lim_{x \rightarrow 0}\dfrac{3x - \sin (3x)}{5x - \tan (5x)}\) &nbsp;&nbsp;&nbsp; (f)
+                            \(\lim_{x \rightarrow 0}\dfrac{\tan x - x}{x^3}\)</p>
+                        <p>(g) \(\lim_{x \rightarrow 0}\dfrac{\ln\left(\dfrac{\sin x}{x}\right)}{x^2}\)
+                            &nbsp;&nbsp;&nbsp; (h) \(\lim_{x \rightarrow 0}\dfrac{\ln \left(\cos(5x)\right)}{x^2}\)</p>
                         <p>(i) \(\lim_{x \rightarrow \infty} \dfrac{\tan^{-1}(x) - \frac{\pi}{2}}{\frac{1}{x}}\)</p>
                     </div>
                 </div>
@@ -184,18 +218,21 @@
             <section id="section6">
                 <h2 class="sub-section-label">6. Indeterminate Forms (\(\pm \infty \times 0, \infty - \infty\))</h2>
                 <div class="theorem">
-                    <p>6. You are suppose to know how to compute the limits of the form \(\pm \infty \times 0, \infty - \infty\).</p>
+                    <p>6. You are suppose to know how to compute the limits of the form \(\pm \infty \times 0, \infty -
+                        \infty\).</p>
                 </div>
                 <div class="example">
                     <h3>Example Problem 6.1</h3>
                     <ul>
-                        <li>(a) \(\lim_{x \rightarrow 0^+}x \cdot \ln(2x)\) &nbsp; (a*) \(\lim_{x \rightarrow 0^+}x \cdot \ln\left(3 + \dfrac{5}{x}\right)\)</li>
+                        <li>(a) \(\lim_{x \rightarrow 0^+}x \cdot \ln(2x)\) &nbsp; (a*) \(\lim_{x \rightarrow 0^+}x
+                            \cdot \ln\left(3 + \dfrac{5}{x}\right)\)</li>
                         <li>(b) \(\lim_{x \rightarrow \infty} 2x \cdot \tan\left(\dfrac{1}{3x}\right)\)</li>
                         <li>(c) \(\lim_{x\to \left(\frac{\pi}{2}\right)^-}\ \left(2x - \pi\right) \cdot \tan (x)\)</li>
                         <li>(d) \(\lim_{x \rightarrow \infty}\left(\sqrt{x^2 - 5x + 7} - x\right)\)</li>
                         <li>(e) \(\lim_{x \rightarrow 1}\left(\dfrac{x}{x - 1} - \dfrac{1}{\ln(x)}\right)\)</li>
                         <li>(f) \(\lim_{x \rightarrow 4}\left(\dfrac{1}{\sqrt{x} - 2} - \dfrac{4}{x - 4}\right)\)</li>
-                        <li>(g) \(\lim_{x \rightarrow \infty}x^2 \cdot \tan\left(\dfrac{1}{5x^2 + 2}\right)\) &nbsp; (g*) \(\lim_{x \rightarrow 0}x^2 \cdot \tan\left(\dfrac{1}{5x^2 + 2}\right)\)</li>
+                        <li>(g) \(\lim_{x \rightarrow \infty}x^2 \cdot \tan\left(\dfrac{1}{5x^2 + 2}\right)\) &nbsp;
+                            (g*) \(\lim_{x \rightarrow 0}x^2 \cdot \tan\left(\dfrac{1}{5x^2 + 2}\right)\)</li>
                     </ul>
                 </div>
             </section>
@@ -203,7 +240,8 @@
             <section id="section7">
                 <h2 class="sub-section-label">7. Indeterminate Powers (\(0^0, \infty^0, 1^{\infty}\))</h2>
                 <div class="theorem">
-                    <p>7. You are supposed to be able to compute the limits \(\displaystyle \lim_{x \rightarrow a}\left[f(x)\right]^{g(x)}\) of the form \(\displaystyle 0^0, \infty^0, 1^{\infty}\).</p>
+                    <p>7. You are supposed to be able to compute the limits \(\displaystyle \lim_{x \rightarrow
+                        a}\left[f(x)\right]^{g(x)}\) of the form \(\displaystyle 0^0, \infty^0, 1^{\infty}\).</p>
                 </div>
                 <div class="example">
                     <h3>Example Problem 7.1</h3>
@@ -221,25 +259,34 @@
             <section id="section8">
                 <h2 class="sub-section-label">8. Mean Value Theorem</h2>
                 <div class="theorem">
-                    <p>8. You are supposed to know the statement of the Mean Value Theorem as well as its meaning, and also to know under what conditions you can apply the Mean Value Theorem. You are also supposed to be able to know how to apply the following corollary of the Mean Value Theorem to compute some value which is seemingly difficult to determine otherwise: If \(f'(x) = 0\) for all values of \(x \in (a,b)\), then a continuous function \(f\) on the closed interval \([a,b]\) is actually a constant.</p>
+                    <p>8. You are supposed to know the statement of the Mean Value Theorem as well as its meaning, and
+                        also to know under what conditions you can apply the Mean Value Theorem. You are also supposed
+                        to be able to know how to apply the following corollary of the Mean Value Theorem to compute
+                        some value which is seemingly difficult to determine otherwise: If \(f'(x) = 0\) for all values
+                        of \(x \in (a,b)\), then a continuous function \(f\) on the closed interval \([a,b]\) is
+                        actually a constant.</p>
                 </div>
-                
+
                 <div class="example">
                     <h3>Example Problem 8.1</h3>
-                    <p>Consider the function \(f(x) = x^4 - 2x^2 + 7x - 2\) over the interval \([-2,2]\). Does it satisfy the conditions for the Mean Value Theorem to hold? If it does, find the value(s) \(c \in (-2,2)\) such that:</p>
+                    <p>Consider the function \(f(x) = x^4 - 2x^2 + 7x - 2\) over the interval \([-2,2]\). Does it
+                        satisfy the conditions for the Mean Value Theorem to hold? If it does, find the value(s) \(c \in
+                        (-2,2)\) such that:</p>
                     <div style="overflow-x: auto; white-space: nowrap; padding: 10px 0;">
                         \[ f'(c) = \frac{f(2) - f(-2)}{2 - (-2)} \]
                     </div>
                 </div>
-                
+
                 <div class="example">
                     <h3>Example Problem 8.2</h3>
-                    <p>Consider the function \(y = f(x) = x^{2/3}\) over the interval \([-1,1]\). Does it satisfy the conditions for the Mean Value Theorem to hold? Do we have any value \(c \in (-1,1)\) such that:</p>
+                    <p>Consider the function \(y = f(x) = x^{2/3}\) over the interval \([-1,1]\). Does it satisfy the
+                        conditions for the Mean Value Theorem to hold? Do we have any value \(c \in (-1,1)\) such that:
+                    </p>
                     <div style="overflow-x: auto; white-space: nowrap; padding: 10px 0;">
                         \[ f'(c) = \frac{f(1) - f(-1)}{1 - (-1)} \]
                     </div>
                 </div>
-                
+
                 <div class="example">
                     <h3>Example Problem 8.3</h3>
                     <p>Determine the exact value of:</p>
@@ -247,7 +294,7 @@
                         \[ \sin^{-1}\left(\frac{1}{5}\right) + \cos^{-1}\left(\frac{1}{5}\right) \]
                     </div>
                 </div>
-                
+
                 <div class="example">
                     <h3>Example Problem 8.4</h3>
                     <p>Determine the exact value of:</p>
@@ -255,7 +302,7 @@
                         \[ \sin^{-1}\left(\frac{3}{7}\right) - \cos^{-1}\left(-\frac{3}{7}\right) \]
                     </div>
                 </div>
-                
+
                 <div class="example">
                     <h3>Example Problem 8.5</h3>
                     <p>Determine the exact value of:</p>
@@ -263,27 +310,32 @@
                         \[ \tan^{-1}(7) - \tan^{-1}\left(-\frac{1}{7}\right) \]
                     </div>
                 </div>
-                
+
                 <div class="example">
                     <h3>Example Problem 8.6</h3>
-                    <p>Consider the equation \(f(x) = x^3 + x - 1 = 0\). Determine how many solutions are there for the above equation on the interval \([0,1]\), using the Intermediate Value Theorem and the Mean Value Theorem.</p>
+                    <p>Consider the equation \(f(x) = x^3 + x - 1 = 0\). Determine how many solutions are there for the
+                        above equation on the interval \([0,1]\), using the Intermediate Value Theorem and the Mean
+                        Value Theorem.</p>
                 </div>
-                
+
                 <div class="example">
                     <h3>Example Problem 8.7</h3>
-                    <p>Consider the function \(y = f(x)\) where \(f(x)\) is a cubic polynomial of the form \(f(x) = ax^3 + bx^2 + cx + d\) with \(a \neq 0\). We computed the 1st derivative of the function to be:</p>
+                    <p>Consider the function \(y = f(x)\) where \(f(x)\) is a cubic polynomial of the form \(f(x) = ax^3
+                        + bx^2 + cx + d\) with \(a \neq 0\). We computed the 1st derivative of the function to be:</p>
                     <div style="overflow-x: auto; white-space: nowrap; padding: 10px 0;">
                         \[ f'(x) = x^2 + 1 \]
                     </div>
                     <p>What can you conclude about the number of solutions for the equation \(f(x) = 0\)?</p>
                 </div>
-                
+
             </section>
 
             <section id="section9">
                 <h2 class="sub-section-label">9. Sketching Graphs</h2>
                 <div class="theorem">
-                    <p>9. You are supposed to be able to sketch the graph of a function by computing the 1st derivative (increasing or decreasing) and 2nd derivative (concave up or down), and also by determining the horizontal/vertical asymptotes and \(x\)-intercept (\(y\)-intercept).</p>
+                    <p>9. You are supposed to be able to sketch the graph of a function by computing the 1st derivative
+                        (increasing or decreasing) and 2nd derivative (concave up or down), and also by determining the
+                        horizontal/vertical asymptotes and \(x\)-intercept (\(y\)-intercept).</p>
                 </div>
                 <div class="example">
                     <h3>Example Problem 9.1</h3>
@@ -301,42 +353,50 @@
             <section id="section10">
                 <h2 class="sub-section-label">10. Linear Approximation</h2>
                 <div class="theorem">
-                    <p>10. You are supposed to understand the idea of the linear approximation of a function \(f(x)\) at \(x = a\) \[f(x) \approx L(x) = f(a) + f'(a)(x - a),\] and apply it to approximate the value of a function at a given point.</p>
+                    <p>10. You are supposed to understand the idea of the linear approximation of a function \(f(x)\) at
+                        \(x = a\) \[f(x) \approx L(x) = f(a) + f'(a)(x - a),\] and apply it to approximate the value of
+                        a function at a given point.</p>
                 </div>
-                
+
 
                 <div class="example">
                     <h3>Example Problem 10.1</h3>
-                    <p>Find the formula for the linear approximation to \(f(x) = \sqrt{x}\) at \(x = a = 1\) and use it to approximate \(\sqrt{1.1}\).</p>
+                    <p>Find the formula for the linear approximation to \(f(x) = \sqrt{x}\) at \(x = a = 1\) and use it
+                        to approximate \(\sqrt{1.1}\).</p>
                     <div style="overflow-x: auto; white-space: nowrap; padding: 10px 0;">
                         \[ L(x) = f(a) + f'(a)(x - a) \]
                     </div>
                 </div>
-                
+
                 <div class="example">
                     <h3>Example Problem 10.2</h3>
-                    <p>Find the formula for the linear approximation to \(f(x) = e^x\) at \(x = a = 0\) and use it to approximate \(e^{- 0.05}\).</p>
+                    <p>Find the formula for the linear approximation to \(f(x) = e^x\) at \(x = a = 0\) and use it to
+                        approximate \(e^{- 0.05}\).</p>
                     <div style="overflow-x: auto; white-space: nowrap; padding: 10px 0;">
                         \[ L(x) = 1 + x \]
                     </div>
                 </div>
-                
+
                 <div class="example">
                     <h3>Example Problem 10.3</h3>
-                    <p>Find the estimate of \(\sqrt[3]{8.012}\) using the linear approximation of the function \(f(x) = \sqrt[3]{x}\) at \(x = 8\).</p>
+                    <p>Find the estimate of \(\sqrt[3]{8.012}\) using the linear approximation of the function \(f(x) =
+                        \sqrt[3]{x}\) at \(x = 8\).</p>
                     <div style="overflow-x: auto; white-space: nowrap; padding: 10px 0;">
                         \[ f(x) \approx f(8) + f'(8)(x - 8) \]
                     </div>
                 </div>
-                
+
                 <div class="example">
                     <h3>Example Problem 10.4</h3>
-                    <p>Find the estimate of \(\sin (46^{\circ})\) using the linear approximation of the function \(f(x) = \sin {x}\) at \(a = \pi/4\).</p>
+                    <p>Find the estimate of \(\sin (46^{\circ})\) using the linear approximation of the function \(f(x)
+                        = \sin {x}\) at \(a = \pi/4\).</p>
                     <div style="white-space: normal; padding: 10px 0;">
-                        <p><em>Note: Remember to convert degrees to radians when working with derivatives of trigonometric functions.</em></p>
+                        <p><em>Note: Remember to convert degrees to radians when working with derivatives of
+                                trigonometric functions.</em></p>
                     </div>
                     <div style="overflow-x: auto; white-space: nowrap; padding: 10px 0;">
-                        \[ 46^{\circ} = 45^{\circ} + 1^{\circ} \rightarrow \frac{\pi}{4} + \frac{\pi}{180} \text{ radians} \]
+                        \[ 46^{\circ} = 45^{\circ} + 1^{\circ} \rightarrow \frac{\pi}{4} + \frac{\pi}{180} \text{
+                        radians} \]
                     </div>
                 </div>
 
@@ -346,39 +406,51 @@
             <section id="section11">
                 <h2 class="sub-section-label">11. Optimization Problems</h2>
                 <div class="theorem">
-                    <p>11. Total of 4 (resp. 3) Optimization Problems on PWL (resp. on PIN) will be given in Exam 3. Of particular importance are: Farmer-Enclosing-Pen Problem, Cylinder/Box Problem, Maximizing or minimizing the area of a figure, Coffee Cup problem, Circular Cone Problem, Walk Way Problem, Crossing-River Problem.</p>
+                    <p>11. Total of 4 (resp. 3) Optimization Problems on PWL (resp. on PIN) will be given in Exam 3. Of
+                        particular importance are: Farmer-Enclosing-Pen Problem, Cylinder/Box Problem, Maximizing or
+                        minimizing the area of a figure, Coffee Cup problem, Circular Cone Problem, Walk Way Problem,
+                        Crossing-River Problem.</p>
                 </div>
 
                 <div class="example">
                     <h3>Example Problem 11.1</h3>
-                    <p>A farmer has 400 feet of fencing to build a rectangular pen to contain chickens. The pen needs to be in the shape of a rectangle with a straight divider in the middle that separates the pen into two congruent rectangles. What is the maximum possible area inside the pen?</p>
+                    <p>A farmer has 400 feet of fencing to build a rectangular pen to contain chickens. The pen needs to
+                        be in the shape of a rectangle with a straight divider in the middle that separates the pen into
+                        two congruent rectangles. What is the maximum possible area inside the pen?</p>
                     <div class="image-wrapper" style="overflow-x: auto; padding: 10px 0;">
-                        <img src="pictures/PicturesExam3/pen_diagram.png" 
-                             alt="A large rectangle with a vertical divider in the middle." 
-                             style="max-width: 300px; height: auto; display: block; margin: 0 auto; width: 400px;">
+                        <img src="pictures/PicturesExam3/pen_diagram.png"
+                            alt="A large rectangle with a vertical divider in the middle."
+                            style="max-width: 300px; height: auto; display: block; margin: 0 auto; width: 400px;">
                     </div>
                 </div>
-                
+
                 <div class="example">
                     <h3>Example Problem 11.2</h3>
-                    <p>A farmer plans to make four identical and adjacent rectangular pens against a barn. Each with an area of \(100\text{ m}^2\), what are the dimensions of each pen that minimize the amount of fence that must be used? (Consider the sides as the lengths as \(x\) and \(y\) with \(y\) being the side parallel to the barn).</p>
+                    <p>A farmer plans to make four identical and adjacent rectangular pens against a barn. Each with an
+                        area of \(100\text{ m}^2\), what are the dimensions of each pen that minimize the amount of
+                        fence that must be used? (Consider the sides as the lengths as \(x\) and \(y\) with \(y\) being
+                        the side parallel to the barn).</p>
                 </div>
-                
+
                 <div class="example">
                     <h3>Example Problem 11.3</h3>
-                    <p>A rectangular box has to be made with the width being twice as long as the length (with a bottom but WITHOUT a top). If the surface area of the box is \(400\text{ cm}^2\), what is the height of the box with the largest volume?</p>
+                    <p>A rectangular box has to be made with the width being twice as long as the length (with a bottom
+                        but WITHOUT a top). If the surface area of the box is \(400\text{ cm}^2\), what is the height of
+                        the box with the largest volume?</p>
                 </div>
-                
+
                 <div class="example">
                     <h3>Example Problem 11.4</h3>
-                    <p>A cylindrical barrel is to be made that has a volume of \(6\pi\text{ ft}^3\). The material for the top and bottom cost 4 dollars/ft\(^2\) and the material for the side costs 6 dollars/ft\(^2\). Find the radius of the barrel that will minimize the cost of production.</p>
+                    <p>A cylindrical barrel is to be made that has a volume of \(6\pi\text{ ft}^3\). The material for
+                        the top and bottom cost 4 dollars/ft\(^2\) and the material for the side costs 6
+                        dollars/ft\(^2\). Find the radius of the barrel that will minimize the cost of production.</p>
                 </div>
-                
+
                 <div class="example">
                     <h3>Example Problem 11.5</h3>
                     <p>What is the largest area of an isosceles triangle inscribed in a circle of radius 1?</p>
                 </div>
-                
+
                 <div class="example">
                     <h3>Example Problem 11.6</h3>
                     <p>What is the largest area of the rectangle inscribed in an ellipse:</p>
@@ -386,62 +458,79 @@
                         \[ \frac{x^2}{9} + \frac{y^2}{4} = 1 \]
                     </div>
                 </div>
-                
+
                 <div class="example">
                     <h3>Example Problem 11.7</h3>
-                    <p>Find the equation of a line passing through the point \((3,2)\), which cuts off the least amount of area from the first quadrant.</p>
+                    <p>Find the equation of a line passing through the point \((3,2)\), which cuts off the least amount
+                        of area from the first quadrant.</p>
                 </div>
-                
+
                 <div class="example">
                     <h3>Example Problem 11.8</h3>
-                    <p>Find the area of the largest rectangle that can be inscribed in a right triangle with legs of lengths \(3\text{ cm}\) and \(8\text{ cm}\) if two sides of the rectangle lie along the legs.</p>
+                    <p>Find the area of the largest rectangle that can be inscribed in a right triangle with legs of
+                        lengths \(3\text{ cm}\) and \(8\text{ cm}\) if two sides of the rectangle lie along the legs.
+                    </p>
                 </div>
-                
+
                 <div class="example">
                     <h3>Example Problem 11.9</h3>
-                    <p>A cone-shaped drinking cup is made from a circular piece of paper of fixed radius \(R\) by cutting out a sector and joining the edges \(CA\) and \(CB\). Find the maximum capacity of such a cup.</p>
+                    <p>A cone-shaped drinking cup is made from a circular piece of paper of fixed radius \(R\) by
+                        cutting out a sector and joining the edges \(CA\) and \(CB\). Find the maximum capacity of such
+                        a cup.</p>
                     <div class="image-wrapper" style="overflow-x: auto; padding: 10px 0;">
-                        <img src="pictures/PicturesExam3/problem11.png" 
-                             alt="Diagram showing a cone being formed from a circle."
-                             style="max-width: 400px; height: auto; display: block; margin: 0 auto; width: 400px;">
+                        <img src="pictures/PicturesExam3/problem11.png"
+                            alt="Diagram showing a cone being formed from a circle."
+                            style="max-width: 400px; height: auto; display: block; margin: 0 auto; width: 400px;">
                     </div>
                 </div>
-                
+
                 <div class="example">
                     <h3>Example Problem 11.10</h3>
-                    <p>The slant height of a right circular cone is the distance from the edge of the base of the cone to the vertex of the cone. What is the maximum volume of a right circular cone with slant height \(5\text{ cm}\)?</p>
+                    <p>The slant height of a right circular cone is the distance from the edge of the base of the cone
+                        to the vertex of the cone. What is the maximum volume of a right circular cone with slant height
+                        \(5\text{ cm}\)?</p>
                     <div class="image-wrapper" style="overflow-x: auto; padding: 10px 0;">
-                        <img src="pictures/PicturesExam3/SlantHeight-studyguide.png" 
-                             alt="Diagram of a right circular cone with slant height 5."    
-                             style="max-width: 200px; height: auto; display: block; margin: 0 auto; width: 400px;">
+                        <img src="pictures/PicturesExam3/SlantHeight-studyguide.png"
+                            alt="Diagram of a right circular cone with slant height 5."
+                            style="max-width: 200px; height: auto; display: block; margin: 0 auto; width: 400px;">
                     </div>
                 </div>
-                
+
                 <div class="example">
                     <h3>Example Problem 11.11</h3>
-                    <p>The U.S. Postal Services will accept a box for domestic shipment only if the sum of its length and girth (distance around) does not exceed \(108\text{ in}\). What dimensions will give a box with a square end the largest possible volume?</p>
+                    <p>The U.S. Postal Services will accept a box for domestic shipment only if the sum of its length
+                        and girth (distance around) does not exceed \(108\text{ in}\). What dimensions will give a box
+                        with a square end the largest possible volume?</p>
                 </div>
-                
+
                 <div class="example">
                     <h3>Example Problem 11.12</h3>
-                    <p>Suppose a rectangular area is to be surrounded by a concrete walkway that is 2 meters wide on the East and West and 5 meters wide on the North and South. If the area inside the walkway is to be \(100\text{ square meters}\), what should the interior width of the enclosed area be (labeled \(x\)) in order to minimize the amount of concrete used.</p>
-                    
+                    <p>Suppose a rectangular area is to be surrounded by a concrete walkway that is 2 meters wide on the
+                        East and West and 5 meters wide on the North and South. If the area inside the walkway is to be
+                        \(100\text{ square meters}\), what should the interior width of the enclosed area be (labeled
+                        \(x\)) in order to minimize the amount of concrete used.</p>
+
                     <div class="image-wrapper" style="overflow-x: auto; padding: 10px 0;">
-                        <img src="pictures/PicturesExam3/EnclosedArea-studyguide.png" 
-                        alt="A green inner rectangle with width x and height y, surrounded by a gray outer rectangle (the walkway). A vertical arrow shows the walkway is 5 meters wide at the top and bottom. A horizontal arrow shows the walkway is 2 meters wide on the left and right sides."
-                        style="max-width: 350px; height: auto; display: block; margin: 0 auto; width: 450px;">
+                        <img src="pictures/PicturesExam3/EnclosedArea-studyguide.png"
+                            alt="A green inner rectangle with width x and height y, surrounded by a gray outer rectangle (the walkway). A vertical arrow shows the walkway is 5 meters wide at the top and bottom. A horizontal arrow shows the walkway is 2 meters wide on the left and right sides."
+                            style="max-width: 350px; height: auto; display: block; margin: 0 auto; width: 450px;">
                     </div>
 
                 </div>
-                
+
                 <div class="example">
                     <h3>Example Problem 11.13</h3>
-                    <p>Liz is standing on the bank of a \(3\text{ km}\) wide river. An ice cream shop is located on the opposite bank \(10\text{ km}\) down the river from the point right across Liz. She swims at \(2\text{ km/hour}\) and jogs at \(3\text{ km/hour}\). Find the point where Liz should reach by swimming to minimize her total time.</p>
+                    <p>Liz is standing on the bank of a \(3\text{ km}\) wide river. An ice cream shop is located on the
+                        opposite bank \(10\text{ km}\) down the river from the point right across Liz. She swims at
+                        \(2\text{ km/hour}\) and jogs at \(3\text{ km/hour}\). Find the point where Liz should reach by
+                        swimming to minimize her total time.</p>
                 </div>
-                
+
                 <div class="example">
                     <h3>Example Problem 11.14</h3>
-                    <p>Matt is building an open top wooden box with a square base. The cost of wood is 2 dollars per ft\(^2\) and the cost of the carpet for the bottom is 1 dollar per ft\(^2\). Rupert requires \(48\text{ ft}^3\) for the box. What is the minimum total cost?</p>
+                    <p>Matt is building an open top wooden box with a square base. The cost of wood is 2 dollars per
+                        ft\(^2\) and the cost of the carpet for the bottom is 1 dollar per ft\(^2\). Rupert requires
+                        \(48\text{ ft}^3\) for the box. What is the minimum total cost?</p>
                 </div>
 
             </section>
@@ -452,4 +541,5 @@
         <p>© 2026 Hanh Vo • Department of Mathematics • Purdue University</p>
     </footer>
 </body>
+
 </html>
