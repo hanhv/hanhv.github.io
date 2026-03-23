@@ -77,8 +77,16 @@
                 <h3>Example Problem 11.1: The Divided Pen</h3>
                 <p>A farmer has 400 feet of fencing to build a rectangular pen. The pen needs to be in the shape of a rectangle with a straight vertical divider in the middle that separates the pen into two congruent rectangles. What is the maximum possible area inside the pen?</p>
                 
-                <div class="image-wrapper" style="overflow-x: auto; padding: 10px 0;">
-                    <img src="pictures/PicturesExam3/pen_diagram.png" alt="A large rectangle with a vertical divider. Horizontal side is x, vertical sides and divider are y." style="max-width: 300px; height: auto; display: block; margin: 0 auto; width: 400px;">
+                <div class="image-wrapper">
+                    <figure>
+                        <img src="pictures/PicturesExam3/pen_diagram.png" 
+                            alt="A large rectangle with a vertical divider. The horizontal side is x, and the vertical sides and divider are y." 
+                            style="max-width: 300px; height: auto; display: block; margin: 0 auto;">
+                        
+                        <figcaption>
+                            A rectangular pen with one vertical divider. The horizontal side has length \(x\), and the vertical sides and divider have length \(y\).
+                        </figcaption>
+                    </figure>
                 </div>
             
                 <div class="solution">
@@ -130,6 +138,20 @@
             <section id="ex11.2" class="example">
                 <h3>Example Problem 11.2: Pens Against Barn</h3>
                 <p>A farmer plans to make four identical and adjacent rectangular pens against a barn. Each with an area of \(100\text{ m}^2\), what are the dimensions of each pen that minimize the amount of fence that must be used?</p>
+                
+                <div class="image-wrapper" style="overflow-x: auto; padding: 10px 0;">
+                    <figure>
+                        <img src="pictures/PicturesExam3/f11-2.png" 
+                            alt="Four adjacent rectangular pens sharing interior side walls, with five vertical dividers of length x and one outer horizontal side made of four segments of length y, opposite a barn." 
+                            style="max-width: 300px; height: auto; display: block; margin: 0 auto;">
+                        
+                        <figcaption>
+                            Four rectangles sharing side walls (5 dividers of length \(x\)) and one long side (4 segments of length \(y\)) opposite the barn.
+                        </figcaption>
+                    </figure>
+                </div>
+ 
+                
                 <div class="solution">
                     <p><strong>Solution:</strong> Fencing 5 segments of length \(x\) and 4 segments of length \(y\).</p>
                     <div class="math-scroll">
@@ -157,6 +179,18 @@
             <section id="ex11.3" class="example">
                 <h3>Example Problem 11.3: Open-Top Box</h3>
                 <p>A rectangular box has width twice the length (no top). If surface area is \(400\text{ cm}^2\), find the height of the box with the largest volume.</p>
+                
+                <div class="image-wrapper" style="overflow-x: auto; padding: 10px 0;">
+                    <figure>
+                        <img src="pictures/PicturesExam3/f11-3.png" 
+                            alt="A rectangular box with no top. The width is twice the length. Dimensions labeled: length l, width w = 2l, height h." 
+                            style="max-width: 300px; height: auto; display: block; margin: 0 auto;"> 
+                            <figcaption>
+                                A rectangular box with no top. Width is twice the length (\( w = 2l \)). 
+                            </figcaption>
+                    </figure>
+                </div>
+                
                 <div class="solution">
                     <p><strong>Solution:</strong> Let length = \(l\), width = \(2l\), and height = \(h\).</p>
                     <div class="math-scroll">
@@ -183,13 +217,25 @@
             <section id="ex11.4" class="example">
                 <h3>Example Problem 11.4: Cylindrical Barrel</h3>
                 <p>A cylindrical barrel is to be made that has a volume of \(6\pi\text{ ft}^3\). The material for the top and bottom cost 4 dollars/ft\(^2\) and the material for the side costs 6 dollars/ft\(^2\). Find the radius of the barrel that will minimize the cost of production.</p>
+                
+                <div class="image-wrapper" style="overflow-x: auto; padding: 10px 0;">
+                    <figure>
+                        <img src="pictures/PicturesExam3/f11-4.png" 
+                            alt="A cylindrical barrel, radius r and height h." 
+                            style="max-width: 300px; height: auto; display: block; margin: 0 auto;"> 
+                            <figcaption>
+                                A cylindrical barrel, radius \(r\) and height \(h\).
+                            </figcaption>
+                    </figure>
+                </div>
+
                 <div class="solution">
                     <div class="math-scroll">
-                        Constraint: \(\pi r^2 h = 6\pi \implies h = \frac{6}{r^2}\)
+                        Constraint: <div class="math-scroll">\[ \pi r^2 h = 6\pi \implies h = \frac{6}{r^2}\]
                     </div>
                     <p><strong>Interval:</strong> \(r \in (0, \infty)\)</p>
                     <div class="math-scroll">
-                        <strong>Objective:</strong> \(C(r) = 8\pi r^2 + \frac{72\pi}{r}\)
+                        <strong>Objective:</strong> \[C(r) = 8\pi r^2 + \frac{72\pi}{r}\]
                     </div>
                     <div class="math-scroll">\[ C'(r) = 16\pi r - \frac{72\pi}{r^2} = 0 \implies r = \sqrt[3]{\frac{9}{2}} \]</div>
                     <div class="table-wrapper">
@@ -205,13 +251,25 @@
             <section id="ex11.5" class="example">
                 <h3>Example Problem 11.5: Inscribed Triangle</h3>
                 <p>What is the largest area of an isosceles triangle inscribed in a circle of radius 1?</p>
+                
+                <div class="image-wrapper" style="overflow-x: auto; padding: 10px 0;">
+                    <figure>
+                        <img src="pictures/PicturesExam3/f11-5.png" 
+                            alt="An isosceles triangle inscribed in a circle of radius 1. " 
+                            style="max-width: 400px; height: auto; display: block; margin: 0 auto;"> 
+                            <figcaption>
+                                An isosceles triangle inscribed in a circle of radius 1.  
+                            </figcaption>
+                    </figure>
+                </div>
+                
                 <div class="solution">
                     <p><strong>Variables:</strong> \(x\) = distance center to base, \(y\) = half-base. <strong>Interval:</strong> \(x \in (-1, 1)\).</p>
                     <div class="math-scroll">
                         Height: \(h = 1 + x\). Constraint: \(x^2 + y^2 = 1 \implies y = \sqrt{1-x^2}\).
                     </div>
                     <div class="math-scroll">
-                        <strong>Objective:</strong> \(A(x) = (1+x)\sqrt{1-x^2}\)
+                        <strong>Objective:</strong> \[A(x) = (1+x)\sqrt{1-x^2}\]
                     </div>
                     <div class="math-scroll">\[ A'(x) = \frac{1-x-2x^2}{\sqrt{1-x^2}} = 0 \implies x = \frac{1}{2} \]</div>
                     <div class="table-wrapper">
