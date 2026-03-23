@@ -269,3 +269,18 @@ figure {
         padding: 0;
     }
 }
+
+.print-btn {
+    background-color: #4CAF50; /* green */
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px 0;
+}
+
+.print-btn:hover {
+    background-color: #45a049;
+}
