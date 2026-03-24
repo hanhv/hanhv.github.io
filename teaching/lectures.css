@@ -348,3 +348,10 @@ ul.mcq li strong {
 }
 
 
+.tiny-notes {
+  margin-top: 30px;
+  margin-bottom: 20px;
+  font-size: 0.75rem; 
+  color: #555;
+  font-family: "Libre Baskerville", serif;
+} 
