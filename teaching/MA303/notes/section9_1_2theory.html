@@ -44,10 +44,11 @@
 
             <section class="goal">
                 <p>
-                <strong>Goal:</strong>  
-                Understand how a periodic function can be expressed as a sum of sine and cosine functions.  
-                Learn where the Fourier coefficient formulas come from and how Fourier series work for even and odd functions.  
-                Explore the convergence theorem and use Fourier series to prove mathematical identities.    
+                    <strong>Goal:</strong>
+                    Understand how a periodic function can be expressed as a sum of sine and cosine functions.
+                    Learn where the Fourier coefficient formulas come from and how Fourier series work for even and odd
+                    functions.
+                    Explore the convergence theorem and use Fourier series to prove mathematical identities.
                 </p>
             </section>
 
@@ -386,7 +387,8 @@
                             \[
                             f(t) =
                             \begin{cases}
-                            0, & -\pi < t \le 0, \\ t, & 0 < t \le \pi. \end{cases} \] 
+                            0, & -\pi < t \le 0, \\ t, & 0 < t \le \pi. \end{cases} 
+                            \] 
                         </div>
                         <p>Let \(\mathcal{F}(t)\) denote the Fourier series of \(f(t)\). Compute</p>
                         <div class="math-scroll">
@@ -395,6 +397,8 @@
                             \]
                         </div>
                     </div>
+
+                        
 
                     <p><strong>Solution:</strong></p>
                     <p>We use the Fourier series convergence theorem.</p>
@@ -412,7 +416,8 @@
                     <p>\(f\) is discontinuous at \(\pi\) (jump):</p>
                     <div class="math-scroll">
                         \[
-                        f(\pi^-) = \pi, \quad f(\pi^+) = f(-\pi^+) = 0 \implies \mathcal{F}(\pi) = \frac{\pi + 0}{2} = \frac{\pi}{2}
+                        f(\pi^-) = \pi, \quad f(\pi^+) = f(-\pi^+) = 0 \implies \mathcal{F}(\pi) = \frac{\pi + 0}{2}
+                        = \frac{\pi}{2}
                         \]
                     </div>
 
@@ -423,13 +428,18 @@
                         \]
                     </div>
 
-                    <p><strong>Answer:</strong> 
-                        div class="math-scroll">
+                    <p><strong>Answer:</strong>
+                    <div class="math-scroll">
                         \[
                         \mathcal{F}(0) + \mathcal{F}(\pi) = \frac{\pi}{2}
                         \]
+                    </div>
                     </p>
                 </div>
+             
+            </section>
+
+
 
             <!-- done example convergence -->
 
@@ -481,7 +491,7 @@
                     </div>
 
                     <p><strong>Step 3: Compute \(a_n\)</strong></p>
-                    <p>Use symmetry: \(|x|\) is even, so double the integral from 0 to π:</p>
+                    <p>Use symmetry: \(|x|\) is even, so double the integral from 0 to \(\pi\):</p>
                     <div class="math-scroll">
                         \[
                         a_n = \frac{2}{\pi} \int_0^\pi x \cos(nx) dx
@@ -540,7 +550,6 @@
                     </div>
                 </div>
             </section>
-
 
         </main>
     </div>
