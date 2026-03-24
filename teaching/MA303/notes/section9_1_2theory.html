@@ -1,0 +1,494 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MA 16500 Notes | Hanh Vo</title>
+
+    <link rel="stylesheet" href="../../../style.css" />
+    <link rel="stylesheet" href="../../lectures.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <nav class="top-nav">
+        <div class="nav-container">
+            <a href="../../../index.html" class="nav-logo">Hanh Vo</a>
+            <div class="nav-links">
+                <a href="../../../index.html">Home</a>
+                <a href="../../../research.html">Research</a>
+                <a href="../../../teaching.html" class="active">Teaching</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="notes-container">
+        <header>
+            <a href="../index.html" class="section-title-link">
+                <span class="section-title">MA 30300: Differential Equations</span>
+            </a>
+            <h1>9.1-9.2. Fourier Series (theory)</h1>
+
+            <button class="print-btn" onclick="window.print()">
+                <i class="fa-solid fa-print"></i> Print
+            </button>
+        </header>
+
+        <main id="main-content">
+
+            <section class="goal">
+                <p>
+                    <strong>Goal:</strong>
+                    Understand how a periodic function can be written as a sum of sine and cosine functions,
+                    and where the Fourier coefficient formulas come from.
+                </p>
+            </section>
+
+            <nav class="toc-container" aria-label="Table of Contents">
+                <h2>Contents</h2>
+                <ul>
+                    <li><a href="#section1">1. Fourier Series of a Periodic Function</a></li>
+                    <li><a href="#even-odd-functions">2. Even and Odd Functions</a></li>
+                    <li><a href="#convergence-theorem">3. Convergence Theorem </a></li>
+                    <li><a href="#identities">4. Example: Use Fourier Series to Show Identities</a></li>
+                </ul>
+            </nav>
+
+            <hr style="margin: 40px 0; border-top: 1px solid var(--border-light);" />
+
+            <!-- SECTION 1 -->
+            <section id="section1">
+                <h2 class="sub-section-label">1. Fourier Series of a \(2L\)-Periodic Function</h2>
+
+                <!-- MOTIVATION -->
+                <h3>Motivation: Why Fourier Series?</h3>
+                <p>
+                    Many functions in science and engineering are <strong>periodic</strong>, meaning:
+                    \[
+                    f(x + 2L) = f(x)
+                    \]
+                </p>
+
+                <p>
+                    The key idea of Fourier series is:
+                    <strong>Any reasonable periodic function can be built from sine and cosine waves.</strong>
+                </p>
+
+
+
+
+                <!-- DEFINITION -->
+                <div class="theorem">
+
+                    <h3>Fourier Series Formula</h3>
+
+                    <div class="math-scroll">
+                        \[
+                        f(x) \sim \frac{a_0}{2}
+                        + \sum_{n=1}^{\infty}
+                        \left[
+                        a_n \cos\left(\frac{n\pi x}{L}\right)
+                        +
+                        b_n \sin\left(\frac{n\pi x}{L}\right)
+                        \right]
+                        \]
+                    </div>
+
+                    <p>
+                        This represents \( f(x) \) as an infinite sum of waves with different frequencies.
+                    </p>
+
+
+                    <!-- Fourier Coefficients -->
+
+                    <div class="math-scroll">
+                        \[
+                        a_0 = \frac{1}{L} \int_{-L}^{L} f(x)\,dx
+                        \]
+                    </div>
+
+                    <div class="math-scroll">
+                        \[
+                        a_n = \frac{1}{L} \int_{-L}^{L}
+                        f(x)\cos\left(\frac{n\pi x}{L}\right)\,dx
+                        \]
+                    </div>
+
+                    <div class="math-scroll">
+                        \[
+                        b_n = \frac{1}{L} \int_{-L}^{L}
+                        f(x)\sin\left(\frac{n\pi x}{L}\right)\,dx
+                        \]
+                    </div>
+
+                    <p>
+                        These integrals measure how much of each sine and cosine wave is present in \( f(x) \).
+                    </p>
+                </div>
+
+
+                <!-- Interpretation -->
+
+                <h3>Interpretation</h3>
+                <div class="example">
+                    <p>
+                        Each term in the Fourier series represents a wave:
+                    </p>
+                    <ul>
+                        <li>Low \( n \): smooth, slow oscillations</li>
+                        <li>High \( n \): rapid oscillations</li>
+                    </ul>
+
+                    <p>
+                        Adding more terms improves the approximation of \( f(x) \).
+                    </p>
+                </div>
+
+                <!-- new here -->
+
+
+
+                <h3>Where Do These Formulas Come From?</h3>
+
+                <p>
+                    The Fourier series formula for a \(2L\)-periodic function comes from two key ideas:
+                    <strong>periodicity</strong> and <strong>orthogonality</strong> of sine and cosine functions.
+                </p>
+
+                <!-- PART 1 -->
+                <div class="solution">
+                    <p><strong>1. Why period \(2L\)?</strong></p>
+
+                    <p>
+                        If a function satisfies
+                    </p>
+
+                    <div class="math-scroll">
+                        \[
+                        f(x + 2L) = f(x),
+                        \]
+                    </div>
+
+                    <p>
+                        then its building blocks should also have the same period.
+                    </p>
+
+                    <p>
+                        The functions
+                    </p>
+
+                    <div class="math-scroll">
+                        \[
+                        \cos\left(\frac{n\pi x}{L}\right),
+                        \quad
+                        \sin\left(\frac{n\pi x}{L}\right)
+                        \]
+                    </div>
+
+                    <p>have period \(2L\), because:</p>
+
+                    <div class="math-scroll">
+                        \[
+                        \cos\left(\frac{n\pi(x+2L)}{L}\right)
+                        =
+                        \cos\left(\frac{n\pi x}{L} + 2n\pi\right)
+                        =
+                        \cos\left(\frac{n\pi x}{L}\right).
+                        \]
+                    </div>
+
+                    <p>
+                        So these are the natural “building blocks” for \(2L\)-periodic functions.
+                    </p>
+
+                </div>
+
+                <!-- PART 2 -->
+                <div class="solution">
+                    <p><strong>2. Orthogonality and Length of Sine and Cosine Functions (Key Property)</strong></p>
+
+
+
+                    <p>
+                        The functions
+                        <strong>\( \{ 1, \cos(\frac{n\pi x}{L}), \sin(\frac{n\pi x}{L}) \} \)</strong>
+                        form a <strong>pairwise orthogonal set</strong> on the interval \( [-L, L] \).
+                    </p>
+
+                    <p><strong>Orthogonality relations:</strong></p>
+
+                    <div class="math-scroll">
+                        \[
+                        \int_{-L}^{L} \cos\left(\frac{n\pi x}{L}\right) \cos\left(\frac{m\pi x}{L}\right) dx = 0,
+                        \quad n \ne m
+                        \]
+                    </div>
+
+                    <div class="math-scroll">
+                        \[
+                        \int_{-L}^{L} \sin\left(\frac{n\pi x}{L}\right) \sin\left(\frac{m\pi x}{L}\right) dx = 0,
+                        \quad n \ne m
+                        \]
+                    </div>
+
+                    <div class="math-scroll">
+                        \[
+                        \int_{-L}^{L} \sin\left(\frac{n\pi x}{L}\right) \cos\left(\frac{m\pi x}{L}\right) dx = 0
+                        \]
+                    </div>
+
+                    <p><strong>Norms (lengths) of the functions:</strong></p>
+
+                    <div class="math-scroll">
+                        \[
+                        \int_{-L}^{L} \cos^2\left(\frac{n\pi x}{L}\right) dx = L, \quad
+                        \int_{-L}^{L} \sin^2\left(\frac{n\pi x}{L}\right) dx = L, \quad
+                        \int_{-L}^{L} 1^2 dx = 2L
+                        \]
+                    </div>
+
+
+                </div>
+
+
+                <!-- PART 3 -->
+                <div class="solution">
+                    <p><strong>3. Extracting Coefficients (Core Idea)</strong></p>
+
+                    <p>
+                        Multiply both sides of the Fourier series by
+                        \( \cos\left(\frac{m\pi x}{L}\right) \)
+                        and integrate over \( [-L, L] \).
+                    </p>
+
+                    <p>
+                        By orthogonality, almost all terms vanish, leaving:
+                    </p>
+
+                    <div class="math-scroll">
+                        \[
+                        \int_{-L}^{L}
+                        f(x)\cos\left(\frac{m\pi x}{L}\right)\,dx
+                        =
+                        a_m \cdot L
+                        \]
+                    </div>
+
+                    <p>So we obtain:</p>
+
+                    <div class="math-scroll">
+                        \[
+                        a_m =
+                        \frac{1}{L}
+                        \int_{-L}^{L}
+                        f(x)\cos\left(\frac{m\pi x}{L}\right)\,dx
+                        \]
+                    </div>
+
+                    <p>Similarly:</p>
+
+                    <div class="math-scroll">
+                        \[
+                        b_m =
+                        \frac{1}{L}
+                        \int_{-L}^{L}
+                        f(x)\sin\left(\frac{m\pi x}{L}\right)\,dx
+                        \]
+                    </div>
+
+                    <div class="math-scroll">
+                        \[
+                        a_0 =
+                        \frac{1}{L}
+                        \int_{-L}^{L} f(x)\,dx
+                        \]
+                    </div>
+
+                    <!-- SUMMARY -->
+                    <p>
+                        <strong>Conclusion:</strong>
+                        The Fourier coefficients come from projecting \( f(x) \) onto sine and cosine functions,
+                        just like taking dot products in linear algebra.
+                    </p>
+                </div>
+
+
+            </section>
+
+            <!-- SECTION 2 -->
+            <section id="even-odd-functions">
+                <h2 class="sub-section-label">2. Important Observations: Even and Odd Functions</h2>
+
+                <div class="important">
+                    <p>
+                        If \( f(x) \) is even:
+                    </p>
+                    <div class="math-scroll">
+                        \[
+                        b_n = 0
+                        \]
+                    </div>
+
+                    <p>
+                        If \( f(x) \) is odd:
+                    </p>
+                    <div class="math-scroll">
+                        \[
+                        a_n = 0
+                        \]
+                    </div>
+
+                    <p>
+                        This simplifies calculations significantly.
+                    </p>
+                </div>
+
+
+            </section>
+
+            <!-- done section 2 -->
+
+
+            <!-- Convergence Theorem -->
+            <section id="convergence-theorem">
+                <h2 class="sub-section-label">3. Convergence Theorem </h2>
+
+                <div class="theorem">
+
+                    <p>If \( f(x) \) is periodic and piecewise smooth, its Fourier series converges to:</p>
+                    <ol>
+                        <li>
+                            <div class="math-scroll">\( f(x) \) at points where \( f \) is continuous.</div>
+                        </li>
+                        <li> and at a point of discontinuity \( x_0\):
+                            <div class="math-scroll">
+                                \[ \frac{f(x_0^+) + f(x_0^-)}{2}. \]
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+
+
+                <!-- SECTION 4 -->
+                <section id="identities">
+
+                    <h2 class="sub-section-label">4. Example: Use Fourier Series to Show Identities</h2>
+
+                    <div class="example" id="ex4-4">
+                        <div class="solution">
+                            <h3>Example 4.4</h3>
+                            <p>
+                                Let \( f(x) = |x| \) defined on \( (-\pi, \pi) \) and extended periodically with period
+                                \(
+                                2\pi
+                                \).
+                                Use its Fourier series to compute the sum:
+                            </p>
+                            <p>
+                                \[
+                                \sum_{n=1,3,5,\dots}^{\infty} \frac{1}{n^2}.
+                                \]
+                            </p>
+                        </div>
+
+                        <p><strong>Step 1: Recognize function type</strong></p>
+                        <p>
+                            \(f(x) = |x|\) is even, so its Fourier series contains only cosines:
+                        </p>
+                        <div class="math-scroll">
+                            \[
+                            f(x) \sim \frac{a_0}{2} + \sum_{n=1}^{\infty} a_n \cos(nx),
+                            \quad
+                            a_0 = \frac{1}{\pi} \int_{-\pi}^{\pi} |x| dx,
+                            \quad
+                            a_n = \frac{1}{\pi} \int_{-\pi}^{\pi} |x| \cos(nx) dx
+                            \]
+                        </div>
+
+                        <p><strong>Step 2: Compute \(a_0\)</strong></p>
+                        <div class="math-scroll">
+                            \[
+                            a_0 = \frac{1}{\pi} \left( \int_{-\pi}^{0} -x dx + \int_{0}^{\pi} x dx \right) =
+                            \frac{1}{\pi}
+                            (\frac{\pi^2}{2} + \frac{\pi^2}{2}) = \pi
+                            \]
+                        </div>
+
+                        <p><strong>Step 3: Compute \(a_n\)</strong></p>
+                        <p>Use symmetry: \(|x|\) is even, so double the integral from 0 to π:</p>
+                        <div class="math-scroll">
+                            \[
+                            a_n = \frac{2}{\pi} \int_0^\pi x \cos(nx) dx
+                            \]
+                        </div>
+                        <p>Integration by parts:</p>
+                        <div class="math-scroll">
+                            \[
+                            \int_0^\pi x \cos(nx) dx = \frac{x \sin(nx)}{n} \Big|_0^\pi - \frac{1}{n} \int_0^\pi
+                            \sin(nx) dx = -
+                            \frac{1 - (-1)^n}{n^2}
+                            \]
+                        </div>
+                        <div class="math-scroll">
+                            \[
+                            a_n = \frac{2}{\pi} \cdot \left(- \frac{1 - (-1)^n}{n^2}\right) = -\frac{2}{\pi} \cdot
+                            \frac{1 -
+                            (-1)^n}{n^2}
+                            \]
+                        </div>
+
+                        <p><strong>Step 4: Simplify for odd \(n\)</strong></p>
+                        <p>
+                            For odd \(n\), \((-1)^n = -1\), so:
+                        </p>
+                        <div class="math-scroll">
+                            \[
+                            a_n = -\frac{4}{\pi n^2}, \quad n = 1,3,5,\dots
+                            \]
+                        </div>
+
+                        <p><strong>Step 5: Evaluate series at \(x = 0\)</strong></p>
+                        <p>Fourier series at \(x=0\):</p>
+                        <div class="math-scroll">
+                            \[
+                            f(0) = 0 = \frac{a_0}{2} + \sum_{n=1,3,5,\dots} a_n \cos(0) = \frac{\pi}{2} +
+                            \sum_{n=1,3,5,\dots}
+                            \left(-\frac{4}{\pi n^2}\right)
+                            \]
+                        </div>
+
+                        <p><strong>Step 6: Solve for the sum</strong></p>
+                        <div class="math-scroll">
+                            \[
+                            0 = \frac{\pi}{2} - \frac{4}{\pi} \sum_{n=1,3,5,\dots}^{\infty} \frac{1}{n^2}
+                            \quad \Rightarrow \quad
+                            \sum_{n=1,3,5,\dots}^{\infty} \frac{1}{n^2} = \frac{\pi^2}{8}
+                            \]
+                        </div>
+
+                        <p><strong>Answer:</strong> </p>
+                        <div class="math-scroll">
+                            \[
+                            \boxed{\sum_{n=1,3,5,\dots}^{\infty} \frac{1}{n^2} = \frac{\pi^2}{8}}
+                            \]
+                        </div>
+                    </div>
+                </section>
+
+
+        </main>
+    </div>
+
+    <footer class="footer-signature">
+        <p>© 2026 Hanh Vo • Department of Mathematics • Purdue University</p>
+    </footer>
+
+</body>
+
+</html>

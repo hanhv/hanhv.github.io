@@ -250,3 +250,14 @@ table.data-table th {
     border: 3px solid var(--purdue-gold);
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
+
+
+.accessibility-report {
+    margin-top: 30px;
+    font-size: 0.9rem; 
+    color: #555;
+  }
+  .accessibility-report a {
+    color: #0066cc;
+    text-decoration: underline;
+  }
