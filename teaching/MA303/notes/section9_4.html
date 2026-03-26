@@ -42,7 +42,7 @@
             <button class="print-btn" onclick="window.print()">
                 <i class="fa-solid fa-print"></i> Print
             </button>
-            
+
         </header>
 
         <main id="main-content">
@@ -356,13 +356,81 @@
 
             <section id="case2">
                 <h2 class="sub-section-label">2. Case 2: Damped Forced Motion (\(c > 0\))</h2>
-                <div class="theorem">
-                    <p>For \(mx'' + cx' + kx = F(t)\), the response to \(F_0 \sin(\omega t)\) is \(x(t) = C \sin(\omega
-                        t - \alpha)\):</p>
-                    <div style="overflow-x: auto; white-space: nowrap; padding: 10px 0;">
-                        \[ C = \frac{F_0}{\sqrt{(k - m\omega^2)^2 + (c\omega)^2}}, \quad \tan \alpha = \frac{c\omega}{k
-                        - m\omega^2} \] </div>
+                <div class="math-scroll">
+                    \[
+                    mx'' + cx' + kx = F(t)
+                    \]
                 </div>
+
+                <p><strong>Steady Periodic Solution \( x_{sp}(t) \)</strong></p>
+
+
+                Denote
+                <div class="math-scroll">
+                    \[
+                    \omega_n = \frac{n\pi}{L}
+                    \]
+                </div>
+                <div class="important" role="region" aria-label="Formula Reference">
+
+                    <p><strong>1. Even Force</strong></p>
+
+                    <div class="math-scroll">
+                        \[
+                        F(t) = \frac{a_0}{2} + \sum_{n=1}^{\infty} a_n \cos(\omega_n t)
+                        \]
+                    </div>
+
+                    <div class="math-scroll">
+                        \[
+                        x_{sp}(t) = \frac{a_0}{2k} + \sum_{n=1}^{\infty}
+                        C_n \cos(\omega_n t - \alpha_n)
+                        \]
+                    </div>
+
+                    where
+
+                    <div class="math-scroll">
+                        \[
+                        C_n = \dfrac{a_n}{\sqrt{(k - m\omega_n^2)^2 + (c\omega_n)^2}}.
+                        \]
+                    </div>
+
+
+
+                    <p><strong>2. Odd Force</strong></p>
+                    <div class="math-scroll">
+                        \[
+                        F(t) = \sum b_n \sin(\omega_n t)
+                        \]
+                    </div>
+
+                    <div class="math-scroll">\[
+                        x_{sp}(t) = \sum_{n=1}^{\infty}
+                        C_n \sin(\omega_n t - \alpha_n)
+                        \]</div>
+
+                    where
+
+                    <div class="math-scroll">
+                        \[
+                        C_n = \dfrac{b_n}{\sqrt{(k - m\omega_n^2)^2 + (c\omega_n)^2}}.
+                        \]
+                    </div>
+
+                    In both cases, \( \alpha_n \) represents the phase lag of the response relative to the driving force
+
+
+                    <div class="math-scroll">
+                        \[
+                        \tan(\alpha_n) =  \left( \frac{c\omega_n}{k - m\omega_n^2} \right), \quad 0 \le \alpha_n \le \pi
+                        \]
+                    </div>
+
+
+                </div>
+
+                 <!-- done formula -->
 
                 <div class="example" id="ex3">
                     <h3>Example 2.1: Damped Steady Periodic Solution</h3>
@@ -374,41 +442,32 @@
                         influence of the external force \(F(t)\),
                         where \(F(t) = 3\) if \(0 < t < \pi\) and \(F(t)=-3\) if \(\pi < t < 2\pi\). </p>
 
-                            <div class="important" role="region" aria-label="Formula Reference">
-                                <p><strong>Given the formulas:</strong></p>
-                                <p>The steady periodic motion is defined by the series:</p>
-                                <p>
-                                <div style="overflow-x: auto; white-space: nowrap; padding: 10px 0;">
-                                    \[x_{sp}(t) = \sum_{n=1}^\infty \frac{B_n}{\sqrt{(k - m n^2)^2 + (c n)^2}} \sin(n t
-                                    - \alpha_n)\]
-                                </div>
-                                <p>where \(\alpha_n\) is the angle measured using the formula:</p>
-                                \[\alpha_n = \tan^{-1} \left( \frac{c n}{k - m n^2} \right), \quad 0 \le \alpha_n \le
-                                \pi\]
-                            </div>
 
-                            <div class="solution" spellcheck="false">
+
+                            <div class="solution">
                                 <div style="margin-bottom: 25px;">
-                                    <h3>1. Determine Forcing Coefficients \(B_n\)</h3>
+                                    <h3>1. Determine Forcing Coefficients </h3>
                                     <p>The forcing function \(F(t)\) is an odd square wave with amplitude \(A = 3\) and
                                         period \(T = 2\pi\) (\(L = \pi\)). The Fourier sine coefficients are derived as
-                                        follows:</p>
+                                        follows:
+                                    </p>
                                     <p>
                                     <div style="overflow-x: auto; white-space: nowrap; padding: 10px 0;">
-                                        \[ B_n = \frac{2}{\pi} \int_{0}^{\pi} 3 \sin(nt) \, dt = \frac{6}{n\pi} (1 -
-                                        \cos(n\pi)) \] </div>
+                                        \[ b_n = \frac{2}{\pi} \int_{0}^{\pi} 3 \sin(nt) \, dt = \frac{6}{n\pi} (1 -
+                                        \cos(n\pi)) \]
+                                    </div>
                     </p>
                     <ul>
                         <li>
                             <strong>If \(n\) is even:</strong>
                             <div style="overflow-x: auto; padding: 10px 0;">
-                                \[ \cos(n\pi) = 1 \implies B_n = \frac{6}{n\pi}(1 - 1) = 0 \]
+                                \[ \cos(n\pi) = 1 \implies b_n = \frac{6}{n\pi}(1 - 1) = 0 \]
                             </div>
                         </li>
                         <li>
                             <strong>If \(n\) is odd:</strong>
                             <div style="overflow-x: auto; padding: 10px 0;">
-                                \[ \cos(n\pi) = -1 \implies B_n = \frac{6}{n\pi}(1 - (-1)) = \frac{12}{n\pi} \]
+                                \[ \cos(n\pi) = -1 \implies b_n = \frac{6}{n\pi}(1 - (-1)) = \frac{12}{n\pi} \]
                             </div>
                         </li>
                     </ul>
@@ -417,25 +476,11 @@
 
 
 
-                <div style="margin-bottom: 25px;">
-                    <h3>2. Physical System Parameters</h3>
-
-
-
-                    <p>
-                    <div style="overflow-x: auto; white-space: nowrap; padding: 10px 0;">
-                        \[ C_n = \frac{B_n}{\sqrt{(245 - 5n^2)^2 + (0.4n)^2}}, \quad \alpha_n =
-                        \tan^{-1} \left( \frac{0.4n}{245 - 5n^2}\right), \quad 0 \le \alpha_n \le \pi
-                        \]
-                    </div>
-                    </p>
-                </div>
-
-                <h3>3. Numerical Results</h3>
+                <h3>2. Numerical Results</h3>
                 <table border="1" style="width:100%; text-align:center; border-collapse: collapse;">
                     <tr style="background-color: #f2f2f2;">
                         <th style="padding: 8px;">\(n\)</th>
-                        <th style="padding: 8px;">Forcing (\(B_n\))</th>
+                        <th style="padding: 8px;">Forcing (\(b_n\))</th>
                         <th style="padding: 8px;">Amplitude (\(C_n\))</th>
                         <th style="padding: 8px;">Phase (\(\alpha_n\))</th>
                     </tr>
@@ -473,7 +518,7 @@
 
 
                 <div style="margin-top: 25px;">
-                    <h3>4. Final Series Expansion</h3>
+                    <h3>3. Final Series Expansion</h3>
                     <p>The first four nonzero terms of the steady periodic solution are:</p>
 
                     <div style="overflow-x: auto; white-space: nowrap; padding: 10px 0;">
