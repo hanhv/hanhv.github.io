@@ -67,9 +67,12 @@
                     <li><a href="#ex10.2">Example 10.2: Linear Approximation of \( e^x \)</a></li>
                     <li><a href="#ex10.3">Example 10.3: Linear Approximation of \( \sqrt[3]{x} \)</a></li>
                     <li><a href="#ex10.4">Example 10.4: Linear Approximation of \( \sin x \)</a></li>
+                    <li><a href="#differentials">Differentials</a></li>
                 </ul>
             </nav>
 
+
+            <h2 class="sub-section-label">1. Linear Approximation</h2> 
             <!-- Example 10.1 -->
             <section id="ex10.1" class="example">
                 <h3>Example Problem 10.1: Linear Approximation of \(\sqrt{x}\)</h3>
@@ -103,13 +106,14 @@
                 <div class="solution">
                     <div class="math-scroll">
                         \( f'(x) = e^x, \quad f(0) = 1, \quad f'(0) = 1 \)
-                    </div>
+                    </div> 
+                    Linear approximation formula:
                     <div class="math-scroll">
-                        Linear approximation formula:
                         \[ L(x) = 1 + 1 \cdot (x-0) = 1 + x \]
                     </div>
+                    
+                    Approximation of \(e^{-0.05}\):
                     <div class="math-scroll">
-                        Approximation of \(e^{-0.05}\):
                         \[ e^{-0.05} \approx L(-0.05) = 1 - 0.05 = 0.95 \]
                     </div>
                 </div>
@@ -153,10 +157,28 @@
                     </div>
                     <div class="math-scroll">
                         Approximation of \(\sin(46^\circ)\):
-                        \[ \sin(46^\circ) \approx L(\pi/4 + \pi/180) = 0.7071 + 0.0123 \approx 0.719 \]
+                        \[ \sin(46^\circ) \approx L(\pi/4 + \pi/180) = \frac{\sqrt{2}}{2} + \frac{\pi\sqrt{2}}{360} \]
                     </div>
                 </div>
             </section>
+
+            <!--  -->
+            <h2 class="sub-section-label">2. Differentials</h2> 
+            <!-- differentials -->
+            <section id="differentials">
+
+                <div class="important" role="region" aria-label="Differentials"> 
+                    <p>
+                        Let \(f\) be differentiable on an interval containing \(x\). 
+                        A small change in \(x\) is denoted by the differential \(dx\). 
+                        The corresponding change in \(f\) is approximated by the differential \(dy\).
+                    </p>
+                    <div class="math-scroll">
+                        \[
+                        \Delta y = f(x + dx) - f(x) \approx dy = f'(x) \, dx
+                        \]
+                    </div>
+                </div>
 
         </main>
     </div>

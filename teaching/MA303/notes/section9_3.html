@@ -52,6 +52,7 @@
                     <li><a href="#section2">2. Fourier Sine Series</a></li>
                     <li><a href="#section3">3. Fourier Cosine Series</a></li>
                     <li><a href="#ode-boundary-examples">4. Boundary Value Problems</a></li> 
+                    <li><a href="#worked">5. Worked examples</a></li> 
                 </ul>
             </nav> 
 
@@ -381,6 +382,143 @@
                     </div> 
                 </div>
             </section>
+
+            <!-- worked examples -->
+            <!-- Part 5: worked examples -->
+            <section id="worked">
+                <h2 class="sub-section-label">5. Worked examples</h2>
+
+
+            <div class="example">
+                <div class="solution">
+                    <p> 
+                        Consider the boundary value problem
+                    </p>
+
+                    <div class="math-scroll">
+                        \[
+                        x'' + 2x = t, \quad x'(0) = x'(2) = 0.
+                        \]
+                    </div>
+
+                    <ol>
+                        <li>
+                            Let \(f(t) = t\) on \(0 \le t \le 2\). 
+                            In order to solve the boundary value problem, choose an appropriate extension of \(f(t)\) (even or odd) based on the boundary conditions. Determine whether the resulting Fourier series will involve sine or cosine terms, and compute the corresponding Fourier series.
+                        </li>
+                        <li>Find a formal Fourier series solution of the the boundary value problem.</li>
+                    </ol>
+                </div>
+
+            
+                <p><strong>Solution:</strong></p>
+
+                <p><strong>Part 1: </strong></p>
+                <p>
+                    We are given \(f(t) = t\) on \(0 \le t \le 2\) with boundary conditions \(x'(0)=x'(2)=0\).  
+                    Since the derivative vanishes at the endpoints, we use an <strong>even extension</strong> of \(f(t)\) to \([-2,2]\), which leads to a <strong>cosine Fourier series</strong>:
+                </p>
+
+                <div class="math-scroll">
+                    \[
+                    f(t) \sim \frac{a_0}{2} + \sum_{n=1}^{\infty} a_n \cos\left(\frac{n \pi t}{2}\right)
+                    \]
+                </div>
+
+                <p>with coefficients:</p>
+                <div class="math-scroll">
+                    \[
+                    a_0 = \frac{2}{L} \int_0^L f(t) \, dt = \frac{2}{2} \int_0^2 t \, dt = 1,  
+                    \]
+                </div>
+
+                <div class="math-scroll">
+                    \[ 
+                    a_n 
+                    = \frac{2}{L} \int_0^L f(t) \cos\left(\frac{n \pi t}{L}\right) dt 
+                    = \int_0^2 t \cos\left(\frac{n \pi t}{2}\right) dt
+                    \]
+                </div>
+
+                <p>Compute \(a_n\) using integration by parts:</p>
+                <div class="math-scroll">
+                    \[
+                    \int_0^2 t \cos\left(\frac{n \pi t}{2}\right) dt
+                    = \frac{2 t}{n \pi} \sin\left(\frac{n \pi t}{2}\right)\Big|_0^2
+                    + \frac{4}{(n\pi)^2} \cos\left(\frac{n \pi t}{2}\right)\Big|_0^2
+                    = \frac{4}{(n \pi)^2} \left[(-1)^n - 1\right].
+                    \]
+                </div>
+
+                <div class="math-scroll">
+                    \[
+                    a_n = 
+                    \begin{cases}
+                    -\dfrac{8}{(n \pi)^2}, & n \text{ odd} \\
+                    0, & n \text{ even}
+                    \end{cases}
+                    \]
+                </div>
+
+                <p>Hence, the Fourier cosine series is:</p>
+                <div class="math-scroll">
+                    \[
+                    f(t) = t \sim 1 - \sum_{n \text{ odd}} \frac{8}{(n \pi)^2} \cos\left(\frac{n \pi t}{2}\right)
+                    \]
+                </div>
+ 
+                <p><strong>Part 2: </strong></p>
+                
+                <p>Assume a solution in the form of a Fourier cosine series. Since the even terms (for \(n \ge 2\)) of the forcing function are zero, we only need to include the constant term and the odd harmonics:</p>
+                <div class="math-scroll">
+                    \[
+                    x(t) = \frac{X_0}{2} + \sum_{n \text{ odd}} X_n \cos\left(\frac{n \pi t}{2}\right)
+                    \]
+                </div>
+
+                <p>The second derivative of this assumed solution is:</p>
+                <div class="math-scroll">
+                    \[
+                    x''(t) = \sum_{n \text{ odd}} -X_n \left(\frac{n \pi}{2}\right)^2 \cos\left(\frac{n \pi t}{2}\right)
+                    \]
+                </div>
+
+                <p>Substituting \(x(t)\) and \(x''(t)\) into the differential equation \(x'' + 2x = f(t)\):</p>
+                <div class="math-scroll">
+                    \[
+                    X_0 + \sum_{n \text{ odd}} \left[ 2 - \left(\frac{n\pi}{2}\right)^2 \right] X_n \cos\left(\frac{n\pi t}{2}\right) = 1 - \sum_{n \text{ odd}} \frac{8}{(n \pi)^2} \cos\left(\frac{n \pi t}{2}\right)
+                    \]
+                </div>
+
+                <p>By matching the constant term and the coefficients for each odd \(n\):</p>
+                
+                <p><strong>Constant term (\(n=0\)):</strong></p>
+                <div class="math-scroll">
+                    \[
+                    X_0 = 1
+                    \]
+                </div>
+
+                <p><strong>Odd terms (\(n = 1, 3, 5, \dots\)):</strong></p>
+                <div class="math-scroll">
+                    \[
+                    \left[ 2 - \frac{n^2 \pi^2}{4} \right] X_n = -\frac{8}{n^2 \pi^2} 
+                    \]
+                </div>
+                Since \( n \) is an integer, the term \( 2 - \dfrac{n^2 \pi^2}{4} \) is never zero (as \( n^2 \pi^2 = 8 \) has no integer solutions). Thus, we can safely divide:
+                <div class="math-scroll">
+                    \[
+                    X_n = \frac{32}{n^2 \pi^2 (n^2 \pi^2 - 8)}
+                    \]
+                </div>
+
+                <p>The final formal Fourier series solution is:</p>
+                <div class="math-scroll">
+                    \[
+                    x(t) = \frac{1}{2} + \sum_{n \text{ odd}} \frac{32}{n^2 \pi^2 (n^2 \pi^2 - 8)} \cos\left(\frac{n \pi t}{2}\right).
+                    \]
+                </div>
+            </div> 
 
         </main>
     </div>
