@@ -203,24 +203,38 @@
                     
 
                     <p>
-                        Consider the undamped system \(m x''(t) + k x(t) = F(t)\), where \(F(t)\) is a \(2L\)-periodic forcing function. 
-                        The Fourier series for the force is:
+                        Consider the undamped system \(m x''(t) + k x(t) = F(t)\), where \(F(t)\) is a \(2L\)-periodic forcing function.  
+                    </p>
+                    
+
+                    
+
+                    <div class="theorem">
+                        <p><strong>Pure Resonance:</strong> Occurs if there exists an integer \(n\) such that the driving frequency \(\omega_n = \dfrac{n\pi}{L}\) equals the natural frequency \(\omega_0 = \sqrt{k/m}\), provided the corresponding Fourier coefficient is non-zero.</p>
+                    </div>
+
+                    <p>
+                        To simplify our analysis, we consider an <strong>odd</strong> \(2L\)-periodic forcing function \(F(t)\). 
+                        Its Fourier series consists only of sine terms:
                     </p>
 
                     <div class="math-scroll">
                         \[
-                        F(t) = \frac{a_0}{2} + \sum_{n=1}^{\infty} \left( a_n \cos\left(\frac{n\pi t}{L}\right) + b_n \sin\left(\frac{n\pi t}{L}\right) \right)
+                        F(t) = \sum_{n=1}^{\infty} b_n \sin\left(\frac{n\pi t}{L}\right)
                         \]
                     </div>
 
-                    <div class="theorem">
-                        <p><strong>Pure Resonance:</strong> Occurs if there exists an integer \(n\) such that the driving frequency \(\omega_n = \frac{n\pi}{L}\) equals the natural frequency \(\omega_0 = \sqrt{k/m}\), provided the corresponding Fourier coefficient is non-zero.</p>
+                    <p>
+                        If resonance occurs at the \(N\)-th harmonic, meaning that 
+                    </p>
+
+                    <div class="math-scroll">
+                        \[
+                        w_N = \frac{N\pi}{L} = \omega_0
+                        \]
                     </div>
 
-                    <p>
-                        If resonance occurs at the \(N\)-th harmonic, the solution for the resonant term depends on whether it matches a sine or cosine component. 
-                        For a sine forcing term \(b_N \sin(\omega_0 t)\), 
-                    </p>
+                    the equation
 
                     <div class="math-scroll">
                         \[
@@ -228,7 +242,7 @@
                         \]
                     </div>
 
-                    the resonant solution is:
+                    has the resonant solution 
                     <div class="math-scroll">
                         \[
                         x_{p, \text{res}}(t) = -\frac{b_N}{2 m \omega_0} t \cos(\omega_0 t)
