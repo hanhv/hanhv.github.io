@@ -42,7 +42,7 @@
 
         <main id="main-content">
             <section class="goal" aria-label="Learning Goals">
-                <p><strong>Goal:</strong> Understand odd/even extensions, Fourier sine/cosine series, and Dirichlet/Neumann boundary value problems.</p>
+                <p><strong>Goal:</strong> Understand odd/even extensions, Fourier sine/cosine series, and endpoint value problems.</p>
             </section>
 
             <nav class="toc-container" aria-label="Table of Contents">
@@ -51,7 +51,7 @@
                     <li><a href="#section1">1. Odd/Even Extensions</a></li>
                     <li><a href="#section2">2. Fourier Sine Series</a></li>
                     <li><a href="#section3">3. Fourier Cosine Series</a></li>
-                    <li><a href="#ode-boundary-examples">4. Boundary Value Problems</a></li> 
+                    <li><a href="#ode-endpoint-examples">4. Endpoint Value Problems</a></li> 
                     <li><a href="#worked">5. Worked examples</a></li> 
                 </ul>
             </nav> 
@@ -369,11 +369,11 @@
             </section>
 
             <!-- Part 4 -->
-            <!-- Part 4: Boundary Value Problems -->
-            <section id="ode-boundary-examples">
-                <h2 class="sub-section-label">4. Boundary Value Problems</h2>
+            <!-- Part 4: endpoint Value Problems -->
+            <section id="ode-endpoint-examples">
+                <h2 class="sub-section-label">4. Endpoint Value Problems</h2>
 
-                <p>Consider a linear boundary value problem:</p>
+                <p>Consider </p>
                 
                 <div class="math-scroll">
                     \[
@@ -384,7 +384,7 @@
                 with endpoint conditions. 
 
                 <div class="important" id="ex-fourier-1">
-                    <h3>Note: Check Boundary Conditions</h3> 
+                    <h3>Note: Check endpoint conditions</h3> 
                     <ul>
                         <li>\( x(0)=x(L)=0 \) (Dirichlet) → use a sine series</li>
                         <li>\( x'(0)=x'(L)=0 \) (Neumann) → use a cosine series</li>
@@ -392,7 +392,7 @@
                 </div> 
 
                 <!-- Dirichlet problems: x(0)=x(L)=0 -->
-                <h3>Dirichlet Boundary Conditions: \(x(0) = x(L) = 0\)</h3>
+                <h3>Dirichlet Conditions: \(x(0) = x(L) = 0\)</h3>
 
                 <div class="example" id="ex4-1">
                     <h3>Example 4.1</h3>
@@ -435,7 +435,7 @@
                 </div>
 
                 <!-- Neumann problems: x'(0)=x'(L)=0 -->
-                <h3>Neumann Boundary Conditions: \(x'(0) = x'(L) = 0\)</h3>
+                <h3>Neumann Conditions: \(x'(0) = x'(L) = 0\)</h3>
 
                 <div class="example" id="ex4-5">
                     <h3>Example 4.5</h3>
@@ -487,7 +487,7 @@
             <div class="example">
                 <div class="solution">
                     <p> 
-                        Consider the boundary value problem
+                        Consider 
                     </p>
 
                     <div class="math-scroll">
@@ -499,9 +499,9 @@
                     <ol>
                         <li>
                             Let \(f(t) = t\) on \(0 \le t \le 2\). 
-                            In order to solve the boundary value problem, choose an appropriate extension of \(f(t)\) (even or odd) based on the boundary conditions. Determine whether the resulting Fourier series will involve sine or cosine terms, and compute the corresponding Fourier series.
+                            In order to solve the endpoint value problem, choose an appropriate extension of \(f(t)\) (even or odd) based on the endpoint conditions. Determine whether the resulting Fourier series will involve sine or cosine terms, and compute the corresponding Fourier series.
                         </li>
-                        <li>Find a formal Fourier series solution of the the boundary value problem.</li>
+                        <li>Find a formal Fourier series solution of the the endpoint value problem.</li>
                     </ol>
                 </div>
 
@@ -510,7 +510,7 @@
 
                 <p><strong>Part 1: </strong></p>
                 <p>
-                    We are given \(f(t) = t\) on \(0 \le t \le 2\) with boundary conditions \(x'(0)=x'(2)=0\).  
+                    We are given \(f(t) = t\) on \(0 \le t \le 2\) with endpoint conditions \(x'(0)=x'(2)=0\).  
                     Since the derivative vanishes at the endpoints, we use an <strong>even extension</strong> of \(f(t)\) to \([-2,2]\), which leads to a <strong>cosine Fourier series</strong>:
                 </p>
 
