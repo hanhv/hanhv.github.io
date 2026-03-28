@@ -195,11 +195,51 @@
                                 </div>
                     </div>
 
+                    <!-- pure resonance pure resonance pure resonance pure resonance pure resonance -->
+ 
+                    <!-- pure resonance -->
+
                     <h3 id="resonance" style="color: #d9534f; margin-top: 30px;">1.3 Special Case: Pure Resonance</h3>
-                    <div class="theorem">
-                        <p><strong>Pure Resonance:</strong> Occurs if there exists an integer \(n\) such that the
-                            driving frequency \(\omega_n\) equals the natural frequency \(\omega_0 = \sqrt{k/m}\).</p>
+                    
+
+                    <p>
+                        Consider the undamped system \(m x''(t) + k x(t) = F(t)\), where \(F(t)\) is a \(2L\)-periodic forcing function. 
+                        The Fourier series for the force is:
+                    </p>
+
+                    <div class="math-scroll">
+                        \[
+                        F(t) = \frac{a_0}{2} + \sum_{n=1}^{\infty} \left( a_n \cos\left(\frac{n\pi t}{L}\right) + b_n \sin\left(\frac{n\pi t}{L}\right) \right)
+                        \]
                     </div>
+
+                    <div class="theorem">
+                        <p><strong>Pure Resonance:</strong> Occurs if there exists an integer \(n\) such that the driving frequency \(\omega_n = \frac{n\pi}{L}\) equals the natural frequency \(\omega_0 = \sqrt{k/m}\), provided the corresponding Fourier coefficient is non-zero.</p>
+                    </div>
+
+                    <p>
+                        If resonance occurs at the \(N\)-th harmonic, the solution for the resonant term depends on whether it matches a sine or cosine component. 
+                        For a sine forcing term \(b_N \sin(\omega_0 t)\), 
+                    </p>
+
+                    <div class="math-scroll">
+                        \[
+                        m x''(t) + k x(t) = b_N \sin(\omega_0 t)
+                        \]
+                    </div>
+
+                    the resonant solution is:
+                    <div class="math-scroll">
+                        \[
+                        x_{p, \text{res}}(t) = -\frac{b_N}{2 m \omega_0} t \cos(\omega_0 t)
+                        \]
+                    </div> 
+
+                    <p>
+                        The particular solution \(x_p(t)\) is the sum of the resonant term and the other terms for all other harmonics (for \(n\neq N\)).
+                    </p>
+  
+                    <!-- end pure resonance -->
 
                     <div class="example" id="ex-res1">
                         <h3>Example 1.4: Pure Resonance Check</h3>
