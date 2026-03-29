@@ -165,8 +165,8 @@ li {
 
 /* 5. TABLE OF CONTENTS (TOC) */
 .toc-container {
-  background: #f8f9fa;
-  padding: 1.5rem;
+  background: #f8f9fa; 
+  padding: 0rem 1.5rem; 
   margin-top: 2rem;
   margin-bottom: 2rem;
   border-radius: 8px;
