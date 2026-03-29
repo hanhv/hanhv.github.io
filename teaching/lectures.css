@@ -358,57 +358,37 @@ ul.mcq li strong {
 
 
 /* when print */
-
 @media print {
 
-  /* 1. SCALE EVERYTHING TOGETHER */
+  /* 1. BODY & FONT */
   body {
     font-family: "Times New Roman", serif !important;
-    font-size: 10pt !important;   /* base text */
+    font-size: 10pt !important;
     line-height: 1.15 !important;
     margin: 0 !important;
-    display: block !important;
-
-    /* Shrink everything proportionally */
-    transform: scale(0.85);        /* shrink whole page 85% */
-    transform-origin: top left;
+    padding: 0 !important;
+    color: #000;
   }
 
-  /* 2. LAYOUT RESET */
-  .container,
-  .notes-container {
+  /* 2. CONTAINERS */
+  .notes-container,
+  .container {
     max-width: 100% !important;
     padding: 0 !important;
-    margin: 0 !important;
+    margin: 0 auto !important;
   }
 
-  /* 3. HEADINGS SHRINK PROPORTIONALLY */
- 
+  /* 3. HEADINGS */
+  h1 { font-size: 1.2rem !important; margin: 0.2em 0 !important; }
+  h2 { font-size: 1rem !important; margin: 0.2em 0 !important; }
+  h3 { font-size: 0.95rem !important; margin: 0.2em 0 !important; }
+  h4 { font-size: 0.9rem !important; margin: 0.2em 0 !important; }
+  .section-title { font-size: 0.75rem !important; margin: 0.2em 0 !important; }
+  .sub-section-label { font-size: 0.8rem !important; margin: 0.2em 0 !important; }
 
-  /* ===== HEADINGS (smaller font sizes) ===== */
-  h1 { font-size: 1.2rem !important; }  /* ~12pt */
-  h2 { font-size: 1rem !important; }    /* ~10pt */
-  h3 { font-size: 0.95rem !important; } /* ~9.5pt */
-  h4 { font-size: 0.9rem !important; }  /* ~9pt */
-
-  /* Section titles and sub-section labels */
-  .section-title { font-size: 0.75rem !important; }       /* ~7.5pt */
-  .sub-section-label { font-size: 0.8rem !important; }   /* ~8pt */
-
-  /* Tight spacing around headings */
-  h1, h2, h3, h4, .section-title, .sub-section-label {
-    margin: 0.2em 0 !important;
-  }
-
-  /* 4. TEXT, LISTS, PARAGRAPHS */
-  p, li, td, th {
-    margin: 0.15em 0 !important;
-  }
-
-  ol, ul {
-    margin: 0.2em 0 0.2em 1em !important;
-    padding-left: 1em !important;
-  }
+  /* 4. TEXT & LISTS */
+  p, li, td, th { margin: 0.15em 0 !important; }
+  ol, ul { margin: 0.2em 0 0.2em 1em !important; padding-left: 1em !important; }
 
   /* 5. BOXES */
   .goal,
@@ -431,36 +411,20 @@ ul.mcq li strong {
     margin: 5px 0 !important;
   }
 
-  th, td {
-    padding: 3px 4px !important;
-  }
+  th, td { padding: 3px 4px !important; }
 
-  .table-wrapper {
-    margin-bottom: 5px !important;
-  }
+  .table-wrapper { margin-bottom: 5px !important; }
 
   /* 7. MATH */
   .mjx-container,
-  mjx-container {
-    font-size: 1em !important;   /* Let math scale naturally with body */
-  }
-
-  mjx-container[display="true"] {
-    margin: 0.3em 0 !important;
-  }
-
-  .math-scroll {
-    margin: 2px 0 !important;
-    padding: 0 !important;
-  }
+  mjx-container { font-size: 1em !important; }
+  mjx-container[display="true"] { margin: 0.3em 0 !important; }
+  .math-scroll { margin: 2px 0 !important; padding: 0 !important; }
 
   /* 8. TOC */
-  .toc-container {
-    margin: 5px 0 !important;
-    padding: 3px 5px !important;
-  }
+  .toc-container { margin: 5px 0 !important; padding: 3px 5px !important; }
 
-  /* 9. REMOVE WEB UI */
+  /* 9. HIDE WEB UI ELEMENTS */
   .top-nav,
   .nav-container,
   .nav-links,
@@ -469,36 +433,16 @@ ul.mcq li strong {
     display: none !important;
   }
 
-  /* 10. IMAGES */
-
-    /* Shrink images proportionally with text */
-  /* Shrink all images, including ones with inline styles */
-  figure img {
-    max-width: 30% !important;  /* shrink image relative to page */
+  /* 10. IMAGES & FIGURES */
+  figure img,
+  .table-wrapper img {
+    max-width: 30% !important;
     height: auto !important;
     display: block;
-    margin: 0.3em auto !important;  /* center in print */
+    margin: 0.3em auto !important;
   }
 
-  /* Shrink figure caption text */
-  figure figcaption {
-    font-size: 0.85rem !important;
-    margin: 0.1em 0 !important;
-  }
-
-  /* Shrink figure spacing */
-  figure {
-    margin: 0.5em 0 !important;
-    text-align: center !important;
-  }
-
-  /* Optional: scale figures inside boxes/tables */
-  .table-wrapper img,
-  figure img {
-    max-width: 30% !important;  /* fit container */
-    height: auto !important;
-  }
-
-
+  figure figcaption { font-size: 0.85rem !important; margin: 0.1em 0 !important; }
+  figure { margin: 0.5em 0 !important; text-align: center !important; }
 
 }
