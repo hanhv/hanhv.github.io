@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MA 30300 Notes | Hanh Vo</title>
+    
+    <link rel="stylesheet" href="../../../style.css" />
+    <link rel="stylesheet" href="../../lectures.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<nav class="top-nav">
+    <div class="nav-container">
+        <a href="../../../index.html" class="nav-logo">Hanh Vo</a>
+        <div class="nav-links">
+            <a href="../../../index.html">Home</a>
+            <a href="../../../research.html">Research</a>
+            <a href="../../../teaching.html" class="active">Teaching</a>
+        </div>
+    </div>
+</nav>
+
+<div class="notes-container">
+<header>
+    <a href="../index.html" class="section-title-link">
+        <span class="section-title">MA 30300: Differential Equations</span>
+    </a>
+    <h1>9.5. Heat Equation on a Finite Rod</h1>
+</header>
+
+<main id="main-content">
+
+<section class="goal">
+    <p><strong>Goal:</strong> Understand solutions of the heat equation under different boundary conditions.</p>
+</section>
+
+<nav class="toc-container">
+    <h2>Contents</h2>
+    <ul>
+        <li><a href="#zero">1. Zero Endpoint Temperatures</a></li>
+        <li><a href="#insulated">2. Insulated Ends</a></li>
+        <li><a href="#questions">3. Practice Questions</a></li>
+    </ul>
+</nav>
+
+<hr>
+
+
+<!-- Section 1 -->
+<section id="zero">
+<h2 class="sub-section-label">1. Zero Endpoint Temperatures</h2>
+
+<div class="theorem">
+    <p><strong>Heated Rod (Dirichlet Conditions):</strong> A rod of length \(L\) has both ends held at zero temperature. The temperature distribution evolves according to the heat equation and can be expressed as a Fourier sine series.</p>
+</div>
+
+<p>
+    Let \(u(x,t)\) denote the <strong>temperature</strong> at position \(x\) and time \(t\). 
+    The constant \(k\) is the <strong>thermal diffusivity</strong> of the material, which measures how quickly heat spreads. 
+</p>
+
+
+
+<h4 style="margin-top: 25px;">Some Thermal Diffusivity Constants</h4>
+
+<div style="overflow-x: auto; width: 100%; margin-top: 10px;">
+  <table border="1"
+         style="width: 100%; text-align: center; border-collapse: collapse; margin-top: 10px;">
+    <thead style="background-color: #f2f2f2;">
+      <tr>
+        <th>Material</th>
+        <th>Thermal Diffusivity \(k\) (cm²/s)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Silver</td>
+        <td>1.70</td>
+      </tr>
+      <tr>
+        <td>Copper</td>
+        <td>1.15</td>
+      </tr>
+      <tr>
+        <td>Aluminum</td>
+        <td>0.85</td>
+      </tr>
+      <tr>
+        <td>Iron</td>
+        <td>0.15</td>
+      </tr>
+      <tr>
+        <td>Concrete</td>
+        <td>0.005</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="important">
+    <p><strong>Heat Equation:</strong></p>
+    <div class="math-scroll">
+    \[
+    u_t = k u_{xx}, \quad 0 < x < L,\; t > 0
+    \]
+    </div>
+
+    <p><strong>Endpoint Conditions:</strong></p>
+    <div class="math-scroll">
+    \[
+    u(0,t)=0, \quad u(L,t)=0, \quad \text{ for all } t>0
+    \]
+    </div>
+
+    <p><strong>Initial Condition:</strong></p>
+    <div class="math-scroll">
+    \[
+    u(x,0)=f(x), \quad 0 < x < L
+    \]
+    </div>
+
+    <p><strong>Solution:</strong></p>
+    <div class="math-scroll">
+    \[
+    u(x,t)=\sum_{n=1}^{\infty} b_n e^{-k (n\pi/L)^2 t}\sin\left(\frac{n\pi x}{L}\right)
+    \]
+    </div>
+
+    <p><strong>Coefficients:</strong></p>
+    <p>The coefficients \(b_n\) are the Fourier sine coefficients of the initial temperature distribution \(f(x)\):</p>
+    <div class="math-scroll">
+    \[
+    b_n=\frac{2}{L}\int_0^L f(x)\sin\left(\frac{n\pi x}{L}\right)\,dx
+    \]
+    </div>
+</div>
+
+
+<!-- Steady-State Temperature Note for Section 1 --> 
+    
+<p>
+    Note: As \(t \to \infty\), the temperature of the rod approaches 0: 
+</p>
+
+<div class="math-scroll"> 
+    \[
+    \displaystyle \lim_{t \to \infty} u(x,t) = 0
+    \]
+</div>
+
+<p>Physically, the rod cools down completely because heat escapes through the ends.</p>
+
+
+</section>
+
+
+
+<!-- Section 2 -->
+
+<!-- Section 2 -->
+<section id="insulated">
+<h2 class="sub-section-label">2. Insulated Endpoint Temperatures</h2>
+
+<div class="theorem">
+    <p><strong>Heated Rod (Neumann Conditions):</strong> A rod of length \(L\) has both ends insulated, meaning no heat can flow in or out at the endpoints. The temperature distribution evolves according to the heat equation and can be expressed as a Fourier cosine series (plus a constant term for the average temperature).</p>
+</div>
+ 
+
+<div class="important">
+    <p><strong>Heat Equation:</strong></p>
+    <div class="math-scroll">
+    \[
+    u_t = k u_{xx}, \quad 0 < x < L,\; t > 0
+    \]
+    </div>
+
+    <p><strong>Endpoint Conditions (Insulated):</strong></p>
+    <div class="math-scroll">
+    \[
+    u_x(0,t)=0, \quad u_x(L,t)=0, \quad \text{ for all } t>0
+    \]
+    </div>
+
+    <p><strong>Initial Condition:</strong></p>
+    <div class="math-scroll">
+    \[
+    u(x,0)=f(x), \quad 0 < x < L
+    \]
+    </div>
+
+    <p><strong>Solution:</strong></p>
+    <div class="math-scroll">
+    \[
+    u(x,t)= \frac{a_0}{2} + \sum_{n=1}^{\infty} a_n e^{-k (n\pi/L)^2 t}\cos\left(\frac{n\pi x}{L}\right)
+    \]
+    </div>
+
+    <p><strong>Coefficients:</strong></p>
+    <p>The coefficients are the Fourier cosine coefficients of the initial temperature distribution \(f(x)\):</p>
+    <div class="math-scroll">
+    \[
+    a_0 = \frac{2}{L}\int_0^L f(x)\,dx, \quad 
+    a_n = \frac{2}{L}\int_0^L f(x)\cos\left(\frac{n\pi x}{L}\right)\,dx, \quad n \ge 1
+    \]
+    </div>
+</div>
+
+<!-- Steady-State Temperature Note for Section 2 --> 
+
+<p>
+    Note: As \(t \to \infty\), the temperature of the rod approaches the average of the initial temperature:
+</p>
+
+<div class="math-scroll"> 
+    \[
+    \displaystyle \lim_{t \to \infty} u(x,t) = \frac{a_0}{2} = \frac{1}{L}\int_0^L f(x)\,dx
+    \]
+</div>
+
+<p>Physically, the heat redistributes evenly and the total energy is conserved because the ends are insulated.</p>
+
+</section>
+ 
+
+<!-- Section 3 -->
+<section id="questions">
+<h2 class="sub-section-label">3. Practice Questions</h2>
+
+<h3>Zero Endpoint Temperatures</h3>
+
+<div class="example" id="ex1-zero"> 
+
+    <p>
+        Suppose a rod of length \(L = 50\ \text{cm}\) is immersed in steam until its temperature is 
+        \(u_0 = 100^\circ\text{C}\) throughout. At time \(t = 0\), its lateral surface is insulated, 
+        and its two ends are embedded in ice at \(0^\circ\text{C}\). 
+        Calculate the rod’s temperature at its midpoint after half an hour if it is made of iron.
+    </p>
+</div>
+
+
+<div class="example" id="ex2-zero">
+    Solve the boundary value problems:
+    <ol type="1">
+        <li>
+            <div class="math-scroll">
+                \[
+                u_t = 3 u_{xx}, \quad 0 &lt; x &lt; \pi, \ t&gt;0; \quad u(0,t)=u(\pi,t)=0, \quad u(x,0)=4\sin 2x
+                \]
+            </div>
+        </li>
+        <li>
+            <div class="math-scroll">
+                \[
+                u_t = 2 u_{xx}, \quad 0 &lt; x &lt; 1, \ t&gt;0; \quad u(0,t)=u(1,t)=0, \quad u(x,0)=5\sin \pi x - 5\sin 3\pi x
+                \]
+            </div>
+        </li>
+        <li>
+            <div class="math-scroll">
+                \[
+                u_t = u_{xx}, \quad 0 &lt; x &lt; \pi, \ t&gt;0; \quad u(0,t)=u(\pi,t)=0, \quad u(x,0)=4\sin 4x \cos 2x
+                \]
+            </div>
+        </li>
+        <li>
+            <div class="math-scroll">
+                \[
+                2 u_t = u_{xx}, \quad 0 &lt; x &lt; 1, \ t&gt;0; \quad u(0,t)=u(1,t)=0, \quad u(x,0)=4\sin \pi x \cos 3\pi x
+                \]
+            </div>
+        </li>
+        <li>
+            <div class="math-scroll">
+                \[
+                u_t = 2 u_{xx}, \quad 0 &lt; x &lt; 3, \ t&gt;0; \quad u(0,t)=u(3,t)=0, \quad u(x,0)=x(3-x)
+                \]
+            </div>
+        </li>
+    </ol>
+</div>
+
+<!-- exercises part 2  -->
+<h3>Insulated Ends</h3>
+
+<div class="example" id="ex2-insulated"> 
+    <p>
+        We consider a rod of length \(L = 50\ \text{cm}\) whose initial temperature forms a triangular profile along its length: 
+        the temperature starts at 0°C at the left end (\(x = 0\)), rises linearly to 100°C at the midpoint (\(x = 25\ \text{cm}\)), 
+        and then decreases linearly back to 0°C at the right end (\(x = 50\ \text{cm}\)). At time \(t = 0\), the rod’s lateral 
+        surface and its two ends are insulated. Assume the thermal diffusivity of the material is \(k\). 
+        Find the temperature distribution \(u(x,t)\) along the rod for \(t > 0\).
+    </p>
+
+    <div class="math-scroll">
+        \[
+        u_t = k\, u_{xx}, \quad 0 < x < 50, \quad t > 0
+        \]
+        \[
+        u_x(0,t) = u_x(50,t) = 0, \quad t > 0
+        \]
+        \[
+        u(x,0) = f(x), \quad 0 < x < 50
+        \]
+    </div>      
+</div>
+
+<!--  -->
+<div class="example" id="ex3-insulated">
+    Solve the boundary value problems: 
+<ol type="1">
+    <li>
+        <div class="math-scroll">
+            \[
+            u_t = 10 u_{xx}, \quad 0 &lt; x &lt; 5, \ t&gt;0; \quad u_x(0,t)=u_x(5,t)=0, \quad u(x,0)=7
+            \]
+        </div>
+    </li>
+    <li>
+        <div class="math-scroll">
+            \[
+            3 u_t = u_{xx}, \quad 0 &lt; x &lt; 2, \ t&gt;0; \quad u_x(0,t)=u_x(2,t)=0, \quad u(x,0)=\cos 2 \cdot 2 \pi x
+            \]
+        </div>
+    </li>
+    <li>
+        <div class="math-scroll">
+            \[
+            u_t = u_{xx}, \quad 0 &lt; x &lt; 2, \ t&gt;0; \quad u_x(0,t)=u_x(2,t)=0, \quad u(x,0)=10 \cos \pi x \cos 3 \pi x
+            \]
+        </div>
+    </li>
+    <li>
+        <div class="math-scroll">
+            \[
+            5 u_t = u_{xx}, \quad 0 &lt; x &lt; 10, \ t&gt;0; \quad u_x(0,t)=u_x(10,t)=0, \quad u(x,0)=4x
+            \]
+        </div>
+    </li>
+    <li>
+        <div class="math-scroll">
+            \[
+            u_t = u_{xx}, \quad 0 &lt; x &lt; 100, \ t&gt;0; \quad u_x(0,t)=u_x(100,t)=0, \quad u(x,0)=x(100-x)
+            \]
+        </div>
+    </li>
+</ol>
+</div>
+
+</section>
+
+<!-- done exercises -->
+ 
+
+</main>
+</div>
+
+</body>
+</html>
