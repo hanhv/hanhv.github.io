@@ -63,6 +63,7 @@
               <li><a href="#ex2-1">Basic Antiderivative Formulas</a></li>
               <li><a href="#ex2-2">Indefinite Integrals of Trigonometric Functions</a></li>
               <li><a href="#ex2-3">Indefinite Integrals of Inverse Trigonometric Functions</a></li>
+              <li><a href="#ex2-4">Example</a></li>
             </ul>
           </li>
         </ul>
@@ -275,6 +276,24 @@
         </div>
        
       </div>
+
+      <!-- example -->
+
+      <div class="example" id="ex2-4">
+        <h3>Example:</h3> 
+        \[
+        I = \int \Big( 2\sqrt{x} + 3x^3 - 5\cos x + e^x + \frac{6}{1+x^2} \Big) dx
+        \]
+
+        <div class="solution math-scroll" style="text-align:left;">
+          \begin{align*}
+          I
+            &= \int 2\sqrt{x} \, dx + \int 3x^3 \, dx - \int 5\cos x \, dx + \int e^x \, dx + \int \frac{6}{1+x^2} \, dx \\
+            &= 2 \int x^{1/2} \, dx + 3 \int x^3 \, dx - 5 \int \cos x \, dx + \int e^x \, dx + 6 \int \frac{1}{1+x^2} \, dx \\
+            &= 2 \cdot \frac{2}{3} x^{3/2} + 3 \cdot \frac{x^4}{4} - 5 (\sin x) + e^x + 6 \arctan x + C\\
+            &= \frac{4}{3} x^{3/2} + \frac{3}{4} x^4 - 5 \sin x + e^x + 6 \arctan x + C
+          \end{align*}
+        </div>
 
     </section>
 
