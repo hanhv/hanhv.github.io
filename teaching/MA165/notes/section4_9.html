@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MA 16500 Notes | Antiderivatives</title>
+
+  <link rel="stylesheet" href="../../../style.css" />
+  <link rel="stylesheet" href="../../lectures.css" />
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <nav class="top-nav" aria-label="Main Navigation">
+    <div class="nav-container">
+      <a href="../../../index.html" class="nav-logo">Hanh Vo</a>
+      <div class="nav-links">
+        <a href="../../../index.html">Home</a>
+        <a href="../../../research.html">Research</a>
+        <a href="../../../teaching.html" class="active">Teaching</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="notes-container">
+    <header>
+      <a href="../index.html" class="section-title-link">
+        <span class="section-title">MA 16500: Analytic Geometry and Calculus I</span>
+      </a>
+      <h1>4.9 Antiderivatives</h1>
+
+      <button class="print-btn" onclick="window.print()">
+        <i class="fa-solid fa-print"></i> Print
+      </button>
+    </header>
+
+    <main id="main-content">
+
+      <!-- GOAL -->
+      <section class="goal" aria-label="Learning Goals">
+        <p>
+            <strong>Goal:</strong> Understand antiderivatives and indefinite integrals, learn how to compute them 
+            using basic rules and standard formulas.
+        </p>
+      </section>
+
+      <!-- TABLE OF CONTENTS -->
+      <nav class="toc-container" aria-label="Table of Contents">
+        <h2>Contents</h2>
+        <ul>
+          <li>
+            <a href="#section1">1. Definitions</a>
+          </li>
+          <li>
+            <a href="#section2">2. Common Antiderivatives</a>
+            <ul>
+              <li><a href="#ex2-1">Basic Antiderivative Formulas</a></li>
+              <li><a href="#ex2-2">Indefinite Integrals of Trigonometric Functions</a></li>
+              <li><a href="#ex2-3">Indefinite Integrals of Inverse Trigonometric Functions</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+
+      <hr style="margin: 40px 0; border: 0; border-top: 1px solid var(--border-light);" />
+
+      <!-- SECTION 1: DEFINITIONS -->
+      <!-- SECTION 1: DEFINITIONS -->
+    <section id="section1">
+        <h2 class="sub-section-label">1. Antiderivatives</h2>
+
+        <!-- Definition -->
+        <div class="theorem">
+            <p><strong>Definition (Antiderivative):</strong></p>
+            <p>
+            A function \( F(x) \) is called an <em>antiderivative</em> of \( f(x) \)
+            if
+            </p>
+            \[
+            F'(x) = f(x)
+            \]
+        </div>
+
+        <!-- Examples -->
+        <div class="example">
+            <h3>Example 1.1</h3>
+            <p>
+            Show that \( F(x) = x^2 \) is an antiderivative of \( f(x) = 2x \).
+            </p>
+
+            <div class="solution">
+            \[
+            F'(x) = \frac{d}{dx}(x^2) = 2x = f(x)
+            \]
+            <p>So \( F(x) \) is an antiderivative of \( f(x) \).</p>
+            </div>
+        </div>
+
+        <div class="example">
+            <h3>Example 1.2</h3>
+            <p>
+            Show that \( F(x) = -\cos x \) is an antiderivative of \( f(x) = \sin x \).
+            </p>
+
+            <div class="solution">
+            \[
+            F'(x) = \frac{d}{dx}(-\cos x) = \sin x = f(x)
+            \]
+            <p>So \( F(x) \) is an antiderivative of \( f(x) \).</p>
+            </div>
+        </div>
+
+        <!-- Properties -->
+        <div class="theorem">
+            <p><strong>Properties of Antiderivatives:</strong></p>
+            <p>
+            An antiderivative of \( f(x) \) is determined only up to a constant:
+            </p>
+
+            <ul>
+            <li>
+                If \( F(x) \) is an antiderivative of \( f(x) \), then
+                \( F(x) + C \) is also an antiderivative for any constant \( C \).
+            </li>
+            <li>
+                If \( F(x) \) and \( G(x) \) are both antiderivatives of
+                \( f(x) \), then they differ by a constant:
+                \[
+                G(x) = F(x) + C
+                \]
+            </li>
+            </ul>
+        </div>
+
+        <!-- Notation -->
+        <div class="important">
+            <p><strong>Indefinite Integral Notation:</strong></p>
+
+            \[
+            \int f(x)\,dx = F(x) + C \quad \text{where } F'(x) = f(x)
+            \]
+
+            <ul>
+                <li>
+                \( \int \) is the <strong>integral sign</strong>.
+                </li>
+                <li>
+                \( f(x) \) is called the <strong>integrand</strong>.
+                </li>
+                <li>
+                \( dx \) indicates the <strong>variable of integration</strong>.
+                </li>
+                <li>
+                \( F(x) \) is an <strong>antiderivative</strong> of \( f(x) \).
+                </li>
+                <li>
+                \( C \) is the <strong>constant of integration</strong>.
+                </li>
+            </ul>
+
+            <p>
+                This expression represents the <strong>indefinite integral</strong>,
+                which is the family of all antiderivatives of \( f(x) \).
+            </p>
+
+            <p>
+                It is read as: “the integral of \( f(x) \) with respect to \( x \)”.
+            </p>
+        </div> 
+
+         
+    </section>
+
+    <!-- SECTION 2: EXAMPLES -->
+    <section id="section2">
+
+    <!-- Common Antiderivatives -->
+    <h2 class="sub-section-label">2. Common Antiderivatives</h2>
+
+    <div class="theorem"> 
+      
+        <!-- Constant Multiple Rule -->
+        <p><strong>Constant Multiple Rule:</strong></p>
+        \[
+        \int c \, f(x) \, dx = c \int f(x) \, dx \quad \text{for any real constant } c
+        \]
+      
+        <!-- Sum Rule -->
+        <p><strong>Sum Rule:</strong></p>
+        \[
+        \int \big(f(x) + g(x)\big) \, dx = \int f(x) \, dx + \int g(x) \, dx
+        \]
+       
+      </div>
+
+    
+
+    <div class="example" id="ex2-1">
+        <p><strong>Basic Antiderivative Formulas:</strong></p>
+
+        <div class="math-scroll">
+            \[
+            \int e^x \, dx = e^x + C
+            \] 
+
+
+            \[
+            \int a^x \, dx = \frac{a^x}{\ln a} + C \quad \text{for } a > 0, \, a \ne 1
+            \]
+
+            \[
+            \int x^n \, dx = \frac{x^{n+1}}{n+1} + C \quad (n \ne -1)
+            \]
+        </div>
+    </div>
+
+    <div class="example" id="ex2-2"> 
+        <p><strong>Indefinite Integrals of Trigonometric Functions:</strong></p>
+        
+        <div class="math-scroll">
+            \[
+            \int \sin x \, dx = -\cos x + C
+            \]
+            \[
+            \int \cos x \, dx = \sin x + C
+            \]
+            \[
+            \int \sec^2 x \, dx = \tan x + C
+            \]
+            \[
+            \int \csc^2 x \, dx = -\cot x + C
+            \]
+            \[
+            \int \sec x \tan x \, dx = \sec x + C
+            \]
+            \[
+            \int \csc x \cot x \, dx = -\csc x + C
+            \]
+        </div> 
+    </div>
+
+    <!-- inverse trig -->
+
+    <div class="example" id="ex2-3"> 
+        <p><strong>Indefinite Integrals of Inverse Trigonometric Functions:</strong></p>
+      
+        <div class="math-scroll">
+            \[
+            \int \frac{1}{\sqrt{1-x^2}} \, dx = \arcsin x + C
+            \]
+            \[
+            \int \frac{-1}{\sqrt{1-x^2}} \, dx = \arccos x + C
+            \]
+            \[
+            \int \frac{1}{1+x^2} \, dx = \arctan x + C
+            \]
+
+            \[
+            \int \frac{-1}{1+x^2} \, dx = \operatorname{arccot} x + C
+            \]
+
+            \[
+            \int \frac{1}{|x|\sqrt{x^2-1}} \, dx = \operatorname{arcsec} |x| + C
+            \]
+
+            \[
+            \int \frac{-1}{|x|\sqrt{x^2-1}} \, dx = \operatorname{arccsc} |x| + C
+            \]
+        </div>
+       
+      </div>
+
+    </section>
+
+    </main>
+  </div>
+
+  <footer class="footer-signature">
+    <p>© 2026 Hanh Vo • Department of Mathematics • Purdue University</p>
+  </footer>
+</body>
+
+</html>
