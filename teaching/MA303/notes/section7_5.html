@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MA 30300 Notes | Hanh Vo</title>
+    
+    <link rel="stylesheet" href="../../../style.css" />
+    <link rel="stylesheet" href="../../lectures.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<nav class="top-nav" aria-label="Main Navigation">
+    <div class="nav-container">
+        <a href="../../../index.html" class="nav-logo">Hanh Vo</a>
+        <div class="nav-links">
+            <a href="../../../index.html">Home</a>
+            <a href="../../../research.html">Research</a>
+            <a href="../../../teaching.html" class="active">Teaching</a>
+        </div>
+    </div>
+</nav>
+
+<div class="notes-container">
+    <header>
+        <a href="../index.html" class="section-title-link" title="Back to MA 30300 Course Page">
+            <span class="section-title">MA 30300: Differential Equations</span>
+        </a>
+        <h1>7.5 Piecewise Continuous Input Functions</h1>
+        
+        <button class="print-btn" onclick="window.print()">
+            <i class="fa-solid fa-print"></i> Print
+        </button>
+    </header>
+
+    <main id="main-content">
+
+        <!-- GOAL -->
+        <section class="goal" aria-label="Learning Goals">
+            <p><strong>Goal:</strong> Learn how to construct piecewise functions using unit step functions and apply them to solve differential equations.</p>
+        </section>
+
+        <!-- TABLE OF CONTENTS -->
+        <nav class="toc-container" aria-label="Table of Contents">
+            <h2>Contents</h2>
+            <ul>
+                <li>
+                    <a href="#section1">1. Building Piecewise Functions with Unit Step Functions</a>
+                    <ul>
+                        <li><a href="#ex1-1">Example 1.1</a></li>
+                        <li><a href="#Practice">Practice Problems</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#section2">2. Applications to Differential Equations</a>
+                    <ul>
+                        <li><a href="#ex2-1">Example 2.1</a></li>
+                        <li><a href="#ex2-2">Example 2.2</a></li>
+                        <li><a href="#ex2-3">Example 2.3</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+
+        <hr style="margin: 40px 0; border: 0; border-top: 1px solid var(--border-light);">
+
+        <!-- SECTION 1 -->
+        <section id="section1">
+            <h2 class="sub-section-label">1. Building Piecewise Functions with Unit Step Functions</h2>
+
+            <!-- Subtopic 1 -->
+            <h3>Unit Step Function</h3>
+            <div class="theorem">
+                <p><strong>Definition:</strong> The unit step function is defined by</p>
+                \[
+                u(t - a) =
+                \begin{cases}
+                0, & t < a \\
+                1, & t \ge a
+                \end{cases}
+                \]
+            </div>
+
+            <div class="important">
+                <p><strong>Laplace Transform:</strong> The Laplace transform of the unit step function is</p>
+                \[
+                \mathcal{L}\{u(t - a)\} = \frac{e^{-as}}{s}, \quad a \ge 0
+                \]
+            </div>
+
+            <!-- Subtopic 2 -->
+            
+            <h3>Translation on the \(t\)-Axis</h3>
+
+            <div class="theorem">
+                <p><strong>Theorem (Translation on the \(t\)-Axis):</strong>  
+                Suppose \( \mathcal{L}\{f(t)\} = F(s) \) exists for \( s > c \). Then for \( a > 0 \),</p>
+
+                <div class="math-scroll">
+                    \[
+                    \mathcal{L}\{u(t-a)f(t-a)\} = e^{-as}F(s) 
+                    \] 
+                </div>
+
+                <div class="math-scroll"> 
+                    \[
+                    \mathcal{L}^{-1}\{e^{-as}F(s)\} = u(t-a)f(t-a)  
+                    \]
+                </div>
+
+                <p>for \( s > c + a \).</p>
+
+                <p>The function \( u(t-a)f(t-a) \) represents a delayed version of \( f(t) \):</p>
+
+                <div class="math-scroll">
+                    \[
+                    u(t-a)f(t-a) =
+                    \begin{cases}
+                    0, & t < a \\
+                    f(t-a), & t \ge a
+                    \end{cases} 
+                    \]
+                </div>
+            </div>
+
+            <!-- Subtopic 3 -->
+            <h3>Representing Piecewise Functions</h3>
+            <div class="theorem">
+                <p><strong>Idea:</strong> Piecewise functions can be rewritten using unit step functions.</p>
+            </div>
+
+            <!-- Example -->
+            <div class="example" id="ex1-1">
+                <h3>Example 1.1</h3>
+                <p><strong>Problem:</strong> Find the Laplace transform of the function</p>
+            
+                <div class="math-scroll">
+                    \[
+                    f(t) =
+                    \begin{cases}
+                    0, & t < 3 \\
+                    t^2, & t \ge 3
+                    \end{cases}
+                    \]
+                </div>
+            
+                <div class="solution">
+                    <p><strong>Solution:</strong></p>
+            
+                    <ol>
+                        <li>Rewrite \(f(t)\) using the unit step function:</li>
+                        <div class="math-scroll">
+                            \[
+                            f(t) = u(t-3)\cdot (t^2)
+                            \]
+                        </div>
+                        <p>Since the step occurs at \(t = 3\), we shift the variable to match the Translation on the \(t\)-Axis theorem:</p>
+                        <div class="math-scroll">
+                            \[
+                            f(t) = u(t-3) \cdot [(t-3 + 3)^2] = u(t-3) \cdot [(t-3)^2 + 6(t-3) + 9]
+                            \]
+                        </div>
+            
+                        <li>Apply the Laplace transform using linearity and the Translation on the \(t\)-Axis theorem:</li>
+            
+                        <div class="math-scroll">
+                            \[
+                            \mathcal{L}\{u(t-a)g(t-a)\} = e^{-as} \mathcal{L}\{g(t)\}
+                            \] 
+                        </div>
+                        we have
+
+                        <div class="math-scroll"> 
+                            \[
+                            \mathcal{L}\{f(t)\} = e^{-3s} \mathcal{L}\{(t)^2 + 6t + 9\} 
+                            = e^{-3s} \left[ \frac{2}{s^3} + \frac{6}{s^2} + \frac{9}{s} \right]
+                            \]
+                        </div>
+            
+                        <li>Final Answer:</li>
+                        <div class="math-scroll">
+                            \[
+                            \boxed{\mathcal{L}\{f(t)\} = e^{-3s} \left( \frac{2}{s^3} + \frac{6}{s^2} + \frac{9}{s} \right)}
+                            \]
+                        </div>
+                    </ol>
+                </div>
+            </div>
+            <!-- done example 1 -->
+
+            <!-- Practice -->
+            <h2 class="sub-section-label" id="Practice">Practice Problems</h2>
+
+            <div class="example" id="q1">
+                <h3>Question 1</h3>
+                <p>Find the inverse Laplace transform:</p>
+                <div class="math-scroll">
+                    \[
+                    \mathcal{L}^{-1}\left\{\frac{e^{-5s}}{s+5}\right\}
+                    \]
+                </div>
+            </div>
+
+            <div class="example" id="q2">
+                <h3>Question 2</h3>
+                <p>Find the inverse Laplace transform:</p>
+                <div class="math-scroll">
+                    \[
+                    \mathcal{L}^{-1}\left\{\frac{e^{-\pi s}}{s^2 + 9}\right\}
+                    \]
+                </div>
+            </div>
+
+            <div class="example" id="q3">
+                <h3>Question 3</h3>
+                <p>Find the Laplace transform of the piecewise function:</p>
+                <div class="math-scroll">
+                    \[
+                    f(t) =
+                    \begin{cases}
+                    \sin 6t, & 0 \le t \le 2\pi \\
+                    0, & t > 2\pi
+                    \end{cases}
+                    \]
+                </div>
+            </div>
+
+            <div class="example" id="q4">
+                <h3>Question 4</h3>
+                <p>Find the Laplace transform of the piecewise function:</p>
+                <div class="math-scroll">
+                    \[
+                    f(t) =
+                    \begin{cases}
+                    \sin(\pi t), & 3 \le t \le 7 \\
+                    0, & \text{otherwise}
+                    \end{cases}
+                    \]
+                </div>
+            </div>
+
+            <div class="example" id="q5">
+                <h3>Question 5</h3>
+                <p>Find the Laplace transform of the piecewise function:</p>
+                <div class="math-scroll">
+                    \[
+                    f(t) =
+                    \begin{cases}
+                    t, & 0 \le t \le 8 \\[1mm]
+                    72 - 8t, & 8 < t \le 9 \\[1mm]
+                    0, & t > 9
+                    \end{cases}
+                    \]
+                </div>
+            </div>
+
+            <!-- done practice -->
+        </section>
+
+        <!-- SECTION 2 -->
+        <section id="section2">
+            <h2 class="sub-section-label">2. Applications to Differential Equations</h2>
+
+            <!-- Example 1 -->
+            <div class="example" id="ex2-1">
+                <h3>Example 2.1</h3>
+                <p>
+                    A mass of 1 slug (\(= 32 \) lb) is attached to a spring with constant \(k = 4\) lb/ft. The mass is initially at rest at equilibrium. 
+                    Beginning at time \(t = 0\) (seconds), an external force \(f(t) = \cos 2t\) is applied to the mass, but at time \(t = 2 \pi\) this force is turned off (abruptly discontinued) and the mass is allowed to continue its motion unimpeded: 
+                </p>
+
+                <div class="math-scroll">
+                    \[
+                    f(t) =
+                    \begin{cases}
+                    \cos 2t, & 0 \le t < 2\pi \\
+                    0, & t \ge 2 \pi
+                    \end{cases}
+                    \]
+                </div>
+            
+                <p>Find the resulting position \(x(t)\) of the mass for \(t \ge 0\).</p>
+            
+                <div class="solution">
+                    <p><strong>Solution:</strong></p>
+            
+                    <ol>
+                        <li>Write the forcing function using unit step functions:</li>
+                        <div class="math-scroll">
+                            \[
+                            f(t) = \cos 2t - u(t-2\pi)\cos 2(t-2\pi)
+                            \]
+                        </div>
+            
+                        <li>Write the differential equation for the mass-spring system:</li>
+                        <div class="math-scroll">
+                            \[
+                            m x'' + k x = f(t), \quad x(0) = 0, \quad x'(0) = 0
+                            \]
+                            \[
+                            \Rightarrow x'' + 4 x = f(t)
+                            \]
+                        </div>
+            
+                        <li>Take the Laplace transform of both sides:</li>
+                        <div class="math-scroll">
+                            \[
+                            s^2 X(s) - s x(0) - x'(0) + 4 X(s) = \mathcal{L}\{f(t)\} 
+                            = \frac{s}{s^2 + 4} - e^{-2\pi s}\frac{s}{s^2 + 4}
+                            \]
+                            \[
+                            (s^2 + 4)X(s) = \frac{s}{s^2 + 4} - e^{-2\pi s}\frac{s}{s^2 + 4}
+                            \]
+                        </div>
+            
+                        <li>Solve for \(X(s)\):</li>
+                        <div class="math-scroll">
+                            \[
+                            X(s) = \frac{s}{(s^2 + 4)^2} \left( 1 - e^{-2\pi s} \right)
+                            \]
+                        </div>
+            
+                        <li>Take the inverse Laplace transform using linearity and the Second Shifting Theorem:</li>
+                        <div class="math-scroll">
+                            \[
+                            x(t) = \mathcal{L}^{-1}\left\{\frac{s}{(s^2 + 4)^2}\right\} 
+                                    - \mathcal{L}^{-1}\left\{ e^{-2\pi s} \frac{s}{(s^2 + 4)^2} \right\}
+                            \] 
+                        </div>
+            
+                        <li>Compute the first term:</li>
+                        <div class="math-scroll">
+                            \[
+                            \mathcal{L}^{-1}\Big\{\frac{s}{(s^2 + 4)^2}\Big\} = \frac{1}{4} t \sin 2t
+                            \]
+                        </div>
+            
+                        <li>Use Translation on the \(t\)-Axis for the second term:</li>
+                        <div class="math-scroll">
+                            \[
+                            \mathcal{L}^{-1}\Big\{ e^{-2\pi s} \frac{s}{(s^2 + 4)^2} \Big\} = u(t-2\pi) \cdot \frac{1}{4} (t-2\pi) \sin 2(t-2\pi)
+                            \]
+                        </div>
+            
+                        <li>Combine the two terms to get \(x(t)\):</li>
+                        <div class="math-scroll">
+                            \[
+                            x(t) = \frac{1}{4} t \sin 2t - u(t-2\pi) \frac{1}{4} (t-2\pi) \sin 2(t-2\pi)
+                            \]
+                        </div>
+            
+                        or equivalently
+                        <div class="math-scroll">
+                            \[
+                            x(t) =
+                            \begin{cases}
+                            \frac{t}{4} \sin 2t, & 0 \le t < 2\pi \\[1mm]
+                            \frac{\pi}{2} \sin 2t, & t \ge 2\pi
+                            \end{cases}
+                            \]
+                        </div>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- Example 2 -->
+            <div class="example" id="ex2-2">
+                <h3>Example 2.2</h3>
+                <p><strong>Problem:</strong> Consider a mass-spring-dashpot system with \(m = 1\), \(k = 4\), and \(c = 0\). The system is governed by the differential equation:</p>
+            
+                <div class="math-scroll">
+                    \[
+                    m x'' + c x' + k x = f(t), \quad x(0) = 0, \quad x'(0) = 0
+                    \]
+                </div>
+            
+                <p>The external forcing function is defined by:</p>
+            
+                <div class="math-scroll">
+                    \[
+                    f(t) =
+                    \begin{cases} 
+                    \sin(t), & 0 \le t \le 2\pi \\[1mm]
+                    0, & t > 2\pi
+                    \end{cases}
+                    \]
+                </div>
+
+                Find the solution \(x(t)\) by the Laplace transform method.
+            
+                <div class="solution">
+                    <p><strong>Solution:</strong> </p>
+            
+                    <ol>
+                        <li>Express the forcing function using the unit step function:</li>
+                        <div class="math-scroll">
+                            \[
+                            f(t) = \sin(t) - u(t-2\pi)\sin(t-2\pi)
+                            \]
+                        </div>
+            
+                        <li>Write the differential equation explicitly:</li>
+                        <div class="math-scroll">
+                            \[
+                            x'' + 4 x = f(t), \quad x(0) = 0, \quad x'(0) = 0
+                            \]
+                        </div>
+            
+                        <li>Take the Laplace transform:</li>
+                        <div class="math-scroll">
+                            \[
+                            (s^2 + 4) X(s) = \frac{1}{s^2 + 1} - e^{-2\pi s} \frac{1}{s^2 + 1} 
+                            \]
+                        </div>
+            
+                        <div class="math-scroll">
+                            \[
+                            \Rightarrow \quad
+                            X(s) = \frac{1}{(s^2 + 1)(s^2 + 4)} - e^{-2\pi s} \frac{1}{(s^2 + 1)(s^2 + 4)}
+                            \]
+                        </div>
+
+                        <li>Compute the inverse Laplace transform of the first term using partial fractions and tables:</li>
+                        <div class="math-scroll">
+                            \[
+                            \mathcal{L}^{-1} \left\{ \frac{1}{(s^2 + 1)(s^2 + 4)} \right\} 
+                            = \frac{1}{3} \sin t - \frac{1}{6} \sin 2t
+                            \]
+                        </div>
+            
+                        <li>Use Translation on the \(t\)-Axis for the second term:</li>
+                        <div class="math-scroll">
+                            \[
+                            \mathcal{L}^{-1} \left\{ e^{-2\pi s} \frac{1}{(s^2 + 1)(s^2 + 4)} \right\} 
+                            = u(t-2\pi) \left[ \frac{1}{3} \sin(t-2\pi) - \frac{1}{6} \sin 2(t-2\pi) \right]
+                            \]
+                        </div>
+            
+                        <li>Combine to get the complete solution:</li>
+                        <div class="math-scroll">
+                            \[
+                            x(t) = \frac{1}{3} \sin t - \frac{1}{6} \sin 2t - u(t-2\pi) \left[ \frac{1}{3} \sin(t-2\pi) - \frac{1}{6} \sin 2(t-2\pi) \right]
+                            \]
+                        </div>
+
+                        <div class="math-scroll">
+                            \[
+                            \Rightarrow
+                            x(t) = \left( \frac{1}{3} \sin t - \frac{1}{6} \sin 2t \right) \left( 1 - u(t-2\pi) \right)
+                            \]
+                        </div>
+            
+                        Optionally, write in piecewise form:
+                        <div class="math-scroll">
+                            \[
+                            x(t) =
+                            \begin{cases}
+                            \frac{1}{3} \sin t - \frac{1}{6} \sin 2t, & 0 \le t \le 2\pi \\[1mm]
+                            0, & t > 2\pi
+                            \end{cases}
+                            \]
+                        </div>
+
+                    </ol>
+                </div>
+            </div>
+            <!-- done example 2 -->
+
+            <!-- RLC -->
+            <div class="example" id="ex2-3">
+                <h3>Example 2.3</h3>
+                <p><strong>Note:</strong> You are allowed to use a calculator if needed for this problem.</p>
+            
+                <p><strong>Problem:</strong> The values of the elements of an RLC circuit are given. Solve the initial value problem with the given impressed voltage \(e(t)\):</p>
+            
+                <div class="math-scroll">
+                    \[
+                    L \frac{di}{dt} + R i + \frac{1}{C} \int_0^t i(\tau)\, d\tau = e(t), \quad i(0) = 0
+                    \]
+                </div>
+            
+                <p>Given values:</p>
+                <ul>
+                    <li>\(L = 1\)</li>
+                    <li>\(R = 10\)</li>
+                    <li>\(C = 4 \cdot 10^{-2}\)</li>
+                    <li>\(e(t) =
+                        \begin{cases}
+                        20t, & 0 \le t < 1 \\
+                        0, & t \ge 1
+                        \end{cases}
+                    \)</li>
+                </ul> 
+            </div>
+        </section>
+
+    </main>
+</div>
+
+<footer class="footer-signature">
+    <p>© 2026 Hanh Vo • Department of Mathematics • Purdue University</p>
+</footer>
+
+</body>
+</html>
