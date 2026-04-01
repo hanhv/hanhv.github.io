@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MA 30300 Notes | Hanh Vo</title>
+    
+    <link rel="stylesheet" href="../../../style.css" />
+    <link rel="stylesheet" href="../../lectures.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+</head>
+<body>
+
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <nav class="top-nav" aria-label="Main Navigation">
+        <div class="nav-container">
+            <a href="../../../index.html" class="nav-logo">Hanh Vo</a>
+            <div class="nav-links">
+                <a href="../../../index.html">Home</a>
+                <a href="../../../research.html">Research</a>
+                <a href="../../../teaching.html" class="active">Teaching</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="notes-container">
+        <header>
+            <a href="../index.html" class="section-title-link" title="Back to MA 30300 Course Page">
+                <span class="section-title">MA 30300: Differential Equations</span>
+            </a>
+            <h1>Lecture Name: Impulses and Delta Functions</h1>
+            
+            <button class="print-btn" onclick="window.print()">
+                <i class="fa-solid fa-print"></i> Print
+            </button>
+        </header>
+
+        <main id="main-content">
+            <section class="goal" aria-label="Learning Goals">
+                <p><strong>Goal:</strong> Understand the Dirac delta function and how to apply it in solving ODEs using Laplace transforms.</p>
+            </section>
+
+            <nav class="toc-container" aria-label="Table of Contents">
+                <h2>Contents</h2>
+                <ul>
+                    <li>
+                        <a href="#section1">1. Delta Functions </a>
+                    </li>
+                    <li>
+                        <a href="#section2">2. Duhamel’s Principle</a> 
+                    </li>
+                </ul>
+            </nav>
+
+            <hr style="margin: 40px 0; border: 0; border-top: 1px solid var(--border-light);">
+
+            <!-- Section 1: Delta Functions -->
+            <section id="section1">
+                <h2 class="sub-section-label">1. Delta Functions: Introduction</h2>
+
+                <div class="theorem">
+                    <p><strong>Delta Function as a Limit:</strong> The Dirac delta function can be denoted as \(\delta(t-a)\) or \(\delta_a(t)\), representing an instantaneous impulse at \(t=a\). It can be interpreted as the limit of a rectangular pulse of height \(1/\epsilon\) and width \(\epsilon\) starting at \(t=a\):</p>
+                    <div class="math-scroll">
+                        \[
+                        \delta_a(t) = \delta(t-a) = \lim_{\epsilon \to 0} d_\epsilon(t), \quad 
+                        d_\epsilon(t) = 
+                        \begin{cases} 
+                            \frac{1}{\epsilon}, & a \le t < a+\epsilon \\[1mm]
+                            0, & \text{otherwise}
+                        \end{cases}
+                        \]
+                    </div> 
+                    <p>Also, the integral of the delta function itself is \(1\):</p>
+                    <div class="math-scroll">
+                        \[
+                        \int_0^\infty \delta_a(t) \, dt = 1
+                        \]
+                    </div>
+                </div>
+
+                <div class="remark">
+                    <p><strong>Remark:</strong> No actual function can satisfy both being zero everywhere except at a single point and having an integral equal to \(1\). Such a “function” is not a classical function but is interpreted as a <em>generalized function</em> called the Dirac delta function.</p>
+                </div>
+
+                <div class="important">
+                    <p>The delta function is particularly useful in solving ODEs using Laplace transforms:</p>
+                    <div class="math-scroll">
+                        \[ \mathcal{L}\{\delta_a(t)\} = e^{-as}, \quad a \ge 0 \]
+                    </div>
+                    <p>This allows us to handle instantaneous inputs directly in the Laplace domain.</p>
+                </div>
+
+                <div class="theorem">
+                    <p><strong>Applications in ODEs:</strong></p>
+                    <ol>
+                        <li>Modeling sudden forces or impulses in mechanical systems (e.g., a hammer strike on a spring-mass system)</li>
+                        <li>Handling instantaneous changes in electrical circuits or other dynamical systems</li>
+                    </ol>
+                </div>
+
+
+                <!-- examples -->
+
+                <div class="example" id="ex1-2">
+                    <h3>Example Problems</h3>
+                    <p>Solve the following initial value problems:</p>
+
+                    <ol>
+                        <li> 
+                            <div class="math-scroll">
+                                \[ x'' + 6x' + 9x = 1+\delta(t-7), \quad x(0) = 0, \quad x'(0) = 0 \]
+                            </div>
+                        </li>
+
+                        <li> 
+                            <div class="math-scroll">
+                                \[ x'' + 10x' + 26x = \delta(t-\pi) + \delta(t-2\pi), \quad x(0) = 0, \quad x'(0) = 2 \]
+                            </div>
+                        </li>
+
+                        <li> 
+                            <div class="math-scroll">
+                                \[ x'' + 4x = \delta(t) + \delta(t-\pi), \quad x(0) = x'(0) = 0 \]
+                            </div>
+                        </li>
+
+                        <li> 
+                            <div class="math-scroll">
+                                \[ x'' + 9x = \delta(t-3\pi) +\cos(3t), \quad x(0) = x'(0) = 0 \]
+                            </div>
+                        </li>
+
+                        <li> 
+                            <div class="math-scroll">
+                                \[ x'' + 2x' + x = \delta(t) - \delta(t-2), \quad x(0) = x'(0) = 2 \]
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+
+            </section>
+
+            <!-- Section 2: Examples Placeholder -->
+            <section id="section2">
+                <h2 class="sub-section-label">2. Systems Analysis and Duhamel’s Principle</h2>
+
+                <!-- Theory -->
+                <p>Consider a second-order linear system with zero initial conditions:</p>
+                    <div class="math-scroll">
+                        \[
+                        x'' + a x' + b x = f(t), \quad x(0)=0, \quad x'(0)=0
+                        \]
+                    </div>
+
+                
+                <p>Taking the Laplace transform of the system, we obtain:</p>
+                <div class="math-scroll">
+                    \[
+                    (s^2 + a s + b) X(s) = F(s)
+                    \]
+                    \[
+                    X(s) = W(s) F(s), \quad \text{where } W(s) = \frac{1}{s^2 + a s + b}
+                    \]
+                </div>
+                <p>The function \( W(s) \) is called the <em>transfer function</em> of the system.
+                The <em>weight function</em> \( w(t) \) is defined as the inverse Laplace transform of the transfer function:</p>
+                <div class="math-scroll">
+                    \[
+                    w(t) = \mathcal{L}^{-1}\{W(s)\}
+                    \]
+                </div>
+                <p>It represents the response of the system to an impulse input.</p>
+                 
+
+                <div class="math-scroll">
+                        \[
+                        X(s) = W(s) F(s)
+                        \]
+                </div>
+
+                <p>Taking the inverse Laplace transform gives the time-domain solution:</p>
+                <div class="math-scroll">
+                    \[
+                    x(t) = \mathcal{L}^{-1}\{ X(s) \} = \mathcal{L}^{-1}\{ W(s) F(s) \} = (w * f)(t)
+                    \]
+                </div>
+
+                <p>(the convolution of the weight function \(w(t)\) and the input \(f(t)\)).</p>
+
+                <div class="theorem">
+                    <p><strong>Duhamel’s Principle:</strong> The solution of the system can be expressed in the Laplace domain as:</p>
+                    
+                    
+                    <div class="math-scroll">
+                        \[
+                        x(t) =  (w * f)(t) = \int_0^t w(t-\tau)\, f(\tau)\, d\tau = \int_0^t f(t-\tau)\, w(\tau)\, d\tau 
+                        \]
+                    </div>
+
+                    <p>Here, \(w(t) = \mathcal{L}^{-1}\{ W(s) \}\) is the weight function, and \(*\) denotes convolution. Both integral forms are equivalent because convolution is commutative.</p>
+                </div>
+ 
+
+                <!-- Examples -->
+                <div class="example" id="ex2-1">
+                    <h3>Example 2.1</h3>
+                    <p>Apply Duhamel's principle to provide an integral formula for the solution of the following initial value problem:</p>
+                    <div class="math-scroll">
+                        \[ x'' + 6x' + 8x = f(t); \quad x(0)=0, \quad x'(0)=0 \]
+                    </div>
+                </div>
+
+                <div class="example" id="ex2-2">
+                    <h3>Example 2.2</h3>
+                    <p>Use Duhamel’s principle to express the solution of the initial value problem as an integral:</p>
+                    <div class="math-scroll">
+                        \[ x'' + 4x = g(t); \quad x(0)=0, \quad x'(0)=0 \]
+                    </div>
+                </div>
+
+                <div class="example" id="ex2-3">
+                    <h3>Example 2.3</h3>
+                    <p>Apply Duhamel’s principle to obtain an integral representation of the solution:</p>
+                    <div class="math-scroll">
+                        \[ x'' + 5x' + 6x = h(t); \quad x(0)=0, \quad x'(0)=0 \]
+                    </div>
+                </div>
+
+                <div class="example" id="ex2-4">
+                    <h3>Example 2.4</h3>
+                    <p>Find the integral form of the solution using Duhamel’s principle for:</p>
+                    <div class="math-scroll">
+                        \[ x'' + 2x' + x = f(t); \quad x(0)=0, \quad x'(0)=0 \]
+                    </div>
+                </div>
+
+                <div class="example" id="ex2-5">
+                    <h3>Example 2.5</h3>
+                    <p>Use Duhamel’s principle to write the solution in convolution form:</p>
+                    <div class="math-scroll">
+                        \[ x'' + 9x = p(t); \quad x(0)=0, \quad x'(0)=0 \]
+                    </div>
+                </div>
+
+            </section>
+        </main>
+    </div>
+
+    <footer class="footer-signature">
+        <p>© 2026 Hanh Vo • Department of Mathematics • Purdue University</p>
+    </footer>
+</body>
+</html>
