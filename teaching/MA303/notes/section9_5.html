@@ -242,7 +242,7 @@
 
 <div class="example" id="ex1-zero"> 
 
-    <p>
+    <p> <strong>Example 1.1:</strong>
         Suppose a rod of length \(L = 50\ \text{cm}\) is immersed in steam until its temperature is 
         \(u_0 = 100^\circ\text{C}\) throughout. At time \(t = 0\), its lateral surface is insulated, 
         and its two ends are embedded in ice at \(0^\circ\text{C}\). 
@@ -250,11 +250,32 @@
     </p>
 </div>
 
+<!-- example 2 -->
+<div class="example" id="ex1-zero-2"> 
+  <p> <strong>Example 1.2:</strong>
+    Suppose that a rod \(\text{40 cm}\) long with insulated lateral surface is heated to a uniform temperature of \(100^\circ\text{C}\), and that at time \(t = 0\) its two ends are embedded in ice at \(0^\circ\text{C}\).
+  </p>
+
+  <ol type="a">
+    <li>
+      Find the formal series solution for the temperature \(u(x, t)\) of the rod.
+    </li>
+    <li>
+      In the case the rod is made of copper, show that after \(5\) minutes the temperature at its midpoint is about \(15^\circ\text{C}\).
+    </li>
+    <li>
+      In the case the rod is made of concrete, find the time required for its midpoint to cool to \(15^\circ\text{C}\).
+    </li>
+  </ol>
+</div>
+
+<!-- example 2 -->
 
 <div class="example" id="ex2-zero">
+    <p> <strong>Example 1.3:</strong>
     Solve the boundary value problems:
     <ol type="1">
-        <li>
+        <li> 
             <div class="math-scroll">
                 \[
                 u_t = 3 u_{xx}, \quad 0 &lt; x &lt; \pi, \ t&gt;0; \quad u(0,t)=u(\pi,t)=0, \quad u(x,0)=4\sin 2x
@@ -296,7 +317,7 @@
 <h3>Insulated Ends</h3>
 
 <div class="example" id="ex2-insulated"> 
-    <p>
+    <p> <strong>Example 2.1:</strong>
         We consider a rod of length \(L = 50\ \text{cm}\) whose initial temperature forms a triangular profile along its length: 
         the temperature starts at 0°C at the left end (\(x = 0\)), rises linearly to 100°C at the midpoint (\(x = 25\ \text{cm}\)), 
         and then decreases linearly back to 0°C at the right end (\(x = 50\ \text{cm}\)). At time \(t = 0\), the rod’s lateral 
@@ -304,6 +325,7 @@
         Find the temperature distribution \(u(x,t)\) along the rod for \(t > 0\).
     </p>
 
+    
     <div class="math-scroll">
         \[
         u_t = k\, u_{xx}, \quad 0 < x < 50, \quad t > 0
@@ -317,8 +339,29 @@
     </div>      
 </div>
 
-<!--  -->
+<!-- example -->
+
+<div class="example" id="ex2-zero-2"> 
+  <p> <strong>Example 2.2:</strong>
+    Consider a copper rod of length \(\text{50 cm}\) with its sides insulated. Initially, the rod’s temperature varies along its length according to \(u(x, 0) = 2x\), and the two ends are insulated from the start.
+  </p>
+
+  <ol type="a">
+    <li>
+      Determine the temperature distribution \(u(x, t)\) along the rod over time.
+    </li>
+    <li>
+      Calculate the temperature at the point \(x = 10\) after \(1\) minute has passed.
+    </li>
+    <li>
+      Estimate the time it will take for the temperature at \(x = 10\) to drop to \(45^\circ\text{C}\).
+    </li>
+  </ol>
+</div>
+
+<!-- example -->
 <div class="example" id="ex3-insulated">
+        <p> <strong>Example 2.3:</strong>
     Solve the boundary value problems: 
 <ol type="1">
     <li>
@@ -331,7 +374,7 @@
     <li>
         <div class="math-scroll">
             \[
-            3 u_t = u_{xx}, \quad 0 &lt; x &lt; 2, \ t&gt;0; \quad u_x(0,t)=u_x(2,t)=0, \quad u(x,0)=\cos 2 \cdot 2 \pi x
+            3 u_t = u_{xx}, \quad 0 &lt; x &lt; 2, \ t&gt;0; \quad u_x(0,t)=u_x(2,t)=0, \quad u(x,0)=\cos^2 2 \pi x
             \]
         </div>
     </li>
