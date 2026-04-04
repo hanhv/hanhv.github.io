@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MA 16500 Notes | Hanh Vo</title>
+
+  <link rel="stylesheet" href="../../../style.css" />
+  <link rel="stylesheet" href="../../lectures.css" />
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+</head>
+
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <nav class="top-nav" aria-label="Main Navigation">
+    <div class="nav-container">
+      <a href="../../../index.html" class="nav-logo">Hanh Vo</a>
+      <div class="nav-links">
+        <a href="../../../index.html">Home</a>
+        <a href="../../../research.html">Research</a>
+        <a href="../../../teaching.html" class="active">Teaching</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="notes-container">
+    <header>
+      <a href="../index.html" class="section-title-link" title="Back to MA 16500 Course Page">
+        <span class="section-title">MA 16500: Analytic Geometry and Calculus I</span>
+      </a>
+      <h1>5.2. Definite Integrals</h1>
+
+      <button class="print-btn" onclick="window.print()">
+        <i class="fa-solid fa-print"></i> Print
+      </button>
+    </header>
+
+    <main id="main-content">
+      <section class="goal" aria-label="Learning Goals">
+        <p>
+          <strong>Goal:</strong> Understand the definition of the definite integral,
+          its interpretation as net area, and its connection to antiderivatives.
+        </p>
+      </section>
+
+      <nav class="toc-container" aria-label="Table of Contents">
+        <h2>Contents</h2>
+        <ul>
+          <li>
+            <a href="#section1">1. Introduction</a>
+          </li>
+          <li>
+            <a href="#section2">2. Examples</a>
+          </li>
+        </ul>
+      </nav>
+
+      <hr style="margin: 40px 0; border: 0; border-top: 1px solid var(--border-light);" />
+
+      <section id="section1">
+        <h2 class="sub-section-label">1. Introduction to Definite Integrals</h2>
+
+        <div class="theorem">
+          <p>
+            <strong>Definition (Definite Integral):</strong>
+            Let \( f(x) \) be a function defined on the interval \([a,b]\).
+            The definite integral of \(f\) from \(a\) to \(b\) is defined as
+          </p>
+
+          <div class="math-scroll">
+            \[
+            \int_a^b f(x)\,dx = \lim_{n \to \infty} \sum_{k=1}^{n} f(x_k^*) \,\Delta x
+            \]
+          </div>
+
+          <p>
+            where \( \Delta x = \frac{b-a}{n} \) and \( x_k^* \) is any point in the
+            \(k\)-th subinterval.
+          </p>
+        </div>
+
+        <div class="important">
+          <p>
+            <strong>Remark (Geometric Interpretation):</strong>
+          </p>
+          <ul>
+            <li>
+              The definite integral represents the <strong>net area</strong> between
+              the graph of \(f(x)\) and the \(x\)-axis.
+            </li>
+            <li>
+              Areas <strong>above</strong> the \(x\)-axis are positive.
+            </li>
+            <li>
+              Areas <strong>below</strong> the \(x\)-axis are negative.
+            </li>
+          </ul>
+
+          <div class="math-scroll">
+            \[
+            \int_a^b f(x)\,dx =
+            (\text{area above the } x\text{-axis})
+            -
+            (\text{area below the } x\text{-axis})
+            \]
+          </div>
+        </div>
+
+        <div class="important">
+          <p>
+            <strong>Remark (Connection to Indefinite Integrals):</strong>
+          </p>
+          <p>
+            If \(F(x)\) is an antiderivative of \(f(x)\), then
+          </p>
+
+          <div class="math-scroll">
+            \[
+            \int_a^b f(x)\,dx = F(b) - F(a)
+            \]
+          </div>
+
+          <p>
+            This result is known as the <strong>Fundamental Theorem of Calculus (Part 2)</strong>.
+          </p>
+        </div>
+
+        <!-- properties -->
+ 
+        <p><strong>Properties of Definite Integrals</strong></p>
+        
+
+        <div style="overflow-x: auto; width: 100%; margin-top: 10px;">
+            <table border="1"
+                   style="width: 100%; text-align: center; border-collapse: collapse; margin-top: 10px;">
+              <thead style="background-color: #f2f2f2;">
+                <tr>
+                  <th>Property</th>
+                  <th>Statement</th>
+                  <th>Remarks / Explanation</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Linearity</td>
+                  <td>
+                    \(\displaystyle \int_a^b [c f(x) + d g(x)]\,dx = c \int_a^b f(x)\,dx + d \int_a^b g(x)\,dx\)
+                  </td>
+                  <td>Holds for constants \(c, d \in \mathbb{R}\).</td>
+                </tr>
+                <tr>
+                  <td>Additivity over intervals</td>
+                  <td>
+                    \(\displaystyle \int_a^c f(x)\,dx + \int_c^b f(x)\,dx = \int_a^b f(x)\,dx\)
+                  </td>
+                  <td>Can split the integral at any point \(c\) in \([a,b]\).</td>
+                </tr>
+                <tr>
+                  <td>Reversing limits</td>
+                  <td>
+                    \(\displaystyle \int_a^b f(x)\,dx = - \int_b^a f(x)\,dx\)
+                  </td>
+                  <td>Swapping the bounds reverses the sign of the integral.</td>
+                </tr>
+                <tr>
+                  <td>Positivity</td>
+                  <td>
+                    If \(f(x) \ge 0\) for all \(x \in [a,b]\), then \(\displaystyle \int_a^b f(x)\,dx \ge 0\)
+                  </td>
+                  <td>Geometrically: area above x-axis is non-negative.</td>
+                </tr>
+                <tr>
+                  <td>Comparison</td>
+                  <td>
+                    If \(f(x) \ge g(x)\) for all \(x \in [a,b]\), then \(\displaystyle \int_a^b f(x)\,dx \ge \int_a^b g(x)\,dx\)
+                  </td>
+                  <td>Useful for inequalities and estimating integrals.</td>
+                </tr> 
+              </tbody>
+            </table>
+        </div>
+      </section>
+
+      <!-- done section 1 -->
+
+      <section id="section2">
+        <h2 class="sub-section-label">2. Examples</h2>
+
+        
+        <!-- example 1 -->
+
+        <div class="example" id="ex2-1">
+            <h3>Example 2.1: Riemann Sum and Geometric Interpretation</h3>
+            <p>
+              Consider the integral
+              \(\displaystyle \int_0^1 \sqrt{1 - x^2}\, dx\).
+              <ol>
+                <li>Write down the formula for approximating the integral as a Riemann sum by dividing the interval \([0,1]\) into \(n\) equal subintervals and using the right endpoints.</li>
+                <li>Compute the integral using the geometric interpretation.</li>
+              </ol>
+            </p>
+          
+            <div class="solution">
+              <p><strong>Solution:</strong></p>
+          
+              <p><strong>1. Riemann Sum Approximation:</strong></p>
+              <p>Divide the interval \([0,1]\) into \(n\) equal parts:</p>
+              <div class="math-scroll">
+                \[
+                \Delta x = \frac{1-0}{n} = \frac{1}{n}
+                \]
+              </div>
+          
+              <p>Right endpoints:</p>
+              <div class="math-scroll">
+                \[
+                x_k = \frac{k}{n}, \quad k = 1,2,\dots,n
+                \]
+              </div>
+          
+              <p>Riemann sum:</p>
+              <div class="math-scroll">
+                \[
+                \sum_{k=1}^{n} \sqrt{1 - \left(\frac{k}{n}\right)^2} \cdot \frac{1}{n}
+                \]
+              </div>
+          
+              <p>Integral as a limit:</p>
+              <div class="math-scroll">
+                \[
+                \int_0^1 \sqrt{1 - x^2}\, dx
+                = \lim_{n \to \infty} \sum_{k=1}^{n} \sqrt{1 - \left(\frac{k}{n}\right)^2} \cdot \frac{1}{n}
+                \]
+              </div>
+          
+              <p><strong>2. Geometric Interpretation:</strong></p>
+              <p>
+                The function \(y = \sqrt{1 - x^2}\) represents the upper semicircle of radius \(1\).
+                The integral \(\int_0^1 \sqrt{1 - x^2}\, dx\) gives the area under the curve from \(0\) to \(1\).
+              </p>
+          
+              <p>
+                The area of a quarter circle of radius \(1\) is
+              </p>
+              <div class="math-scroll">
+                \[
+                \text{Area} = \frac{1}{4} \pi (1)^2 = \frac{\pi}{4}
+                \]
+              </div>
+          
+              <p>Thus, using the geometric interpretation:</p>
+              <div class="math-scroll">
+                \[
+                \int_0^1 \sqrt{1 - x^2}\, dx = \frac{\pi}{4}
+                \]
+              </div>
+            </div>
+        </div>
+
+        <!-- done example 1 -->
+
+        <!-- example 2 -->
+
+        <div class="example" id="ex2-2">
+            <h3>Example 2.2: Riemann Sum Approximation</h3>
+            <p>
+              Compute the integral
+              \(\displaystyle \int_0^2 (x^3 + 1)\, dx\)
+              using a Riemann sum by dividing the interval \([0,2]\) into \(n\) equal subintervals and using right endpoints.
+            </p>
+          
+            <div class="solution">
+              <p><strong>Solution:</strong></p>
+          
+              <p>Step 1: Divide the interval \([0,2]\) into \(n\) equal subintervals:</p>
+              <div class="math-scroll">
+                \[
+                \Delta x = \frac{2-0}{n} = \frac{2}{n}
+                \]
+              </div>
+          
+              <p>Step 2: Right endpoints:</p>
+              <div class="math-scroll">
+                \[
+                x_k = 0 + k \Delta x = \frac{2k}{n}, \quad k=1,2,\dots,n
+                \]
+              </div>
+          
+              <p>Step 3: Riemann sum:</p>
+                <div class="math-scroll">
+                    \[
+                    \begin{aligned}
+                    \sum_{k=1}^{n} \left[ \left(\frac{2k}{n}\right)^3 + 1 \right] \cdot \frac{2}{n} 
+                    &= \sum_{k=1}^{n} \frac{2}{n} \left( \frac{8 k^3}{n^3} + 1 \right) \\[1mm]
+                    &= \sum_{k=1}^{n} \frac{16 k^3}{n^4} + \sum_{k=1}^{n} \frac{2}{n} \\[1mm]
+                    &= \frac{16}{n^4} \sum_{k=1}^{n} k^3 + \frac{2}{n} \sum_{k=1}^{n} 1 \\ 
+                    &= \frac{16}{n^4} \sum_{k=1}^{n} k^3 + \frac{2}{n} \cdot n \\ 
+                    &= \frac{16}{n^4} \sum_{k=1}^{n} k^3 + 2
+                    \end{aligned}
+                    \]
+                </div>
+          
+              <p>Step 4: Use the formula \(\sum_{k=1}^{n} k^3 = \frac{n^2(n+1)^2}{4}\):</p>
+              <div class="math-scroll">
+                \[
+                \frac{16}{n^4} \cdot \frac{n^2(n+1)^2}{4} + 2 = \frac{4(n+1)^2}{n^2} + 2
+                \]
+              </div>
+          
+              <p>Step 5: Take the limit as \(n \to \infty\):</p>
+              <div class="math-scroll">
+                \[
+                \int_0^2 (x^3 + 1)\, dx = \lim_{n\to\infty} \left( \frac{4(n+1)^2}{n^2} + 2 \right)
+                = 4 + 2 = 6
+                \]
+              </div>
+          
+              <p>Thus, the integral evaluates to:</p>
+              <div class="math-scroll">
+                \[
+                \int_0^2 (x^3 + 1)\, dx = 6
+                \]
+              </div>
+            </div>
+          </div>
+
+          <!-- done example 2 -->
+      </section>
+    </main>
+  </div>
+
+  <footer class="footer-signature">
+    <p>© 2026 Hanh Vo • Department of Mathematics • Purdue University</p>
+  </footer>
+</body>
+
+</html>

@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MA 16500 Notes | 5.3: Fundamental Theorem of Calculus</title>
+
+  <link rel="stylesheet" href="../../../style.css" />
+  <link rel="stylesheet" href="../../lectures.css" />
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+</head>
+
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <nav class="top-nav" aria-label="Main Navigation">
+    <div class="nav-container">
+      <a href="../../../index.html" class="nav-logo">Hanh Vo</a>
+      <div class="nav-links">
+        <a href="../../../index.html">Home</a>
+        <a href="../../../research.html">Research</a>
+        <a href="../../../teaching.html" class="active">Teaching</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="notes-container">
+    <header>
+      <a href="../index.html" class="section-title-link" title="Back to MA 16500 Course Page">
+        <span class="section-title">MA 16500: Analytic Geometry and Calculus I</span>
+      </a>
+      <h1>5.3: Fundamental Theorem of Calculus</h1>
+
+      <button class="print-btn" onclick="window.print()">
+        <i class="fa-solid fa-print"></i> Print
+      </button>
+    </header>
+
+    <main id="main-content">
+      <!-- Learning Goals -->
+      <section class="goal" aria-label="Learning Goals">
+        <p>
+          <strong>Goal:</strong> Understand the Fundamental Theorem of Calculus (both parts) and its significance in connecting derivatives and integrals.
+        </p>
+      </section>
+
+      <!-- Table of Contents -->
+      <nav class="toc-container" aria-label="Table of Contents">
+        <h2>Contents</h2>
+        <ul>
+          <li><a href="#intro">1. Introduction</a></li>
+            <ul>
+                <li><a href="#statement">1.1. Statement</a></li> 
+                <li><a href="#proof">1.2. Proof</a></li>
+            </ul>
+          <li><a href="#examples">2. Examples</a></li>
+            <ul>
+                <li><a href="#example-part1">2.1. Example Problems for Part 1 </a></li> 
+                <li><a href="#example-part2">2.2. Example Problems for Part 2 </a></li>  
+            </ul>
+        </ul>
+      </nav>
+
+      <hr style="margin: 40px 0; border: 0; border-top: 1px solid var(--border-light);" />
+
+      <!-- Intro Section -->
+      <section id="intro">
+        <h2 class="sub-section-label">1. Introduction</h2>
+
+        <h3 id="statement">1.1 Statement</h3>
+      
+        <!-- Assumption -->
+        <p>Let \(f\) be continuous on \([a, b]\).</p>
+      
+        <!-- Part 1 -->
+        <div class="theorem">
+            <p><strong>Part 1 (Derivative of the Integral):</strong></p>
+          
+            <p>Define</p>
+            <div class="math-scroll">
+              \[
+                A(x) = \int_a^x f(t)\, dt
+              \]
+            </div>
+          
+            <p>Then \(A\) is an antiderivative of \(f\), i.e.,</p>
+            <div class="math-scroll">
+                \[
+                  A'(x) = f(x)
+                \]
+            </div>
+            or equivalently,
+            <div class="math-scroll">
+              \[
+                \frac{d}{dx} \Big( \int_a^x f(t)\, dt \Big) = f(x)
+              \]
+            </div>
+        </div>
+      
+        <!-- Part 2 -->
+        <div class="theorem">
+          <p><strong>Part 2 (Evaluation using any antiderivative):</strong></p>
+          <p>
+            Let \(F(x)\) be any antiderivative of \(f(x)\) on \([a, b]\). Then
+            <div class="math-scroll">
+            \[
+              \int_a^b f(x)\, dx = F(b) - F(a).
+            \]  
+            </div>
+          </p>
+        </div>
+      
+        <!-- Motivation / Intuition -->
+        <h3 id="proof">1.2 Proof</h3>
+        <!-- Part 1 Proof --> 
+        <div class="important">
+        
+            <p>
+                <strong>Proof Idea (Part 1):</strong> Definition of derivative:
+            </p>
+            <div class="math-scroll">
+            \[
+                A'(x) = \lim_{h \to 0} \frac{A(x+h) - A(x)}{h}
+            \]
+            </div>
+         
+            <div class="math-scroll">
+            \[
+                A(x+h) - A(x) = \int_x^{x+h} f(t)\, dt
+            \]
+            </div>
+         
+            <p>
+                Since \(f\) is continuous at \(x\), for small \(h\) the function values \(f(t)\) are close to \(f(x)\). 
+                You can think of this as the area of a rectangle with width \(h\) and height approximately \(f(x)\).
+            </p>
+
+            <div class="math-scroll">
+            \[
+                A'(x) = \lim_{h \to 0} \frac{f(x) \cdot h}{h} = f(x)
+            \]
+            </div>
+        
+            <p>Hence, \(A'(x) = f(x)\).</p> 
+        </div>
+        <!-- done proof part 1 -->
+
+        <!-- proof part 2 -->
+        <!-- Part 2 Proof -->
+
+        <!-- Part 2 Proof --> 
+        <div class="important">
+
+            <p><strong>Proof Idea (Part 2):</strong> Let \(F(x)\) be any antiderivative of \(f(x)\) on \([a,b]\).</p>
+
+            <div class="math-scroll">
+            \[
+                A(x) = \int_a^x f(t)\, dt
+            \]
+            </div>
+            <p>From Part 1, \(A'(x) = f(x)\), so \(A\) is an antiderivative of \(f\).</p>
+
+            <p>Any two antiderivatives differ by a constant. So there exists \(C\) such that:</p>
+            <div class="math-scroll">
+            \[
+                F(x) = A(x) + C
+            \]
+            </div>
+
+            <p>Evaluate at \(x = a\):</p>
+            <div class="math-scroll">
+            \[
+                F(a) = A(a) + C = 0 + C \implies C = F(a)
+            \]
+            </div>
+
+            <p>Thus,</p>
+            <div class="math-scroll">
+            \[
+                A(x) = F(x) - F(a)
+            \]
+            </div>
+
+            <p>Evaluate at \(x = b\):</p>
+            <div class="math-scroll">
+            \[
+                \int_a^b f(x)\, dx = A(b) = F(b) - F(a)
+            \]
+            </div>
+
+            <p>Hence, the Fundamental Theorem of Calculus (Part 2) is proved.</p>
+        </div>
+
+        <!-- done proof part 2 -->
+      </section>
+      
+
+      <!-- Examples Section -->
+      
+      <section id="examples">
+        <h2 class="sub-section-label">2. Examples</h2>
+
+        <!-- example for part 1 -->
+        <h3 id="example-part1">Example Problems for Part 1 </h3>
+
+        <div class="example" id="ex1">
+            <h3>Example P1.1: Derivative of an Integral</h3>
+            <p>Compute</p>
+            <div class="math-scroll">
+                \[
+                \frac{d}{dx} \int_0^x \sin^2(t) \, dt
+                \] 
+            </div>
+
+            <div class="solution">
+              <p><strong>Solution:</strong>  
+              Let 
+                <div class="math-scroll">
+                \[
+                F(x) = \int_0^x \sin^2(t) \, dt.
+                \]  
+                </div>
+              By the Fundamental Theorem of Calculus, since \(\sin^2(t)\) is continuous, the derivative of \(F\) is simply the integrand evaluated at \(x\):
+                <div class="math-scroll">
+                \[
+                F'(x) = \sin^2(x).
+                \]  
+                </div>
+              Therefore,
+                <div class="math-scroll">
+                \[
+                \frac{d}{dx} \int_0^x \sin^2(t) \, dt = \sin^2(x).
+                \]
+                </div>
+              </p>
+            </div>
+        </div>
+
+        <!-- done example 1 -->
+
+        <div class="example" id="ex2">
+            <h3>Example P1.2: Derivative of an Integral with Variable Lower Limit</h3>
+            <p>Compute </p>
+            <div class="math-scroll">
+                \[
+                \frac{d}{dx} \int_x^5 \sqrt{t^2 + 1} \, dt
+                \] 
+            </div> 
+
+            <div class="solution">
+              <p><strong>Solution:</strong>  
+              By the Fundamental Theorem of Calculus (Part 1):   
+              </p>
+                <div class="math-scroll">
+                    \[
+                    \frac{d}{dx} \int_x^5 \sqrt{t^2 + 1} \, dt 
+                    = \frac{d}{dx} \int_5^x - \sqrt{t^2 + 1} \, dt 
+                    = -\sqrt{x^2 + 1}.
+                    \]
+                </div>
+            </div>
+        </div>
+
+        <!-- done example 2 -->
+
+
+        <div class="example" id="ex3">
+            <h3>Example P1.3: Derivative of an Integral with a Function as Upper Limit</h3>
+            <p>Compute 
+              \[
+                \frac{d}{dx} \int_1^{x^4} \sec(t) \, dt
+              \] 
+            </p>
+            <div class="solution">
+              <p><strong>Warning:</strong> It is NOT just \(\sec(x^4)\); we must account for the derivative of the upper limit.</p>
+              <p><strong>Solution:</strong> Let us introduce a temporary variable:</p>
+              
+              <div class="math-scroll">
+                \[
+                y = \int_1^{x^4} \sec(t) \, dt
+                \]
+              </div>
+          
+              <p>Set \(u = x^4\). Then the integral becomes:</p>
+              <div class="math-scroll">
+                \[
+                y = \int_1^u \sec(t) \, dt
+                \]
+              </div>
+          
+              <p>Differentiate using the chain rule:</p>
+              <div class="math-scroll">
+                \[
+                \frac{dy}{dx} = \frac{dy}{du} \cdot \frac{du}{dx}  
+                \]
+              </div>
+          
+              <p>Apply the Fundamental Theorem of Calculus (Part 1) to the first factor. Explicitly,</p>
+              <div class="math-scroll">
+                \[
+                \frac{dy}{du} = \frac{d}{du} \int_1^u \sec(t) \, dt = \sec(u)
+                \]
+              </div>
+          
+              <p>Substitute back \(u = x^4\) and differentiate \(u = x^4\):</p>
+              <div class="math-scroll">
+                \[
+                \frac{dy}{dx} = \sec(u) \cdot \frac{du}{dx} = \sec(x^4) \cdot 4x^3 = 4x^3 \sec(x^4)
+                \]
+              </div>
+            </div>
+        </div>
+
+        <!-- done example 3 -->
+
+        <!-- done example part 1 -->
+
+        <!-- examples for part 2 --> 
+
+        <h3 id="example-part2">Example Problems for Part 2 </h3>
+
+        <div class="example" id="p2_1">
+            <h3>Example P2.1: </h3>
+            <p>Compute 
+              \[
+                \int_1^3 e^x \, dx
+              \]
+              using the Fundamental Theorem of Calculus (Part 2).
+            </p>
+            <div class="solution">
+              <p><strong>Solution:</strong></p>
+              <div class="math-scroll">
+                \[
+                  F(x) = e^x
+                \]
+              </div>
+              <div class="math-scroll">
+                \[
+                  \int_1^3 e^x \, dx = F(3) - F(1)
+                \]
+              </div>
+              <div class="math-scroll">
+                \[
+                  \int_1^3 e^x \, dx = e^3 - e
+                \]
+              </div>
+            </div>
+        </div>
+
+        <!-- done example 1 part 2 -->
+
+        <div class="example" id="p2_2">
+            <h3>Example P2.2: </h3> 
+            <div class="math-scroll">
+            \[
+                \int_{-1}^3 \frac{1}{x^2} \, dx
+            \] 
+            </div>  
+
+            <div class="solution">
+            In order to use the Fundamental Theorem of Calculus, the function \(f(x)\) has to be defined and continuous for the whole interval \([a,b]\). 
+            Here it is <strong>not defined at \(0 \in [-1,3]\)</strong> (and hence not continuous), so we would treat it as an improper integral using a limit. We will learn about this later.</p> 
+            </div>
+        </div>
+        <!-- done example P2 --> 
+
+        <!-- hard -->
+        <div class="example" id="ex6_sign_table">
+            <h3>Difficult Problem: </h3>
+            <p>Find the value of \(b > -1\) that maximizes</p>
+            <div class="math-scroll">
+              \[
+                \int_{-1}^{b} x^2 (5 - x) \, dx
+              \]
+            </div>
+            <div class="solution">
+              <p><strong>Solution:</strong> Let</p>
+              <div class="math-scroll">
+                \[
+                  F(b) = \int_{-1}^{b} x^2 (5 - x) \, dx, \quad F'(b) = b^2 (5 - b)
+                \]
+              </div>
+              <p>Critical points: \(F'(b) = 0 \Rightarrow b = 0, 5\)</p>
+              
+              <p><strong>Sign of \(F'(b)\) and behavior of \(F(b)\)</strong></p>
+              <div style="overflow-x: auto; width: 100%; margin-top: 10px;">
+                <table border="1" style="width: 100%; text-align: center; border-collapse: collapse; margin-top: 10px;">
+                  <thead style="background-color: #f2f2f2;">
+                    <tr>
+                      <th>Interval</th>
+                      <th>\(-1 < b < 0\)</th>
+                      <th>\(0 < b < 5\)</th>
+                      <th>\(b > 5\)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>\(F'(b)\)</td>
+                      <td>\(+\)</td>
+                      <td>\(+\)</td>
+                      <td>\(-\)</td>
+                    </tr>
+                    <tr>
+                      <td>Behavior of \(F(b)\)</td>
+                      <td>increasing</td>
+                      <td>increasing</td>
+                      <td>decreasing</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              
+              <p>From the table, the maximum occurs at:</p>
+              <div class="math-scroll">
+                \[
+                  \boxed{b = 5}
+                \]
+              </div>
+            </div>
+        </div>
+        <!-- done hard -->
+      </section>
+
+    </main>
+  </div>
+
+  <footer class="footer-signature">
+    <p>© 2026 Hanh Vo • Department of Mathematics • Purdue University</p>
+  </footer>
+</body>
+
+</html>
