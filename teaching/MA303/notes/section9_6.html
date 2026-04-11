@@ -1,0 +1,1862 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MA 30300 Notes | Hanh Vo</title>
+
+    <link rel="stylesheet" href="../../../style.css" />
+    <link rel="stylesheet" href="../../lectures.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+</head>
+
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<nav class="top-nav" aria-label="Main Navigation">
+    <div class="nav-container">
+        <a href="../../../index.html" class="nav-logo">Hanh Vo</a>
+        <div class="nav-links">
+            <a href="../../../index.html">Home</a>
+            <a href="../../../research.html">Research</a>
+            <a href="../../../teaching.html" class="active">Teaching</a>
+        </div>
+    </div>
+</nav>
+
+<div class="notes-container">
+
+<header>
+    <a href="../index.html" class="section-title-link" title="Back to MA 30300 Course Page">
+        <div class="section-title">MA 30300: Differential Equations</div>
+    </a>
+    <h1>9.6. One-Dimensional Wave Equation</h1>
+
+    <button class="print-btn" onclick="window.print()">
+        <i class="fa-solid fa-print"></i> Print
+    </button>
+</header>
+
+<main id="main-content">
+
+<!-- ===================== GOAL ===================== -->
+<section class="goal" aria-label="Learning Goals">
+    <p>
+        <strong>Goal:</strong>
+        Derive, analyze, and solve the one-dimensional wave equation using physical principles and separation of variables.
+    </p>
+</section>
+
+<!-- ===================== TABLE OF CONTENTS ===================== -->
+<nav class="toc-container" aria-label="Table of Contents">
+    <h2>Contents</h2>
+    <ul>
+        <li>
+            <a href="#section1">1. Derivation of the Wave Equation</a>
+        </li>
+        <li>
+            <a href="#section2">2. Initial–Boundary Value Problem</a>
+        </li>
+        <li>
+            <a href="#section3">3. Separation of Variables</a>
+        </li>
+        <li>
+            <a href="#section4">4. Summary: Solution of the Wave Equation
+            </a>
+        </li>
+
+        <li>
+            <a href="#section-dalembert">5. The d’Alembert Solution (optional)</a>
+        </li>
+
+        
+        <li>
+            <a href="#section6">6. Examples</a>
+        </li>
+    </ul>
+</nav>
+
+<hr style="margin: 25px 0; border: 0; border-top: 1px solid var(--border-light);">
+
+<!-- ===================== SECTION 1 ===================== -->
+<section id="section1">
+    <h2 class="sub-section-label">1. Derivation of the One-Dimensional Wave Equation</h2>
+
+    <div class="theorem">
+        <p><strong>Historical Remark:</strong></p>
+        <p>
+            Although Fourier systematized the method of separation of variables,
+            trigonometric series solutions to partial differential equations
+            appeared earlier in the work of Euler, d’Alembert, and Daniel Bernoulli
+            in the study of vibrating strings.
+        </p>
+    </div>
+
+    <div class="important">
+        <p><strong>Physical Model:</strong></p>
+        <p>
+            We consider a flexible, uniform string stretched between two fixed points
+            \( x = 0 \) and \( x = L \), under tension \( T \).
+            Let \( \rho \) denote the linear density of the string.
+        </p>
+
+        <p>
+            The vertical displacement of the string is described by \( y(x,t) \),
+            where each point of the string moves only in the vertical direction.
+        </p>
+
+        <ul>
+            <li>\( x \): position along the string</li>
+            <li>\( t \): time</li>
+            <li>\( y(x,t) \): vertical displacement</li>
+        </ul>
+    </div>
+
+    <div class="important">
+        <p><strong>Key Assumptions:</strong></p>
+        <ul>
+            <li>Motion is purely transverse (vertical only).</li>
+            <li>Small deflection assumption:
+                <div class="math-scroll">
+                    \[
+                        \sin\theta \approx \tan\theta = y_x(x,t)
+                    \]
+                </div>
+            </li>
+            <li>Tension \( T \) is constant along the string.</li> 
+        </ul>
+    </div>
+
+
+    <p>
+        Consider a small segment of the string on \( [x, x + \Delta x] \)
+        with mass \( \rho \Delta x \).
+    </p>
+
+    <div class="theorem">
+        <p><strong>Newton’s Second Law:</strong></p>
+
+        <p>
+            The vertical acceleration is:
+        </p>
+
+        <div class="math-scroll">
+            \[
+                a = y_{tt}(x,t)
+            \]
+        </div>
+
+        <div class="math-scroll">
+            \[
+                \Longrightarrow F_{\text{net}} = ma = \rho \Delta x y_{tt}(x,t)
+            \]
+        </div>
+
+        <p>
+            The net vertical force comes from the difference of tension components
+            at the endpoints.
+        </p>
+    </div>
+
+    <div class="important">
+        <p><strong> Derivation:</strong></p>
+        
+    
+        <p> 
+            The forces acting on the small segment of the string on \( [x, x+\Delta x] \) come only from the tension \( T \)
+            at the two endpoints.
+        </p>
+    
+        <p>
+            Example: 
+            At the left endpoint \( x \), the string exerts a downward vertical component
+            of tension \( T \sin\alpha \), and at the right endpoint \( x+\Delta x \),
+            there is an upward vertical component \( T \sin\beta \).
+        </p>
+    
+        <p>
+            Hence the net vertical force is:
+        </p>
+    
+        <div class="math-scroll">
+            \[
+                F_{\text{net}} = T\sin\beta - T\sin\alpha
+            \]
+        </div>
+    
+        <p>
+            Applying Newton’s second law, we get:
+        </p>
+    
+        <div class="math-scroll">
+            \[
+                T(\sin\beta - \sin\alpha) = \rho \Delta x \, y_{tt}(x,t)
+            \]
+        </div>
+    
+        <p>
+            For small deflections, we use the approximation:
+        </p>
+    
+        <div class="math-scroll">
+            \[
+                \sin\theta \approx \tan\theta = y_x(x,t)
+            \]
+        </div>
+    
+        <p>
+            Therefore,
+        </p>
+    
+        <div class="math-scroll">
+            \[
+                \sin\beta \approx y_x(x+\Delta x,t), \quad
+                \sin\alpha \approx y_x(x,t)
+            \]
+        </div>
+    
+        <p>
+            Substituting into Newton’s law:
+        </p>
+    
+        <div class="math-scroll">
+            \[
+                T\big(y_x(x+\Delta x,t) - y_x(x,t)\big)
+                = \rho \Delta x \, y_{tt}(x,t)
+            \]
+        </div>
+    
+        <p>
+            Divide both sides by \( \rho \Delta x \):
+        </p>
+        
+        <div class="math-scroll">
+            \[
+                \frac{T}{\rho}
+                \frac{y_x(x+\Delta x,t) - y_x(x,t)}{\Delta x}
+                = y_{tt}(x,t)
+            \]
+        </div>
+        
+        <p>
+            Now take the limit as \( \Delta x \to 0 \). Since
+        </p>
+        
+        <div class="math-scroll">
+            \[
+                \lim_{\Delta x \to 0}
+                \frac{y_x(x+\Delta x,t) - y_x(x,t)}{\Delta x}
+                = y_{xx}(x,t)
+            \]
+        </div>
+
+        we have
+
+        <div class="math-scroll">
+            \[
+                y_{tt} = \frac{T}{\rho} y_{xx}
+            \]
+        </div>
+
+        Let 
+        <div class="math-scroll">
+            \[ 
+                a^2 = \frac{T}{\rho} > 0
+            \]
+        </div>
+
+
+        <p>
+            we obtain the one-dimensional wave equation:
+        </p>
+        
+        
+        <div class="math-scroll">
+            \[
+                y_{tt} = a^2 y_{xx}.
+            \]
+        </div>
+    </div> 
+</section>
+
+<!-- ===================== SECTION 2 ===================== -->
+<!-- ===================== SECTION 2 ===================== -->
+<section id="section2">
+    <h2 class="sub-section-label">2. Initial–Boundary Value Problem</h2>
+
+    <div class="theorem">
+        <p><strong>Wave Equation:</strong></p>
+
+        <div class="math-scroll">
+            \[
+                y_{tt} = a^2 y_{xx}, \quad 0 < x < L,\; t > 0
+            \]
+        </div>
+
+        <p><strong>Boundary Conditions:</strong></p>
+
+        <div class="math-scroll">
+            \[
+                y(0,t) = 0, \quad y(L,t) = 0
+            \]
+        </div>
+
+        <p><strong>Initial Conditions:</strong></p>
+
+        <div class="math-scroll">
+            \[
+                y(x,0) = f(x), \quad y_t(x,0) = g(x)
+            \]
+        </div>
+    </div>
+
+    <!-- OPTIONAL - NO NEED TO DO THIS -->
+
+    <div class="optional">
+
+        <p><strong>Decomposition Idea (this is optional):</strong></p>
+
+        <p>
+            We can use a “divide and conquer” strategy and split the problem into two
+            simpler problems, each involving only a single nonhomogeneous boundary condition.
+        </p>
+
+        <div class="important">
+            <p><strong>Problem A:</strong></p>
+
+            <div class="math-scroll">
+                \[
+                    y_{tt} = a^2 y_{xx}, \quad 0 < x < L
+                \]
+            </div>
+
+            <div class="math-scroll">
+                \[
+                    y(0,t) = 0, \quad y(L,t) = 0
+                \]
+            </div>
+
+            <div class="math-scroll">
+                \[
+                    y(x,0) = f(x), \quad y_t(x,0) = 0
+                \]
+            </div>
+        </div>
+
+        <div class="important">
+            <p><strong>Problem B:</strong></p>
+
+            <div class="math-scroll">
+                \[
+                    y_{tt} = a^2 y_{xx}, \quad 0 < x < L
+                \]
+            </div>
+
+            <div class="math-scroll">
+                \[
+                    y(0,t) = 0, \quad y(L,t) = 0
+                \]
+            </div>
+
+            <div class="math-scroll">
+                \[
+                    y(x,0) = 0, \quad y_t(x,0) = g(x)
+                \]
+            </div>
+        </div>
+
+        <div class="theorem">
+
+            <p>
+                The full solution to the original problem is:
+            </p>
+        
+            <div class="math-scroll">
+                \[
+                    y(x,t) = y_A(x,t) + y_B(x,t)
+                \]
+            </div>
+
+        </div> 
+
+        <!-- check -->
+
+        <p>We verify this using the linearity of the wave equation.</p>
+    
+
+        <div class="important">
+            <p><strong>1. PDE check:</strong></p>
+            <p>
+                Since differentiation is linear,
+                if \( y_A \) and \( y_B \) satisfy \( y_{tt} = a^2 y_{xx} \), then:
+            </p>
+
+            <div class="math-scroll">
+                \[
+                    (y_A + y_B)_{tt} = y_{A,tt} + y_{B,tt}
+                \]
+            </div>
+
+            <div class="math-scroll">
+                \[
+                    (y_A + y_B)_{xx} = y_{A,xx} + y_{B,xx}
+                \]
+            </div>
+
+            <p>
+                Hence,
+            </p>
+
+            <div class="math-scroll">
+                \[
+                    (y_A + y_B)_{tt} = a^2 (y_A + y_B)_{xx}
+                \]
+            </div>
+            
+            <!-- BCs -->
+
+            <p><strong>2. Boundary conditions:</strong></p>
+
+            <p>
+                Both \( y_A \) and \( y_B \) satisfy:
+                \( y(0,t)=0 \), \( y(L,t)=0 \).
+            </p>
+
+            <div class="math-scroll">
+                \[
+                    y(0,t) = y_A(0,t) + y_B(0,t) = 0
+                \]
+            </div>
+
+            <div class="math-scroll">
+                \[
+                    y(L,t) = y_A(L,t) + y_B(L,t) = 0
+                \]
+            </div>
+            
+            <!-- ICs -->
+
+            <p><strong>3. Initial conditions:</strong></p>
+
+            <div class="math-scroll">
+                \[
+                    y(x,0) = y_A(x,0) + y_B(x,0) = f(x)+0=f(x)
+                \]
+            </div>
+
+            <div class="math-scroll">
+                \[
+                    y_t(x,0) = y_{A,t}(x,0) + y_{B,t}(x,0) = 0+g(x)=g(x)
+                \]
+            </div>
+
+            <p>
+                <strong>Conclusion:</strong> 
+                Therefore, the sum 
+                <div class="math-scroll">
+                    \[
+                        y(x,t) = y_A(x,t) + y_B(x,t)
+                    \]
+                </div>
+                satisfies the original initial–boundary value problem.
+            </p>
+        </div>
+
+        <!-- We don't need to do this -->
+
+        <!-- DONE DIVIDE AND CONQUER -->
+    </div>
+
+    
+
+     
+</section>
+
+<!-- ===================== SECTION 3 ===================== -->
+<section id="section3">
+    <h2 class="sub-section-label">3. Solution by Separation of Variables</h2>
+
+    <div class="important">
+        <p><strong>Problem A:</strong></p>
+
+        <div class="math-scroll">
+            \[
+                y_{tt} = a^2 y_{xx}, \quad 0 < x < L
+            \]
+        </div>
+
+        <div class="math-scroll">
+            \[
+                y(0,t) = 0, \quad y(L,t) = 0
+            \]
+        </div>
+
+        <div class="math-scroll">
+            \[
+                y(x,0) = f(x), \quad y_t(x,0) = 0
+            \]
+        </div>
+    </div>
+
+    <p><strong>Step 1: Separation of variables</strong></p>
+
+    <p>
+        We assume a product solution of the form:
+    </p>
+
+    <div class="math-scroll">
+        \[
+            y(x,t) = X(x)T(t)
+        \]
+    </div>
+
+    <p><strong>Step 2: Substitute into the PDE</strong></p>
+
+    <div class="math-scroll">
+        \[
+            X(x)T''(t) = a^2 X''(x)T(t)
+        \]
+    </div>
+
+    <p><strong>Step 3: Separate variables</strong></p>
+
+    <div class="math-scroll">
+        \[
+            \frac{T''(t)}{a^2 T(t)} = \frac{X''(x)}{X(x)} = -\lambda
+        \]
+    </div>
+
+    <p>This gives two ordinary differential equations:</p>
+
+    <div class="math-scroll">
+        \[
+            X'' + \lambda X = 0
+        \]
+    </div>
+
+    <div class="math-scroll">
+        \[
+            T'' + a^2 \lambda T = 0
+        \]
+    </div>
+
+
+    <p><strong>Step 4: Apply boundary conditions and solve the eigenvalue problem</strong></p>
+
+    <p>
+        From separation of variables we obtained:
+    </p>
+
+    <div class="math-scroll">
+        \[
+            X'' + \lambda X = 0, \quad X(0)=0,\; X(L)=0
+        \]
+    </div>
+
+    <p>
+        We now determine possible values of \( \lambda \) by considering three cases.
+    </p>
+
+    
+    <div class="solution">
+
+        <p><strong>Case 1: \( \lambda = 0 \)</strong></p>
+
+        <div class="math-scroll">
+            \[
+                X'' = 0 \Rightarrow X(x) = Ax + B
+            \]
+        </div>
+
+        <p>
+            Applying boundary conditions:
+        </p>
+
+        <div class="math-scroll">
+            \[
+                X(0)=0 \Rightarrow B=0
+            \]
+        </div>
+
+        <div class="math-scroll">
+            \[
+                X(L)=0 \Rightarrow A L = 0 \Rightarrow A=0
+            \]
+        </div>
+
+        <p>
+            Hence only the trivial solution exists.
+        </p>
+
+        <hr style="margin: 25px 0; border: 0; border-top: 1px solid var(--border-light);">
+
+        <p><strong>Case 2: \( \lambda < 0 \)</strong></p>
+
+        <p>
+            Let \( \lambda = -\mu^2 \), where \( \mu > 0 \). Then the ODE becomes:
+        </p>
+
+        <div class="math-scroll">
+            \[
+                X'' - \mu^2 X = 0
+            \]
+        </div>
+
+        <p>
+            The general solution is:
+        </p>
+
+        <div class="math-scroll">
+            \[
+                X(x) = A e^{\mu x} + B e^{-\mu x}
+            \]
+        </div>
+
+        <p>
+            Apply the boundary condition \( X(0)=0 \):
+        </p>
+
+        <div class="math-scroll">
+            \[
+                A + B = 0 \Rightarrow B = -A
+            \]
+        </div>
+
+        <p>
+            Hence,
+        </p>
+
+        <div class="math-scroll">
+            \[
+                X(x) = A \left(e^{\mu x} - e^{-\mu x}\right)
+            \]
+        </div>
+
+        <p>
+            Now apply the second boundary condition \( X(L)=0 \):
+        </p>
+
+        <div class="math-scroll">
+            \[
+                X(L) = A \left(e^{\mu L} - e^{-\mu L}\right) = 0
+            \]
+        </div>
+
+        <p>
+            Since \( e^{\mu L} - e^{-\mu L} \neq 0 \), we must have:
+        </p>
+
+        <div class="math-scroll">
+            \[
+                A = 0
+            \]
+        </div>
+
+        <p>
+            Therefore \( X(x) \equiv 0 \), so only the trivial solution exists.
+        </p>
+
+        <hr style="margin: 25px 0; border: 0; border-top: 1px solid var(--border-light);">
+
+        <p><strong>Case 3: \( \lambda > 0 \)</strong></p>
+
+        <p>
+            Let \( \lambda = \mu^2 \), \( \mu > 0 \). Then:
+        </p>
+
+        <div class="math-scroll">
+            \[
+                X'' + \mu^2 X = 0
+            \]
+        </div>
+
+        <div class="math-scroll">
+            \[
+                X(x) = A \cos(\mu x) + B \sin(\mu x)
+            \]
+        </div>
+
+        <p>
+            Apply boundary conditions:
+        </p>
+
+        <div class="math-scroll">
+            \[
+                X(0)=0 \Rightarrow A = 0
+            \]
+        </div>
+
+        <p>
+            So:
+        </p>
+
+        <div class="math-scroll">
+            \[
+                X(x) = B \sin(\mu x)
+            \]
+        </div>
+
+        <p>
+            Now apply \( X(L)=0 \):
+        </p>
+
+        <div class="math-scroll">
+            \[
+                \sin(\mu L)=0 \Rightarrow \mu L = n\pi,\quad n=1,2,3,\dots
+            \]
+        </div>
+
+        <p>
+            Therefore:
+        </p>
+
+        <div class="math-scroll">
+            \[
+                \mu_n = \frac{n\pi}{L}, \quad \lambda_n = \left(\frac{n\pi}{L}\right)^2
+            \]
+        </div>
+
+        <p>
+            and eigenfunctions:
+        </p>
+
+        <div class="math-scroll">
+            \[
+                X_n(x) = \sin\left(\frac{n\pi x}{L}\right)
+            \]
+        </div>
+ 
+    </div>
+
+    <p><strong>Conclusion:</strong></p>
+
+    <p>
+        Only the case \( \lambda > 0 \) produces nontrivial solutions satisfying the boundary conditions. 
+    </p> 
+
+    <div class="important">
+
+        <div class="math-scroll">
+            \[
+                \lambda_n = \left(\frac{n\pi}{L}\right)^2
+            \]
+        </div>
+
+        <div class="math-scroll">
+            \[
+                X_n(x) = \sin\left(\frac{n\pi x}{L}\right)   
+            \]
+        </div>
+
+    </div>
+
+    
+
+    <!-- done step 4 -->
+
+    <p><strong>Step 5: Time-dependent part</strong></p>
+
+    <div class="math-scroll">
+        \[
+            T_n'' + a^2 \left(\frac{n\pi}{L}\right)^2 T_n = 0
+        \]
+    </div>
+
+    <p>
+        which gives oscillatory solutions:
+    </p>
+
+    
+
+    <div class="important"> 
+
+        <div class="math-scroll">
+            \[
+                T_n(t) = A_n \cos\left(\frac{a n \pi t}{L}\right)
+                + B_n \sin\left(\frac{a n \pi t}{L}\right)
+            \]
+        </div>
+
+    </div>
+
+    <p><strong>Step 6: Combine solutions</strong></p>
+
+    We have
+
+    <div class="math-scroll">
+        \[
+            y_n(x,t) = T_n X_n =  
+            \left[
+                A_n \cos\left(\frac{a n \pi t}{L}\right)
+                +
+                B_n \sin\left(\frac{a n \pi t}{L}\right)
+            \right]
+            \sin\left(\frac{n\pi x}{L}\right)
+        \]
+    </div>
+
+
+    By superposition we get the infinite series
+
+    <div class="important">
+
+        <div class="math-scroll">
+            \[
+                y_(x,t) =
+                \sum_{n=1}^{\infty}
+                \left[
+                    A_n \cos\left(\frac{a n \pi t}{L}\right)
+                    +
+                    B_n \sin\left(\frac{a n \pi t}{L}\right)
+                \right]
+                \sin\left(\frac{n\pi x}{L}\right)
+            \]
+        </div>
+
+    </div>
+
+
+    <!-- step 7: ICs -->
+
+    <p><strong>Step 7: Apply initial conditions</strong></p>
+
+    <p>
+        We now determine the coefficients using both initial conditions.
+    </p>
+
+    <p><strong>First initial condition:</strong></p>
+
+    <div class="math-scroll">
+        \[
+            y(x,0) = f(x)
+        \]
+    </div>
+
+    <p>
+        Substituting \( t=0 \) into the series:
+    </p>
+
+    <div class="math-scroll">
+        \[
+            y(x,0) =
+            \sum_{n=1}^{\infty}
+            A_n \sin\left(\frac{n\pi x}{L}\right)
+        \]
+    </div>
+
+    <p>
+        Hence,
+    </p>
+
+    <div class="math-scroll">
+        \[
+            f(x)=\sum_{n=1}^{\infty} A_n \sin\left(\frac{n\pi x}{L}\right)
+        \]
+    </div>
+
+    <p>
+        So \( A_n \) are the Fourier sine coefficients of \( f(x) \):
+    </p>
+
+    <div class="important"> 
+        <div class="math-scroll">
+            \[
+                A_n = \frac{2}{L} \int_0^L f(x)\sin\left(\frac{n\pi x}{L}\right)\,dx
+            \]
+        </div> 
+    </div>
+
+    
+
+    
+    <hr style="margin: 25px 0; border: 0; border-top: 1px solid var(--border-light);">
+
+
+    <p><strong>Second initial condition:</strong></p>
+
+    <div class="math-scroll">
+        \[
+            y_t(x,0) = g(x)
+        \]
+    </div>
+
+    <p>
+        Differentiate the series with respect to \( t \):
+    </p>
+
+    <div class="math-scroll">
+        \[
+            y_t(x,t) =
+            \sum_{n=1}^{\infty}
+            \left[
+                -A_n \frac{a n \pi}{L} \sin\left(\frac{a n \pi t}{L}\right)
+                +
+                B_n \frac{a n \pi}{L} \cos\left(\frac{a n \pi t}{L}\right)
+            \right]
+            \sin\left(\frac{n\pi x}{L}\right)
+        \]
+    </div>
+
+    <p>
+        Evaluate at \( t=0 \):
+    </p>
+
+    <div class="math-scroll">
+        \[
+            y_t(x,0) =
+            \sum_{n=1}^{\infty}
+            B_n \frac{a n \pi}{L}
+            \sin\left(\frac{n\pi x}{L}\right)
+        \]
+    </div>
+
+    <p>
+        Hence,
+    </p>
+
+    <div class="math-scroll">
+        \[
+            g(x) =
+            \sum_{n=1}^{\infty}
+            B_n \frac{a n \pi}{L}
+            \sin\left(\frac{n\pi x}{L}\right)
+        \]
+    </div>
+
+    <p>
+        So \( B_n \dfrac{a n \pi}{L} \) are the Fourier sine coefficients of \( g(x) \):
+    </p>
+
+    <div class="math-scroll">
+        \[
+            B_n \frac{a n \pi}{L} =
+            \frac{2}{L}
+            \int_0^L g(x)\sin\left(\frac{n\pi x}{L}\right)\,dx
+        \]
+    </div> 
+
+    <p>
+        Therefore, \( B_n \) are given by:
+    </p>
+
+    <div class="important"> 
+
+        <div class="math-scroll">
+            \[
+                B_n =
+                \frac{2}{a n \pi}
+                \int_0^L g(x)\sin\left(\frac{n\pi x}{L}\right)\,dx
+            \]
+        </div>
+        
+    </div>
+
+    
+
+    <!-- done ICs --> 
+
+    <!-- Conclusion -->
+
+    <p><strong>Step 8: Conclusion:</strong></p>
+
+    <div class="important">
+        Solution:
+
+        <div class="math-scroll">
+            \[
+                y_(x,t) =
+                \sum_{n=1}^{\infty}
+                \left[
+                    A_n \cos\left(\frac{a n \pi t}{L}\right)
+                    +
+                    B_n \sin\left(\frac{a n \pi t}{L}\right)
+                \right]
+                \sin\left(\frac{n\pi x}{L}\right)
+            \]
+        </div>
+
+        <!-- An -->
+
+        <div class="math-scroll">
+            \[
+                A_n = \frac{2}{L} \int_0^L f(x)\sin\left(\frac{n\pi x}{L}\right)\,dx
+            \]
+        </div> 
+
+        <!-- Bn -->
+
+        <div class="math-scroll">
+            \[
+                B_n =
+                \frac{2}{a n \pi}
+                \int_0^L g(x)\sin\left(\frac{n\pi x}{L}\right)\,dx
+            \]
+        </div>
+
+        <!-- done -->
+
+    </div>
+</section>
+
+<!-- ===================== SECTION 4 ===================== -->
+<section id="section4">
+    <h2 class="sub-section-label">4. Summary: Solution of the Wave Equation</h2>
+
+    <div class="theorem">
+
+        <p><strong>Wave Equation:</strong></p>
+
+        <div class="math-scroll">
+            \[
+                y_{tt} = a^2 y_{xx}, \quad 0 < x < L,\; t > 0
+            \]
+        </div>
+
+        <p><strong>Boundary Conditions:</strong></p>
+
+        <div class="math-scroll">
+            \[
+                y(0,t) = 0, \quad y(L,t) = 0
+            \]
+        </div>
+
+        <p><strong>Initial Conditions:</strong></p>
+
+        <div class="math-scroll">
+            \[
+                y(x,0) = f(x), \quad y_t(x,0) = g(x)
+            \]
+        </div>
+
+        <!-- done statement -->
+
+        <!-- now solution -->
+
+        
+        <p><strong>Solution:</strong></p>
+
+        <div class="math-scroll">
+            \[
+                y_(x,t) =
+                \sum_{n=1}^{\infty}
+                \left[
+                    A_n \cos\left(\frac{a n \pi t}{L}\right)
+                    +
+                    B_n \sin\left(\frac{a n \pi t}{L}\right)
+                \right]
+                \sin\left(\frac{n\pi x}{L}\right)
+            \]
+        </div>
+
+
+        <p><strong>Coefficients:</strong> 
+        Determined from initial conditions \( f(x), g(x) \).
+        </p>
+
+        <!-- An -->
+
+        <div class="math-scroll">
+            \[
+                A_n = \frac{2}{L} \int_0^L f(x)\sin\left(\frac{n\pi x}{L}\right)\,dx
+            \]
+        </div> 
+
+        <!-- Bn -->
+
+        <div class="math-scroll">
+            \[
+                B_n =
+                \frac{2}{a n \pi}
+                \int_0^L g(x)\sin\left(\frac{n\pi x}{L}\right)\,dx
+            \]
+        </div>
+
+
+        <p><strong>Remark:</strong> 
+            If \(f(x) = 0\), then \(A_n = 0\) for all \(n\). 
+            If \(g(x) = 0\), then \(B_n = 0\) for all \(n\).
+        </p>
+
+        <!-- done -->
+        
+    </div>
+</section>
+
+
+
+<!-- ===================== SECTION 5 ===================== -->
+
+<section id="section-dalembert">
+
+    <h2 class="sub-section-label">5. The d’Alembert Solution</h2>
+
+    <div class="optional">
+
+        <h3 class="sub-section-label">d’Alembert form of the solution of Problem A</h3>
+        <p>
+            Remark: d’Alembert form of the solution of Problem A for the vibrating string.
+        </p>
+    
+        <div class="important">
+            <p><strong>Problem A:</strong></p>
+    
+            <div class="math-scroll">
+                \[
+                    y_{tt} = a^2 y_{xx}, \quad 0 < x < L
+                \]
+            </div>
+    
+            <div class="math-scroll">
+                \[
+                    y(0,t) = 0, \quad y(L,t) = 0
+                \]
+            </div>
+    
+            <div class="math-scroll">
+                \[
+                    y(x,0) = f(x), \quad y_t(x,0) = 0
+                \]
+            </div>
+        </div>
+    
+    
+        <p><strong>Step 1: Fourier series solution</strong></p>
+    
+        <p>
+            From separation of variables, the solution can be written as
+        </p>
+    
+        <div class="math-scroll">
+            \[
+                y(x,t)=\sum_{n=1}^{\infty}
+                A_n \sin\left(\frac{n\pi x}{L}\right)
+                \cos\left(\frac{n\pi a t}{L}\right)
+            \]
+        </div>
+    
+        <hr style="margin: 25px 0; border: 0; border-top: 1px solid var(--border-light);">
+    
+        <p><strong>Step 2: Trigonometric identity </strong></p>
+    
+        <p>
+            We use the identity
+        </p>
+    
+        <div class="math-scroll">
+            \[
+                2\sin A \cos B = \sin(A+B) + \sin(A-B)
+            \]
+        </div>
+    
+        <p>
+            with
+        </p>
+    
+        <div class="math-scroll">
+            \[
+                A = \frac{n\pi x}{L}, \quad B = \frac{n\pi a t}{L}
+            \]
+        </div>
+    
+        <p>
+            Then each term becomes
+        </p>
+    
+        <div class="math-scroll">
+            \[
+                \sin\left(\frac{n\pi x}{L}\right)\cos\left(\frac{n\pi a t}{L}\right)
+                =
+                \frac{1}{2}\Big[
+                    \sin\left(\frac{n\pi}{L}(x+at)\right)
+                    +
+                    \sin\left(\frac{n\pi}{L}(x-at)\right)
+                \Big]
+            \]
+        </div>
+    
+        <hr style="margin: 25px 0; border: 0; border-top: 1px solid var(--border-light);">
+    
+        <p><strong>Step 3: Rewriting the solution</strong></p>
+    
+        <p>
+            Substituting into the series gives
+        </p>
+    
+        <div class="math-scroll">
+            \[
+                y(x,t)=\frac{1}{2}\sum_{n=1}^{\infty} A_n
+                \Big[
+                    \sin\left(\frac{n\pi}{L}(x+at)\right)
+                    +
+                    \sin\left(\frac{n\pi}{L}(x-at)\right)
+                \Big]
+            \]
+        </div>
+    
+        <p>
+            Rearranging,
+        </p>
+    
+        <div class="math-scroll">
+            \[
+                y(x,t)=\frac{1}{2}\Big[F(x+at)+F(x-at)\Big]
+            \]
+        </div>
+    
+        <p>
+            where \(F(x)\) is defined by the Fourier sine series
+        </p>
+    
+        <div class="math-scroll">
+            \[
+                F(x)=\sum_{n=1}^{\infty} A_n \sin\left(\frac{n\pi x}{L}\right)
+            \]
+        </div>
+    
+         
+        <p>
+            Here the function \(F(x)\) is interpreted as the odd periodic extension of the initial displacement
+            \(f(x)\), with period \(2L\). 
+        </p>
+     
+    
+        <hr style="margin: 25px 0; border: 0; border-top: 1px solid var(--border-light);">
+    
+        <p><strong>Step 4: d’Alembert form</strong></p>
+    
+        
+    
+        <div class="important">
+    
+            <p>
+                We obtain the d’Alembert representation:
+            </p>
+    
+            <div class="math-scroll">
+                \[
+                    y(x,t)=\frac{1}{2}\Big[F(x+at)+F(x-at)\Big]
+                \]
+            </div>
+    
+            where
+            \(F(x)\) is the odd periodic extension of the initial displacement
+            \(f(x)\), with period \(2L\).
+    
+        </div>
+        
+    
+        <p>
+            This shows that the solution is a superposition of two traveling waves:
+        </p>
+    
+        <ul>
+            <li>\(F(x-at)\): wave moving to the right</li>
+            <li>\(F(x+at)\): wave moving to the left</li>
+        </ul>
+    
+        <hr style="margin: 25px 0; border: 0; border-top: 1px solid var(--border-light);">
+    
+        <p><strong>Interpretation</strong></p>
+    
+        <p>
+            Any initial profile splits into two waves traveling in opposite directions with speed \(a\).
+            This is why the equation \(y_{tt} = a^2 y_{xx}\) is called the wave equation.
+        </p>
+    </div>
+
+    <!-- done A -->
+
+    <!-- Now B -->
+
+    <div class="optional">
+
+        <h3 class="sub-section-label">d’Alembert form of the solution of Problem B</h3>
+  
+    
+        <div class="important">
+            <p><strong>Problem B:</strong></p>
+    
+            <div class="math-scroll">
+                \[
+                    y_{tt} = a^2 y_{xx}, \quad 0 < x < L
+                \]
+            </div>
+    
+            <div class="math-scroll">
+                \[
+                    y(0,t) = 0, \quad y(L,t) = 0
+                \]
+            </div>
+    
+            <div class="math-scroll">
+                \[
+                    y(x,0) = 0, \quad y_t(x,0) = g(x)
+                \]
+            </div>
+        </div>
+    
+        <hr style="margin: 25px 0; border: 0; border-top: 1px solid var(--border-light);">
+    
+        
+        <p>
+            Let \(G(x)\) be the odd periodic extension of \(g(x)\) with period \(2L\). 
+            Define the function \(H(x)\) by
+        </p>
+    
+        <div class="math-scroll">
+            \[
+                H(x) = \int_0^x G(s)\,ds
+            \]
+        </div> 
+
+        <div class="important">
+    
+            <p>
+                The solution of Problem B is given by
+            </p>
+    
+            <div class="math-scroll">
+                \[
+                    y(x,t)=\frac{1}{2a}
+                    \Big[
+                        H(x+at) - H(x-at)
+                    \Big]
+                \]
+            </div>
+    
+        </div>
+         
+    </div>
+
+    <!-- done B -->
+
+    <!-- ===================== FINAL: ORIGINAL PROBLEM ===================== -->
+
+    <div class="optional">
+
+        <h3 class="sub-section-label">d’Alembert form of the solution of the Original Problem</h3>
+
+        <div class="important">
+            <p><strong>Original Problem:</strong></p>
+
+            <div class="math-scroll">
+                \[
+                    y_{tt} = a^2 y_{xx}, \quad 0 < x < L
+                \]
+            </div>
+
+            <div class="math-scroll">
+                \[
+                    y(0,t) = 0, \quad y(L,t) = 0
+                \]
+            </div>
+
+            <div class="math-scroll">
+                \[
+                    y(x,0) = f(x), \quad y_t(x,0) = g(x)
+                \]
+            </div>
+        </div>
+
+        <hr style="margin: 25px 0; border: 0; border-top: 1px solid var(--border-light);">
+
+        <p>
+            Let \(F(x)\) be the odd periodic extension of the initial displacement \(f(x)\),
+            and let \(G(x)\) be the odd periodic extension of the initial velocity \(g(x)\),
+            both with period \(2L\). 
+            Define
+        </p>
+ 
+
+        <div class="math-scroll">
+            \[
+            H(x)=\int_0^x G(s)\,ds
+            \]
+        </div>
+
+        <hr style="margin: 25px 0; border: 0; border-top: 1px solid var(--border-light);">
+
+        <div class="important">
+
+            <p><strong>Final d’Alembert Solution:</strong></p>
+
+            <div class="math-scroll">
+                \[
+                    y(x,t)=\frac12\Big[F(x+at)+F(x-at)\Big]
+                    +\frac{1}{2a}\Big[H(x+at)+H(x-at)\Big]
+                \]
+            </div>
+
+        </div>
+
+        <hr style="margin: 25px 0; border: 0; border-top: 1px solid var(--border-light);">
+
+        <p><strong>Interpretation</strong></p>
+
+        <p>
+            The solution is a superposition of four traveling waves:
+            two originating from the initial displacement \(f(x)\), and two originating from
+            the initial velocity \(g(x)\), all propagating with speed \(a\).
+        </p>
+ 
+
+    </div>
+</section>
+
+<!-- ===================== SECTION 6 ===================== -->
+<section id="section6">
+    <h2 class="sub-section-label">6. Examples</h2>
+
+    <!-- example 1 -->
+
+    <div class="example" id="ex6-1">
+        <h3>Example 6.1</h3>
+     
+    
+        <p>
+            Solve the wave equation
+        </p>
+    
+        <div class="math-scroll">
+            \[
+                y_{tt} = 4y_{xx}, \quad 0 < x < \pi,\; t > 0
+            \]
+        </div>
+    
+        <p>
+            subject to boundary conditions
+        </p>
+    
+        <div class="math-scroll">
+            \[
+                y(0,t) = 0, \quad y(\pi,t) = 0
+            \]
+        </div>
+    
+        <p>
+            and initial conditions
+        </p>
+    
+        <div class="math-scroll">
+            \[
+                y(x,0) = \frac{1}{10}\sin^3 x, \quad y_t(x,0) = 0
+            \]
+        </div>
+    
+        <hr style="margin: 25px 0; border: 0; border-top: 1px solid var(--border-light);">
+    
+        <p><strong>Step 1: Expand the initial condition</strong></p>
+    
+        <p>
+            Use the identity
+        </p>
+    
+        <div class="math-scroll">
+            \[
+                \sin^3 x = \frac{3\sin x - \sin 3x}{4}
+            \]
+        </div>
+    
+        <p>
+            Hence,
+        </p>
+    
+        <div class="math-scroll">
+            \[
+                y(x,0) = \frac{1}{10}\cdot\frac{3\sin x - \sin 3x}{4}
+                = \frac{3}{40}\sin x - \frac{1}{40}\sin 3x
+            \]
+        </div>
+    
+        <hr style="margin: 25px 0; border: 0; border-top: 1px solid var(--border-light);">
+    
+        <p><strong>Step 2: General solution form</strong></p>
+    
+        <div class="math-scroll">
+            \[
+                y(x,t)=\sum_{n=1}^{\infty}
+                \left(A_n \cos(2nt) + B_n \sin(2nt)\right)\sin(nx)
+            \]
+        </div>
+    
+        <hr style="margin: 25px 0; border: 0; border-top: 1px solid var(--border-light);">
+    
+        <p><strong>Step 3: Apply initial velocity condition</strong></p>
+    
+        <div class="math-scroll">
+            \[
+                y_t(x,0)=0 \Rightarrow B_n = 0
+            \]
+        </div>
+    
+        <hr style="margin: 25px 0; border: 0; border-top: 1px solid var(--border-light);">
+    
+        <p><strong>Step 4: Match initial displacement</strong></p>
+    
+        <div class="math-scroll">
+            \[
+                y(x,0)=\sum_{n=1}^{\infty} A_n \sin(nx)
+            \]
+        </div>
+    
+        <p>
+            Comparing coefficients gives:
+        </p>
+    
+        <div class="math-scroll">
+            \[
+                A_1 = \frac{3}{40}, \quad A_3 = -\frac{1}{40}, \quad A_n = 0 \ (n \neq 1,3)
+            \]
+        </div>
+    
+        <hr style="margin: 25px 0; border: 0; border-top: 1px solid var(--border-light);">
+    
+        <p><strong>Final solution:</strong></p>
+    
+        <div class="math-scroll">
+            \[
+                y(x,t)=\frac{3}{40}\cos(2t)\sin x
+                -\frac{1}{40}\cos(6t)\sin 3x
+            \]
+        </div>
+     
+    </div>
+
+    <!-- example 2 -->
+
+    <div class="example" id="ex6-2">
+
+        <h3>Example 6.2: Sudden Impact on a String  </h3>
+
+        <p>
+            A guitar string lies across the back of a pickup truck. 
+            At time \(t = 0\), the truck suddenly slams into a brick wall with speed \(v_0\), 
+            producing an instantaneous uniform vertical velocity along the entire string. 
+            Determine the resulting displacement \(y(x,t)\) of the string for \(0 < x < L,\; t > 0\), 
+            assuming both ends are fixed.
+        </p>
+        
+        <p><strong>Solution:</strong></p>
+        
+        <p>
+            The wave equation is
+        </p>
+        
+        <div class="math-scroll">
+            \[
+                y_{tt} = a^2 y_{xx}, \quad 0 < x < L,\; t > 0
+            \]
+        </div>
+        
+        <p>
+            with boundary conditions
+        </p>
+        
+        <div class="math-scroll">
+            \[
+                y(0,t) = 0, \quad y(L,t) = 0
+            \]
+        </div>
+        
+        <p>
+            and initial conditions
+        </p>
+        
+        <div class="math-scroll">
+            \[
+                y(x,0) = 0, \quad y_t(x,0) = g(x) = v_0
+            \]
+        </div>
+        
+        <hr style="margin: 20px 0; border: 0; border-top: 1px solid var(--border-light);">
+        
+        <p>
+            Using separation of variables, we seek a Fourier sine series solution of the form
+        </p>
+        
+        <div class="math-scroll">
+            \[
+                y(x,t)=\sum_{n=1}^{\infty}
+                B_n \sin\left(\frac{n\pi a t}{L}\right)
+                \sin\left(\frac{n\pi x}{L}\right)
+            \]
+        </div>
+        
+        <p>
+            Differentiating with respect to \(t\) and applying the initial velocity condition gives
+        </p>
+        
+        <div class="math-scroll">
+            \[
+                v_0 =
+                \sum_{n=1}^{\infty}
+                \frac{n\pi a}{L} B_n
+                \sin\left(\frac{n\pi x}{L}\right)
+            \]
+        </div>
+        
+        <p>
+            Hence the Fourier sine coefficients are
+        </p>
+        
+        <div class="math-scroll">
+            \[
+                B_n =
+                \frac{2}{n\pi a} \int_0^L v_0
+                \sin\left(\frac{n\pi x}{L}\right)\,dx
+            \]
+        </div>
+        
+        <p>
+            Evaluating the integral gives
+        </p>
+        
+        <div class="math-scroll">
+            \[
+                B_n =
+                \frac{4v_0 L}{n^2 \pi^2 a} \quad \text{for odd } n,
+                \qquad B_n = 0 \text{ for even } n
+            \]
+        </div>
+        
+        <hr style="margin: 20px 0; border: 0; border-top: 1px solid var(--border-light);">
+        
+        <p><strong>Final Answer:</strong></p>
+        
+        <div class="math-scroll">
+            \[
+                y(x,t)=\frac{4v_0 L}{\pi^2 a}
+                \sum_{\substack{n=1 \\ n\ \text{odd}}}^{\infty}
+                \frac{1}{n^2}
+                \sin\left(\frac{n\pi a t}{L}\right)
+                \sin\left(\frac{n\pi x}{L}\right)
+            \]
+        </div>
+    </div>
+
+    <!-- done ex 2 -->
+
+    <div class="example" id="ex6-3">
+
+        <h3>Example 6.3</h3>
+    
+        <p>
+            Solve the following boundary value problem:
+        </p>
+    
+        <div class="math-scroll">
+            \[
+                16y_{tt} = y_{xx}, \quad 0 < x < \pi,\; t > 0
+            \]
+        </div>
+    
+        <div class="math-scroll">
+            \[
+                y(0,t) = 0, \quad y(\pi,t) = 0
+            \]
+        </div>
+    
+        <div class="math-scroll">
+            \[
+                y(x,0) = \frac{1}{3}\sin x, \quad y_t(x,0) = \frac{1}{3}\sin x
+            \]
+        </div>
+    
+        <p><strong>Final Answer:</strong></p>
+    
+        <!-- <div class="math-scroll">
+            \[
+                y(x,t) =
+                \frac{1}{3}\sin x \cos\left(\frac{t}{4}\right)
+                +
+                \frac{1}{3}\cdot 4 \sin x \sin\left(\frac{t}{4}\right)
+            \]
+        </div> -->
+    
+        <div class="math-scroll">
+            \[
+                y(x,t) =
+                \frac{1}{3}\sin x
+                \left[
+                    \cos\left(\frac{t}{4}\right)
+                    + 4\sin\left(\frac{t}{4}\right)
+                \right]
+            \]
+        </div>
+    
+    </div>
+
+    <!-- done ex3 -->
+
+
+    <div class="example" id="ex6-4">
+
+        <h3>Example 6.4</h3>
+    
+        <p>
+            Solve the following boundary value problem:
+        </p>
+    
+        <div class="math-scroll">
+            \[
+                y_{tt} = 36y_{xx}, \quad 0 < x < 4,\; t > 0
+            \]
+        </div>
+    
+        <div class="math-scroll">
+            \[
+                y(0,t) = 0, \quad y(4,t) = 0
+            \]
+        </div>
+    
+        <div class="math-scroll">
+            \[
+                y(x,0) = \frac{1}{8}\sin(\pi x), \quad y_t(x,0) = 16\sin(2\pi x)
+            \]
+        </div>
+    
+        <p><strong>Final Answer:</strong></p>
+
+        <div class="math-scroll">
+            \[
+                y(x,t) = \frac{1}{8} \cos(6\pi t) \sin(\pi x) + \frac{4}{3\pi} \sin(12\pi t) \sin(2\pi x)
+            \]
+        </div>
+    
+    </div>
+
+    <!-- done ex 4 -->
+
+    <div class="example" id="ex6-5">
+
+        <h3>Example 6.5</h3>
+    
+        <p>
+            Solve the following boundary value problem:
+        </p>
+    
+        <div class="math-scroll">
+            \[
+                y_{tt} = 16y_{xx}, \quad 0 < x < \pi,\; t > 0
+            \]
+        </div>
+    
+        <div class="math-scroll">
+            \[
+                y(0,t) = 0, \quad y(\pi,t) = 0
+            \]
+        </div>
+    
+        <div class="math-scroll">
+            \[
+                y(x,0) = \sin x, \quad y_t(x,0) = 9
+            \]
+        </div>
+    
+        <p><strong>Final Answer:</strong></p>
+     
+
+        <div class="math-scroll">
+            \[
+                y(x,t) = \cos(4t)\sin(x) + \frac{9}{2\pi} \sum_{n=1}^{\infty} \frac{1 - (-1)^n}{n^2} \sin(4nt) \sin(nx)
+            \]
+        </div>
+    
+    </div>
+
+    <!-- done ex5 -->
+
+    <div class="example" id="ex6-6">
+
+        <h3>Example 6.6</h3>
+    
+        <p>
+            Solve the following boundary value problem:
+        </p>
+    
+        <div class="math-scroll">
+            \[
+                y_{tt} = 4y_{xx}, \quad 0 < x < 9,\; t > 0
+            \]
+        </div>
+    
+        <div class="math-scroll">
+            \[
+                y(0,t) = 0, \quad y(9,t) = 0
+            \]
+        </div>
+    
+        <div class="math-scroll">
+            \[
+                y(x,0) = 0, \quad y_t(x,0) = x(9-x)
+            \]
+        </div>
+    
+        <p><strong>Final Answer:</strong></p>
+    
+        <div class="math-scroll">
+            \[
+                y(x,t) = \frac{1458}{\pi^4} \sum_{n=1}^{\infty} \frac{1 - (-1)^n}{n^4} \sin\left(\frac{2n\pi t}{9}\right) \sin\left(\frac{n\pi x}{9}\right)
+            \]
+        </div>
+    
+    </div>
+
+    <!-- done ex6 -->
+
+    <!-- practice -->
+
+    <div class="example" id="ex-problems-1-6">
+        <h3>Practice Problems</h3>
+        <p>Solve the following boundary value problems:</p>
+        
+        <ol>
+            <li>
+                <div class="math-scroll">
+                    \[ y_{tt} = 4y_{xx}, \quad 0 < x < \pi, \quad t > 0; \quad y(0,t) = y(\pi,t) = 0, \quad y(x,0) = \frac{1}{10} \sin 2x, \quad y_t(x,0) = 0 \]
+                </div>
+            </li>
+            <li>
+                <div class="math-scroll">
+                    \[ y_{tt} = y_{xx}, \quad 0 < x < 1, \quad t > 0; \quad y(0,t) = y(1,t) = 0, \quad y(x,0) = \frac{1}{10} \sin \pi x - \frac{1}{20} \sin 3\pi x, \quad y_t(x,0) = 0 \]
+                </div>
+            </li>
+            <li>
+                <div class="math-scroll">
+                    \[ 4y_{tt} = y_{xx}, \quad 0 < x < \pi, \quad t > 0; \quad y(0,t) = y(\pi,t) = 0, \quad y(x,0) = y_t(x,0) = \frac{1}{10} \sin x \]
+                </div>
+            </li>
+            <li>
+                <div class="math-scroll">
+                    \[ 4y_{tt} = y_{xx}, \quad 0 < x < 2, \quad t > 0; \quad y(0,t) = y(2,t) = 0, \quad y(x,0) = \frac{1}{5} \sin \pi x \cos \pi x, \quad y_t(x,0) = 0 \]
+                </div>
+            </li>
+            <li>
+                <div class="math-scroll">
+                    \[ y_{tt} = 25y_{xx}, \quad 0 < x < 3, \quad t > 0; \quad y(0,t) = y(3,t) = 0, \quad y(x,0) = \frac{1}{4} \sin \pi x, \quad y_t(x,0) = 10 \sin 2\pi x \]
+                </div>
+            </li>
+            <li>
+                <div class="math-scroll">
+                    \[ y_{tt} = 100y_{xx}, \quad 0 < x < \pi, \quad t > 0; \quad y(0,t) = y(\pi,t) = 0, \quad y(x,0) = x(\pi - x), \quad y_t(x,0) = 0 \]
+                </div>
+            </li>
+        </ol>
+    </div>
+ 
+</section>
+
+</main>
+</div>
+
+<footer class="footer-signature">
+    <p>© 2026 Hanh Vo • Department of Mathematics • Purdue University</p>
+</footer>
+
+</body>
+</html>

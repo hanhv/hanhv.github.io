@@ -446,3 +446,43 @@ ul.mcq li strong {
   figure { margin: 0.5em 0 !important; text-align: center !important; }
 
 }
+
+
+/* ===================== OPTIONAL BOX ===================== */
+.optional {
+  background-color: #f8f9fa;        /* light grey */
+  border: 1px solid #e0e0e0;
+  border-left: 4px solid #adb5bd;   /* soft grey accent */
+  padding: 15px;
+  margin-top: 10px;
+  color: #6c757d;                  /* muted text */
+}
+
+/* Optional title styling */
+.optional p strong {
+  color: #495057;
+}
+
+/* ===================== ALL BOXES INSIDE OPTIONAL ===================== */
+.optional .important,
+.optional .theorem,
+.optional .solution {
+  background-color: #f8f9fa;        /* match optional */
+  border: 1px solid #e0e0e0;
+  border-left: 4px solid #ced4da;   /* neutral grey */
+  color: #6c757d;
+}
+
+/* Soften headings inside */
+.optional .important p strong,
+.optional .theorem p strong,
+.optional .solution p strong {
+  color: #495057;
+}
+
+/* ===================== OPTIONAL MATH (optional tweak) ===================== */
+.optional .math-scroll {
+  background-color: transparent;   /* avoid white contrast */
+}
+
+/* done optional */
