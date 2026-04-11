@@ -48,7 +48,7 @@
 <section class="goal" aria-label="Learning Goals">
     <p>
         <strong>Goal:</strong>
-        Derive, analyze, and solve the one-dimensional wave equation using physical principles and separation of variables.
+        Derive and solve the one-dimensional wave equation.
     </p>
 </section>
 
@@ -128,7 +128,7 @@
                     \]
                 </div>
             </li>
-            <li>Tension \( T \) is constant along the string.</li> 
+            <li>Tension \( T \) is constant along the string. The tension force acts tangentially along the string.</li> 
         </ul>
     </div>
 
@@ -1093,7 +1093,7 @@
 
 <section id="section-dalembert">
 
-    <h2 class="sub-section-label">5. The d’Alembert Solution</h2>
+    <h2 class="sub-section-label">5. The d’Alembert Solution (optional)</h2>
 
     <div class="optional">
 
@@ -1811,7 +1811,7 @@
 
     <!-- practice -->
 
-    <div class="example" id="ex-problems-1-6">
+    <div class="example" id="ex-problems">
         <h3>Practice Problems</h3>
         <p>Solve the following boundary value problems:</p>
         
@@ -1846,6 +1846,19 @@
                     \[ y_{tt} = 100y_{xx}, \quad 0 < x < \pi, \quad t > 0; \quad y(0,t) = y(\pi,t) = 0, \quad y(x,0) = x(\pi - x), \quad y_t(x,0) = 0 \]
                 </div>
             </li>
+
+            <li>
+                <div class="math-scroll">
+                    \[ y_{tt} = 100y_{xx}, \quad 0 < x < 1, \quad t > 0; \quad y(0,t) = y(1,t) = 0, \quad y(x,0) = 0, \quad y_t(x,0) = x \]
+                </div>
+            </li>
+
+            <li>
+                <div class="math-scroll">
+                    \[ y_{tt} = 4y_{xx}, \quad 0 < x < 1, \quad t > 0; \quad y(0,t) = y(1,t) = 0, \quad y(x,0) = 0, \quad y_t(x,0) = x(1 - x) \]
+                </div>
+            </li>
+
         </ol>
     </div>
  
