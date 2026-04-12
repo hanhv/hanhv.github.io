@@ -12,6 +12,25 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+
+    <!-- for canvas -->
+    <style>  
+        .canvas-scroll-wrapper {
+        width: 100%;
+        overflow-x: auto;      /* Enables horizontal scroll when content is too wide */
+        -webkit-overflow-scrolling: touch; /* Smooth scrolling for iOS */
+        margin: 15px 0;
+        border: 1px solid #ddd;
+        background: #f9f9f9;
+        }
+
+        #waveCanvas {
+            display: block;
+            margin: 0 auto;        /* Keeps it centered when there is extra space */
+        }
+    </style>
+
 </head>
 
 <body>
@@ -1141,9 +1160,7 @@
             \cos\left(\frac{n\pi a t}{L}\right)
         \]
     </div>
-
-    <hr style="margin: 25px 0; border: 0; border-top: 1px solid var(--border-light);">
-
+ 
     <p><strong>Step 2: Trigonometric identity </strong></p>
 
     <p>
@@ -1180,9 +1197,7 @@
                 \sin\left(\frac{n\pi}{L}(x-at)\right)
             \Big]
         \]
-    </div>
-
-    <hr style="margin: 25px 0; border: 0; border-top: 1px solid var(--border-light);">
+    </div> 
 
     <p><strong>Step 3: Rewriting the solution</strong></p>
 
@@ -1202,17 +1217,7 @@
     </div>
 
     <p>
-        Rearranging,
-    </p>
-
-    <div class="math-scroll">
-        \[
-            y(x,t)=\frac{1}{2}\Big[F(x+at)+F(x-at)\Big]
-        \]
-    </div>
-
-    <p>
-        where \(F(x)\) is defined by the Fourier sine series
+        Let \(F(x)\) be the Fourier sine series of \(f(x)\)
     </p>
 
     <div class="math-scroll">
@@ -1221,16 +1226,23 @@
         \]
     </div>
 
-        
+    <p>
+        We then have 
+    </p>
+
+    <div class="math-scroll">
+        \[
+            y(x,t)=\frac{1}{2}\Big[F(x+at)+F(x-at)\Big]
+        \]
+    </div> 
+
     <p>
         Here the function \(F(x)\) is interpreted as the odd periodic extension of the initial displacement
         \(f(x)\), with period \(2L\). 
     </p>
     
-
-    <hr style="margin: 25px 0; border: 0; border-top: 1px solid var(--border-light);">
-
-    <p><strong>Step 4: d’Alembert form</strong></p>
+ 
+    <p style="margin: 25px 0;"><strong>Step 4: d’Alembert form</strong></p>
 
     
 
@@ -1262,8 +1274,6 @@
         <li>\(F(x+at)\): wave moving to the left</li>
     </ul>
 
-    <hr style="margin: 25px 0; border: 0; border-top: 1px solid var(--border-light);">
-
     <p><strong>Interpretation</strong></p>
 
     <p>
@@ -1272,7 +1282,12 @@
     </p>
     <!-- </div> -->
 
+
     <!-- done A -->
+
+
+    <hr style="margin: 25px 0; border: 0; border-top: 1px solid var(--border-light);">
+
  
 
     <!-- Now B -->
@@ -1304,9 +1319,6 @@
         </div>
     </div>
 
-    <hr style="margin: 25px 0; border: 0; border-top: 1px solid var(--border-light);">
-
-    
     <p>
         Let \(G(x)\) be the odd periodic extension of \(g(x)\) with period \(2L\). 
         Define the function \(H(x)\) by
@@ -1339,6 +1351,11 @@
 
     <!-- done B -->
 
+
+    <hr style="margin: 25px 0; border: 0; border-top: 1px solid var(--border-light);">
+
+    
+
     <!-- ===================== FINAL: ORIGINAL PROBLEM ===================== -->
 
     <!-- <div class="optional"> -->
@@ -1366,9 +1383,7 @@
             \]
         </div>
     </div>
-
-    <hr style="margin: 25px 0; border: 0; border-top: 1px solid var(--border-light);">
-
+ 
     <p>
         Let \(F(x)\) be the odd periodic extension of the initial displacement \(f(x)\),
         and let \(G(x)\) be the odd periodic extension of the initial velocity \(g(x)\),
@@ -1382,9 +1397,7 @@
         H(x)=\int_0^x G(s)\,ds
         \]
     </div>
-
-    <hr style="margin: 25px 0; border: 0; border-top: 1px solid var(--border-light);">
-
+ 
     <div class="important">
 
         <p><strong>Final d’Alembert Solution:</strong></p>
@@ -1397,9 +1410,7 @@
         </div>
 
     </div>
-
-    <hr style="margin: 25px 0; border: 0; border-top: 1px solid var(--border-light);">
-
+ 
     <p><strong>Interpretation</strong></p>
 
     <p>
@@ -1452,7 +1463,11 @@
             \]
         </div>
     
+
         <hr style="margin: 25px 0; border: 0; border-top: 1px solid var(--border-light);">
+        
+        <p><strong>Solution:</strong></p>
+        
     
         <p><strong>Step 1: Expand the initial condition</strong></p>
     
@@ -1477,8 +1492,7 @@
             \]
         </div>
     
-        <hr style="margin: 25px 0; border: 0; border-top: 1px solid var(--border-light);">
-    
+     
         <p><strong>Step 2: General solution form</strong></p>
     
         <div class="math-scroll">
@@ -1488,8 +1502,7 @@
             \]
         </div>
     
-        <hr style="margin: 25px 0; border: 0; border-top: 1px solid var(--border-light);">
-    
+     
         <p><strong>Step 3: Apply initial velocity condition</strong></p>
     
         <div class="math-scroll">
@@ -1498,8 +1511,7 @@
             \]
         </div>
     
-        <hr style="margin: 25px 0; border: 0; border-top: 1px solid var(--border-light);">
-    
+     
         <p><strong>Step 4: Match initial displacement</strong></p>
     
         <div class="math-scroll">
@@ -1518,8 +1530,7 @@
             \]
         </div>
     
-        <hr style="margin: 25px 0; border: 0; border-top: 1px solid var(--border-light);">
-    
+     
         <p><strong>Final solution:</strong></p>
     
         <div class="math-scroll">
@@ -1544,6 +1555,8 @@
             Determine the resulting displacement \(y(x,t)\) of the string for \(0 < x < L,\; t > 0\), 
             assuming both ends are fixed.
         </p>
+
+        <hr style="margin: 25px 0; border: 0; border-top: 1px solid var(--border-light);">
         
         <p><strong>Solution:</strong></p>
         
@@ -1577,8 +1590,7 @@
             \]
         </div>
         
-        <hr style="margin: 20px 0; border: 0; border-top: 1px solid var(--border-light);">
-        
+         
         <p>
             Using separation of variables, we seek a Fourier sine series solution of the form
         </p>
@@ -1628,8 +1640,7 @@
             \]
         </div>
         
-        <hr style="margin: 20px 0; border: 0; border-top: 1px solid var(--border-light);">
-        
+         
         <p><strong>Final Answer:</strong></p>
         
         <div class="math-scroll">
@@ -2450,7 +2461,11 @@
 
         <!-- solution -->
 
-        <h3>Solution: </h3>
+        
+
+        <hr style="margin: 25px 0; border: 0; border-top: 1px solid var(--border-light);">
+        
+        <p><strong>Solution:</strong></p>
 
         <strong>1. Odd Periodic Extension \(F(x)\)</strong>
         <p>To satisfy the boundary conditions \(y(0,t)=y(\pi,t)=0\), we extend \(f(x)=1-\cos(2x)\) as an odd function, then periodically with period \(2\pi\). For \(x \in [-\pi, 0]\), we use the odd property \(F(x) = -f(-x)\).</p>
@@ -2483,7 +2498,11 @@
         
         <div id="wave-container" style="text-align: center; margin: 2rem auto; padding: 20px; border: 1px solid #ccc; max-width: 650px; background: #fff;">
             <h3>Wave Propagation: d’Alembert’s Solution</h3>
-            <canvas id="waveCanvas" width="600" height="300" style="background: #f9f9f9; border: 1px solid #ddd;"></canvas>
+            <!-- <canvas id="waveCanvas" width="600" height="300" style="background: #f9f9f9; border: 1px solid #ddd;"></canvas> -->
+            
+            <div class="canvas-scroll-wrapper">
+                <canvas id="waveCanvas" width="600" height="300"></canvas>
+            </div>
             
             <div style="margin-top: 15px;">
                 <label for="tSlider">Time (t): </label>
