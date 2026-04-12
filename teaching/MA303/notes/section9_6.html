@@ -2530,15 +2530,14 @@
 
         <!-- done solution -->
  
+        <div id="wave-container" style="text-align: center; margin: 2rem auto; padding: 20px; border: 1px solid #ccc; max-width: 700px; background: #fff;">
+            <h3>Vibrating String (d’Alembert Solution)</h3>
         
-        <div id="wave-container" style="text-align: center; margin: 2rem auto; padding: 20px; border: 1px solid #ccc; max-width: 650px; background: #fff;">
-            <h3>Vibrating String</h3>
-            <!-- <canvas id="waveCanvas" width="600" height="300" style="background: #f9f9f9; border: 1px solid #ddd;"></canvas> -->
-            
             <div class="canvas-scroll-wrapper">
-                <canvas id="waveCanvas" width="600" height="300"></canvas>
+                <canvas id="waveCanvas" width="650" height="320" style="background:#f9f9f9;"></canvas>
+
             </div>
-            
+        
             <div style="margin-top: 15px;">
                 <label for="tSlider">Time (t): </label>
                 <input type="range" id="tSlider" min="0" max="3.14" step="0.01" value="0" style="width: 300px;">
@@ -2547,104 +2546,104 @@
         </div>
         
         <script>
-            (function() {
-                const canvas = document.getElementById("waveCanvas");
-                const ctx = canvas.getContext("2d");
-                const tSlider = document.getElementById("tSlider");
-                const tDisplay = document.getElementById("tValue");
+        (function() {
+            const canvas = document.getElementById("waveCanvas");
+            const ctx = canvas.getContext("2d");
+            const tSlider = document.getElementById("tSlider");
+            const tDisplay = document.getElementById("tValue");
         
-                function F(x) {
-                    let modX = ((x + Math.PI) % (2 * Math.PI)) - Math.PI;
-                    if (modX >= 0 && modX <= Math.PI) return 1 - Math.cos(2 * modX);
-                    if (modX >= -Math.PI && modX < 0) return Math.cos(2 * modX) - 1;
-                    return 0;
-                }
-
-                function draw() {
+            // Odd periodic extension (FIXED)
+            function F(x) {
+                let modX = ((x + Math.PI) % (2 * Math.PI) + 2 * Math.PI) % (2 * Math.PI) - Math.PI;
+        
+                if (modX >= 0 && modX <= Math.PI) return 1 - Math.cos(2 * modX);
+                if (modX >= -Math.PI && modX < 0) return Math.cos(2 * modX) - 1;
+        
+                return 0;
+            }
+        
+            function draw() {
                 const t = parseFloat(tSlider.value);
                 tDisplay.innerText = t.toFixed(2);
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-                // 1. Define geometry
-                const centerX = 50; 
+        
+                // Geometry
+                const centerX = canvas.width / 2;
                 const centerY = canvas.height / 2;
-                const scaleX = 120;
+                const scaleX = 100;
                 const scaleY = 40;
-
-                // 2. Draw Axes
+        
+                // Axes
                 ctx.strokeStyle = "#bbb";
                 ctx.lineWidth = 1;
+                ctx.setLineDash([]);
                 ctx.beginPath();
-                ctx.moveTo(centerX, centerY); 
-                ctx.lineTo(canvas.width - 20, centerY); // X-axis
-                ctx.moveTo(centerX, 50); 
-                ctx.lineTo(centerX, 250);               // Y-axis
+                ctx.moveTo(0, centerY);
+                ctx.lineTo(canvas.width, centerY); // x-axis
+                ctx.moveTo(centerX, 30);
+                ctx.lineTo(centerX, canvas.height - 30); // y-axis
                 ctx.stroke();
-
-                // 3. Helper to draw a segment
+        
+                // Helper: draw segment
                 function drawSegment(start, end, isDashed) {
-                    ctx.setLineDash(isDashed ? [5, 5] : []);
-                    ctx.strokeStyle = isDashed ? "#aaa" : "#005a9c";
-                    ctx.lineWidth = 3;
+                    ctx.setLineDash(isDashed ? [6, 6] : []);
+                    ctx.strokeStyle = isDashed ? "#999" : "#005a9c";
+                    ctx.lineWidth = isDashed ? 2 : 3;
+        
                     ctx.beginPath();
                     for (let px = start; px <= end; px++) {
                         let x = (px - centerX) / scaleX;
-                        // d'Alembert's formula
                         let y = 0.5 * (F(x - t) + F(x + t));
-                        let py = centerY - (y * scaleY);
-                        if (px === start) ctx.moveTo(px, py); else ctx.lineTo(px, py);
+                        let py = centerY - y * scaleY;
+        
+                        if (px === start) ctx.moveTo(px, py);
+                        else ctx.lineTo(px, py);
                     }
                     ctx.stroke();
                 }
-
-                // 4. Draw the string from 0 to pi
-                drawSegment(centerX, centerX + Math.PI * scaleX, false); 
+        
+                // Draw extension (-π to 0)
+                drawSegment(centerX - Math.PI * scaleX, centerX, true);
+        
+                // Draw real string (0 to π)
+                drawSegment(centerX, centerX + Math.PI * scaleX, false);
+        
+                // Fixed endpoints (dots)
+                const x0 = centerX;
+                const xPi = centerX + Math.PI * scaleX;
+        
+                ctx.fillStyle = "#000";
+                ctx.beginPath();
+                ctx.arc(x0, centerY, 4, 0, 2 * Math.PI);
+                ctx.fill();
+        
+                ctx.beginPath();
+                ctx.arc(xPi, centerY, 4, 0, 2 * Math.PI);
+                ctx.fill();
+        
+                // Labels
+                ctx.font = "14px Arial";
+                ctx.fillText("0", x0 - 5, centerY + 20);
+                ctx.fillText("π", xPi - 5, centerY + 20);
+        
+                ctx.fillText("Extension", centerX - Math.PI * scaleX + 10, 40);
+                ctx.fillText("String", centerX + 10, 40);
             }
-
-            // old: extension ?!
-
-         
-                // function draw() {
-                //     const t = parseFloat(tSlider.value);
-                //     tDisplay.innerText = t.toFixed(2);
-                //     ctx.clearRect(0, 0, canvas.width, canvas.height);
         
-                //     const centerX = canvas.width / 2;
-                //     const centerY = canvas.height / 2;
-                //     const scaleX = 80, scaleY = 40;
-        
-                //     // Draw Axes
-                //     ctx.strokeStyle = "#bbb";
-                //     ctx.beginPath();
-                //     ctx.moveTo(0, centerY); ctx.lineTo(canvas.width, centerY);
-                //     ctx.moveTo(centerX, 50); ctx.lineTo(centerX, 250);
-                //     ctx.stroke();
-        
-                //     // Helper to draw a segment
-                //     function drawSegment(start, end, isDashed) {
-                //         ctx.setLineDash(isDashed ? [5, 5] : []);
-                //         ctx.strokeStyle = isDashed ? "#aaa" : "#005a9c";
-                //         ctx.lineWidth = isDashed ? 1 : 3;
-                //         ctx.beginPath();
-                //         for (let px = start; px <= end; px++) {
-                //             let x = (px - centerX) / scaleX;
-                //             let y = 0.5 * (F(x - t) + F(x + t));
-                //             let py = centerY - (y * scaleY);
-                //             if (px === start) ctx.moveTo(px, py); else ctx.lineTo(px, py);
-                //         }
-                //         ctx.stroke();
-                //     }
-        
-                    
-                //     // Draw: Left segment (-pi to 0) as dashed, Right segment (0 to pi) as solid
-                //     // drawSegment(centerX - Math.PI * scaleX, centerX, true);         // Dashed
-                //     drawSegment(centerX, centerX + Math.PI * scaleX, false);        // Solid
-                // }
-        
-                tSlider.addEventListener("input", draw);
-                draw();
-            })();
+            tSlider.addEventListener("input", draw);
+            draw();
+        })();
         </script>
+
+        <!-- done graph -->
+
+        <div class="accessibility-report">
+            <p>
+                Check out this <a href="https://www.desmos.com/calculator/xyhmnh50xb" target="_blank">desmos</a> graph.
+            </p>
+        </div>
+        
+        
     
     </div>
 
