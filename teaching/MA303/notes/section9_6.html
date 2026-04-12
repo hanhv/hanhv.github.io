@@ -71,7 +71,7 @@
         </li>
 
         <li>
-            <a href="#section-dalembert">5. The d’Alembert Solution (optional)</a>
+            <a href="#section-dalembert">5. The d’Alembert Solution </a>
         </li>
 
         
@@ -1096,319 +1096,320 @@
 
 <section id="section-dalembert">
 
-    <h2 class="sub-section-label">5. The d’Alembert Solution (optional)</h2>
+    <h2 class="sub-section-label">5. The d’Alembert Solution</h2>
 
-    <div class="optional">
+    <!-- <div class="optional"> -->
 
-        <h3 class="sub-section-label">d’Alembert form of the solution of Problem A</h3>
-        <p>
-            Remark: d’Alembert form of the solution of Problem A for the vibrating string.
-        </p>
-    
-        <div class="important">
-            <p><strong>Problem A:</strong></p>
-    
-            <div class="math-scroll">
-                \[
-                    y_{tt} = a^2 y_{xx}, \quad 0 < x < L
-                \]
-            </div>
-    
-            <div class="math-scroll">
-                \[
-                    y(0,t) = 0, \quad y(L,t) = 0
-                \]
-            </div>
-    
-            <div class="math-scroll">
-                \[
-                    y(x,0) = f(x), \quad y_t(x,0) = 0
-                \]
-            </div>
-        </div>
-    
-    
-        <p><strong>Step 1: Fourier series solution</strong></p>
-    
-        <p>
-            From separation of variables, the solution can be written as
-        </p>
-    
+    <h3 class="sub-section-label">The d’Alembert form of the solution of Problem A</h3>
+    <p>
+        Remark: The d’Alembert form of the solution of Problem A for the vibrating string.
+    </p>
+
+    <div class="important">
+        <p><strong>Problem A:</strong></p>
+
         <div class="math-scroll">
             \[
-                y(x,t)=\sum_{n=1}^{\infty}
-                A_n \sin\left(\frac{n\pi x}{L}\right)
-                \cos\left(\frac{n\pi a t}{L}\right)
+                y_{tt} = a^2 y_{xx}, \quad 0 < x < L
             \]
         </div>
-    
-        <hr style="margin: 25px 0; border: 0; border-top: 1px solid var(--border-light);">
-    
-        <p><strong>Step 2: Trigonometric identity </strong></p>
-    
-        <p>
-            We use the identity
-        </p>
-    
+
         <div class="math-scroll">
             \[
-                2\sin A \cos B = \sin(A+B) + \sin(A-B)
+                y(0,t) = 0, \quad y(L,t) = 0
             \]
         </div>
-    
-        <p>
-            with
-        </p>
-    
+
         <div class="math-scroll">
             \[
-                A = \frac{n\pi x}{L}, \quad B = \frac{n\pi a t}{L}
+                y(x,0) = f(x), \quad y_t(x,0) = 0
             \]
         </div>
+    </div>
+
+
+    <p><strong>Step 1: Fourier series solution</strong></p>
+
+    <p>
+        From separation of variables, the solution can be written as
+    </p>
+
+    <div class="math-scroll">
+        \[
+            y(x,t)=\sum_{n=1}^{\infty}
+            A_n \sin\left(\frac{n\pi x}{L}\right)
+            \cos\left(\frac{n\pi a t}{L}\right)
+        \]
+    </div>
+
+    <hr style="margin: 25px 0; border: 0; border-top: 1px solid var(--border-light);">
+
+    <p><strong>Step 2: Trigonometric identity </strong></p>
+
+    <p>
+        We use the identity
+    </p>
+
+    <div class="math-scroll">
+        \[
+            2\sin A \cos B = \sin(A+B) + \sin(A-B)
+        \]
+    </div>
+
+    <p>
+        with
+    </p>
+
+    <div class="math-scroll">
+        \[
+            A = \frac{n\pi x}{L}, \quad B = \frac{n\pi a t}{L}
+        \]
+    </div>
+
+    <p>
+        Then each term becomes
+    </p>
+
+    <div class="math-scroll">
+        \[
+            \sin\left(\frac{n\pi x}{L}\right)\cos\left(\frac{n\pi a t}{L}\right)
+            =
+            \frac{1}{2}\Big[
+                \sin\left(\frac{n\pi}{L}(x+at)\right)
+                +
+                \sin\left(\frac{n\pi}{L}(x-at)\right)
+            \Big]
+        \]
+    </div>
+
+    <hr style="margin: 25px 0; border: 0; border-top: 1px solid var(--border-light);">
+
+    <p><strong>Step 3: Rewriting the solution</strong></p>
+
+    <p>
+        Substituting into the series gives
+    </p>
+
+    <div class="math-scroll">
+        \[
+            y(x,t)=\frac{1}{2}\sum_{n=1}^{\infty} A_n
+            \Big[
+                \sin\left(\frac{n\pi}{L}(x+at)\right)
+                +
+                \sin\left(\frac{n\pi}{L}(x-at)\right)
+            \Big]
+        \]
+    </div>
+
+    <p>
+        Rearranging,
+    </p>
+
+    <div class="math-scroll">
+        \[
+            y(x,t)=\frac{1}{2}\Big[F(x+at)+F(x-at)\Big]
+        \]
+    </div>
+
+    <p>
+        where \(F(x)\) is defined by the Fourier sine series
+    </p>
+
+    <div class="math-scroll">
+        \[
+            F(x)=\sum_{n=1}^{\infty} A_n \sin\left(\frac{n\pi x}{L}\right)
+        \]
+    </div>
+
+        
+    <p>
+        Here the function \(F(x)\) is interpreted as the odd periodic extension of the initial displacement
+        \(f(x)\), with period \(2L\). 
+    </p>
     
+
+    <hr style="margin: 25px 0; border: 0; border-top: 1px solid var(--border-light);">
+
+    <p><strong>Step 4: d’Alembert form</strong></p>
+
+    
+
+    <div class="important">
+
         <p>
-            Then each term becomes
+            We obtain the d’Alembert representation:
         </p>
-    
-        <div class="math-scroll">
-            \[
-                \sin\left(\frac{n\pi x}{L}\right)\cos\left(\frac{n\pi a t}{L}\right)
-                =
-                \frac{1}{2}\Big[
-                    \sin\left(\frac{n\pi}{L}(x+at)\right)
-                    +
-                    \sin\left(\frac{n\pi}{L}(x-at)\right)
-                \Big]
-            \]
-        </div>
-    
-        <hr style="margin: 25px 0; border: 0; border-top: 1px solid var(--border-light);">
-    
-        <p><strong>Step 3: Rewriting the solution</strong></p>
-    
-        <p>
-            Substituting into the series gives
-        </p>
-    
-        <div class="math-scroll">
-            \[
-                y(x,t)=\frac{1}{2}\sum_{n=1}^{\infty} A_n
-                \Big[
-                    \sin\left(\frac{n\pi}{L}(x+at)\right)
-                    +
-                    \sin\left(\frac{n\pi}{L}(x-at)\right)
-                \Big]
-            \]
-        </div>
-    
-        <p>
-            Rearranging,
-        </p>
-    
+
         <div class="math-scroll">
             \[
                 y(x,t)=\frac{1}{2}\Big[F(x+at)+F(x-at)\Big]
             \]
         </div>
-    
-        <p>
-            where \(F(x)\) is defined by the Fourier sine series
-        </p>
-    
-        <div class="math-scroll">
-            \[
-                F(x)=\sum_{n=1}^{\infty} A_n \sin\left(\frac{n\pi x}{L}\right)
-            \]
-        </div>
-    
-         
-        <p>
-            Here the function \(F(x)\) is interpreted as the odd periodic extension of the initial displacement
-            \(f(x)\), with period \(2L\). 
-        </p>
-     
-    
-        <hr style="margin: 25px 0; border: 0; border-top: 1px solid var(--border-light);">
-    
-        <p><strong>Step 4: d’Alembert form</strong></p>
-    
-        
-    
-        <div class="important">
-    
-            <p>
-                We obtain the d’Alembert representation:
-            </p>
-    
-            <div class="math-scroll">
-                \[
-                    y(x,t)=\frac{1}{2}\Big[F(x+at)+F(x-at)\Big]
-                \]
-            </div>
-    
-            where
-            \(F(x)\) is the odd periodic extension of the initial displacement
-            \(f(x)\), with period \(2L\).
-    
-        </div>
-        
-    
-        <p>
-            This shows that the solution is a superposition of two traveling waves:
-        </p>
-    
-        <ul>
-            <li>\(F(x-at)\): wave moving to the right</li>
-            <li>\(F(x+at)\): wave moving to the left</li>
-        </ul>
-    
-        <hr style="margin: 25px 0; border: 0; border-top: 1px solid var(--border-light);">
-    
-        <p><strong>Interpretation</strong></p>
-    
-        <p>
-            Any initial profile splits into two waves traveling in opposite directions with speed \(a\).
-            This is why the equation \(y_{tt} = a^2 y_{xx}\) is called the wave equation.
-        </p>
+
+        where
+        \(F(x)\) is the odd periodic extension of the initial displacement
+        \(f(x)\), with period \(2L\).
+
     </div>
+    
+
+    <p>
+        This shows that the solution is a superposition of two traveling waves:
+    </p>
+
+    <ul>
+        <li>\(F(x-at)\): wave moving to the right</li>
+        <li>\(F(x+at)\): wave moving to the left</li>
+    </ul>
+
+    <hr style="margin: 25px 0; border: 0; border-top: 1px solid var(--border-light);">
+
+    <p><strong>Interpretation</strong></p>
+
+    <p>
+        Any initial profile splits into two waves traveling in opposite directions with speed \(a\).
+        This is why the equation \(y_{tt} = a^2 y_{xx}\) is called the wave equation.
+    </p>
+    <!-- </div> -->
 
     <!-- done A -->
+ 
 
     <!-- Now B -->
 
-    <div class="optional">
+    <!-- <div class="optional"> -->
 
-        <h3 class="sub-section-label">d’Alembert form of the solution of Problem B</h3>
-  
-    
-        <div class="important">
-            <p><strong>Problem B:</strong></p>
-    
-            <div class="math-scroll">
-                \[
-                    y_{tt} = a^2 y_{xx}, \quad 0 < x < L
-                \]
-            </div>
-    
-            <div class="math-scroll">
-                \[
-                    y(0,t) = 0, \quad y(L,t) = 0
-                \]
-            </div>
-    
-            <div class="math-scroll">
-                \[
-                    y(x,0) = 0, \quad y_t(x,0) = g(x)
-                \]
-            </div>
-        </div>
-    
-        <hr style="margin: 25px 0; border: 0; border-top: 1px solid var(--border-light);">
-    
-        
-        <p>
-            Let \(G(x)\) be the odd periodic extension of \(g(x)\) with period \(2L\). 
-            Define the function \(H(x)\) by
-        </p>
-    
+    <h3 class="sub-section-label">The d’Alembert form of the solution of Problem B</h3>
+
+
+    <div class="important">
+        <p><strong>Problem B:</strong></p>
+
         <div class="math-scroll">
             \[
-                H(x) = \int_0^x G(s)\,ds
+                y_{tt} = a^2 y_{xx}, \quad 0 < x < L
             \]
-        </div> 
-
-        <div class="important">
-    
-            <p>
-                The solution of Problem B is given by
-            </p>
-    
-            <div class="math-scroll">
-                \[
-                    y(x,t)=\frac{1}{2a}
-                    \Big[
-                        H(x+at) - H(x-at)
-                    \Big]
-                \]
-            </div>
-    
         </div>
-         
+
+        <div class="math-scroll">
+            \[
+                y(0,t) = 0, \quad y(L,t) = 0
+            \]
+        </div>
+
+        <div class="math-scroll">
+            \[
+                y(x,0) = 0, \quad y_t(x,0) = g(x)
+            \]
+        </div>
     </div>
+
+    <hr style="margin: 25px 0; border: 0; border-top: 1px solid var(--border-light);">
+
+    
+    <p>
+        Let \(G(x)\) be the odd periodic extension of \(g(x)\) with period \(2L\). 
+        Define the function \(H(x)\) by
+    </p>
+
+    <div class="math-scroll">
+        \[
+            H(x) = \int_0^x G(s)\,ds
+        \]
+    </div> 
+
+    <div class="important">
+
+        <p>
+            The solution of Problem B is given by
+        </p>
+
+        <div class="math-scroll">
+            \[
+                y(x,t)=\frac{1}{2a}
+                \Big[
+                    H(x+at) - H(x-at)
+                \Big]
+            \]
+        </div>
+
+    </div>
+         
+    <!-- </div> -->
 
     <!-- done B -->
 
     <!-- ===================== FINAL: ORIGINAL PROBLEM ===================== -->
 
-    <div class="optional">
+    <!-- <div class="optional"> -->
 
-        <h3 class="sub-section-label">d’Alembert form of the solution of the Original Problem</h3>
+    <h3 class="sub-section-label">The d’Alembert form of the solution of the Original Problem</h3>
 
-        <div class="important">
-            <p><strong>Original Problem:</strong></p>
-
-            <div class="math-scroll">
-                \[
-                    y_{tt} = a^2 y_{xx}, \quad 0 < x < L
-                \]
-            </div>
-
-            <div class="math-scroll">
-                \[
-                    y(0,t) = 0, \quad y(L,t) = 0
-                \]
-            </div>
-
-            <div class="math-scroll">
-                \[
-                    y(x,0) = f(x), \quad y_t(x,0) = g(x)
-                \]
-            </div>
-        </div>
-
-        <hr style="margin: 25px 0; border: 0; border-top: 1px solid var(--border-light);">
-
-        <p>
-            Let \(F(x)\) be the odd periodic extension of the initial displacement \(f(x)\),
-            and let \(G(x)\) be the odd periodic extension of the initial velocity \(g(x)\),
-            both with period \(2L\). 
-            Define
-        </p>
- 
+    <div class="important">
+        <p><strong>Original Problem:</strong></p>
 
         <div class="math-scroll">
             \[
-            H(x)=\int_0^x G(s)\,ds
+                y_{tt} = a^2 y_{xx}, \quad 0 < x < L
             \]
         </div>
 
-        <hr style="margin: 25px 0; border: 0; border-top: 1px solid var(--border-light);">
-
-        <div class="important">
-
-            <p><strong>Final d’Alembert Solution:</strong></p>
-
-            <div class="math-scroll">
-                \[
-                    y(x,t)=\frac12\Big[F(x+at)+F(x-at)\Big]
-                    +\frac{1}{2a}\Big[H(x+at)+H(x-at)\Big]
-                \]
-            </div>
-
+        <div class="math-scroll">
+            \[
+                y(0,t) = 0, \quad y(L,t) = 0
+            \]
         </div>
 
-        <hr style="margin: 25px 0; border: 0; border-top: 1px solid var(--border-light);">
+        <div class="math-scroll">
+            \[
+                y(x,0) = f(x), \quad y_t(x,0) = g(x)
+            \]
+        </div>
+    </div>
 
-        <p><strong>Interpretation</strong></p>
+    <hr style="margin: 25px 0; border: 0; border-top: 1px solid var(--border-light);">
 
-        <p>
-            The solution is a superposition of four traveling waves:
-            two originating from the initial displacement \(f(x)\), and two originating from
-            the initial velocity \(g(x)\), all propagating with speed \(a\).
-        </p>
- 
+    <p>
+        Let \(F(x)\) be the odd periodic extension of the initial displacement \(f(x)\),
+        and let \(G(x)\) be the odd periodic extension of the initial velocity \(g(x)\),
+        both with period \(2L\). 
+        Define
+    </p>
+
+
+    <div class="math-scroll">
+        \[
+        H(x)=\int_0^x G(s)\,ds
+        \]
+    </div>
+
+    <hr style="margin: 25px 0; border: 0; border-top: 1px solid var(--border-light);">
+
+    <div class="important">
+
+        <p><strong>Final d’Alembert Solution:</strong></p>
+
+        <div class="math-scroll">
+            \[
+                y(x,t)=\frac12\Big[F(x+at)+F(x-at)\Big]
+                +\frac{1}{2a}\Big[H(x+at)+H(x-at)\Big]
+            \]
+        </div>
 
     </div>
+
+    <hr style="margin: 25px 0; border: 0; border-top: 1px solid var(--border-light);">
+
+    <p><strong>Interpretation</strong></p>
+
+    <p>
+        The solution is a superposition of four traveling waves:
+        two originating from the initial displacement \(f(x)\), and two originating from
+        the initial velocity \(g(x)\), all propagating with speed \(a\).
+    </p>
+ 
+
+    <!-- </div> -->
 </section>
 
 <!-- ===================== SECTION 6 ===================== -->
@@ -1811,6 +1812,745 @@
     </div>
 
     <!-- done ex6 -->
+
+    <!-- ex 7 -->
+
+
+    <div class="example" id="ex6-9">
+
+        <h3>Example 6.9</h3>
+    
+        <p>
+            The solution to the wave equation
+        </p>
+    
+        <div class="math-scroll">
+            \[
+            \begin{array}{lll}
+            y_{tt} = y_{xx}, && 0 < x < 5 \\
+            y(0,t) = 0 , & y(5,t) = 0, & t >0\\
+            y(x,0)=2x,&y_t(x,0)=3-x,&0\leq x \leq 5
+            \end{array}
+            \]
+        </div>
+    
+        <p>
+            is given by
+        </p>
+    
+        <div class="math-scroll">
+            \[
+                y(x,t)=\sum_{n=1}^{\infty} c_{n} \sin\left( \frac{n\pi t}{5}\right) 
+                \sin\left( \frac{n\pi x}{5}\right)
+                +\sum_{n=1}^{\infty} d_{n} \cos\left( \frac{n\pi t}{5}\right) 
+                \sin\left( \frac{n\pi x}{5}\right),
+            \]
+        </div>
+    
+        <p>
+            for constants \(c_n\) and \(d_n\), \(n \geq 1\).
+            Find \(c_n\).
+        </p> 
+    
+        <ol type="A">
+            <li> 
+                <div class="math-scroll">
+                    \[
+                        \boxed{\displaystyle \frac{2}{n\pi}\int_0^5 (3-x) \sin \left( \frac{n\pi x}{5} \right)\,dx}
+                    \]
+                </div>
+            </li>
+        
+            <li> 
+                <div class="math-scroll">
+                    \[
+                        \frac{2}{5}\int_0^5 (2x) \sin \left( \frac{n\pi x}{5} \right)\,dx
+                    \]
+                </div>
+            </li>
+        
+            <li> 
+                <div class="math-scroll">
+                    \[
+                        \frac{2}{n\pi}\int_0^5 (2x) \sin \left( \frac{n\pi x}{5} \right)\,dx
+                    \]
+                </div>
+            </li>
+        
+            <li> 
+                <div class="math-scroll">
+                    \[
+                        \frac{2}{5}\int_0^5 (3-x) \sin \left( \frac{n\pi x}{5} \right)\,dx
+                    \]
+                </div>
+            </li>
+        
+            <li> 
+                <div class="math-scroll">
+                    \[
+                        \frac{2}{n\pi}\int_0^5 (3-x) \cos \left( \frac{n\pi x}{5} \right)\,dx
+                    \]
+                </div>
+            </li>
+        </ol>
+       
+    </div>
+
+    <!-- done ex 7 -->
+
+
+
+    <!-- example 8 -->
+
+    <div class="example" id="ex-wave-mixed-bc">
+
+        <h3>Example 6.8: Wave Equation with Mixed Boundary Conditions</h3>
+    
+        <p>
+            Consider a stretched string of length \(L\), initially at rest. The displacement \(y(x,t)\) satisfies the wave equation
+            with one fixed end and one free (sliding) end:
+        </p>
+    
+        <div class="math-scroll">
+            \[
+                y_{tt} = a^2 y_{xx}, \quad 0 < x < L,\; t > 0.
+            \]
+        </div>
+    
+        <p>
+            The boundary conditions are:
+        </p>
+    
+        <div class="math-scroll">
+            \[
+                y(0,t) = 0, \qquad y_x(L,t) = 0,
+            \]
+        </div>
+    
+        <p>
+            and the initial conditions are:
+        </p>
+    
+        <div class="math-scroll">
+            \[
+                y(x,0) = f(x), \qquad y_t(x,0) = 0.
+            \]
+        </div>
+    
+
+        <p>
+            Use the method of separation of variables to derive the solution 
+        </p>
+        
+        <div class="important">  
+            
+            <div class="math-scroll">
+                \[
+                    y(x,t)=\sum_{\substack{n=1 \\ n\ \text{odd}}}^{\infty}
+                    A_n \cos\left(\frac{n\pi a}{2L}t\right)
+                    \sin\left(\frac{n\pi}{2L}x\right),
+                \]
+            </div>
+        
+            <p>
+                where the coefficients \(A_n\) are given by 
+            </p>
+        
+            <div class="math-scroll">
+                \[
+                    A_n=\frac{2}{L}\int_0^L f(x)
+                    \sin\left(\frac{n\pi}{2L}x\right)\,dx,
+                    \quad n=1,3,5,\dots
+                \]
+            </div>
+        
+        </div>
+        <!-- solution: -->
+        <p>
+            We solve this using separation of variables.
+        </p>
+    
+        <h4>1. Separation of variables</h4>
+    
+        <p>
+            Assume a product solution \(y(x,t)=X(x)T(t)\). Substituting into the PDE gives:
+        </p>
+    
+        <div class="math-scroll">
+            \[
+                X(x)T''(t)=a^2 X''(x)T(t).
+            \]
+        </div>
+    
+        <p>
+            Divide by \(a^2XT\):
+        </p>
+    
+        <div class="math-scroll">
+            \[
+                \frac{T''}{a^2 T}=\frac{X''}{X}=-\lambda.
+            \]
+        </div>
+    
+        <p>This leads to two ODEs:</p>
+    
+        <div class="math-scroll">
+            \[
+                X''+\lambda X=0, \qquad T''+a^2\lambda T=0.
+            \]
+        </div>
+    
+        <h4>2. Spatial eigenvalue problem</h4>
+
+        <p>
+            We consider different cases for \(\lambda\):
+        </p>
+    
+        <h4>Case 1: \(\lambda = 0\)</h4>
+    
+        <div class="math-scroll">
+            \[
+                X'' = 0 \;\Rightarrow\; X(x)=A+Bx.
+            \]
+        </div>
+    
+        <p>
+            Apply boundary conditions:
+            \(X(0)=0 \Rightarrow A=0\), and \(X'(L)=0 \Rightarrow B=0\).
+            Hence only the trivial solution \(X \equiv 0\).
+        </p>
+     
+    
+        <h4>Case 2: \(\lambda < 0\)</h4>
+    
+        <p>
+            Let \(\lambda = -\mu^2\), where \(\mu > 0\). Then:
+        </p>
+    
+        <div class="math-scroll">
+            \[
+                X'' - \mu^2 X = 0.
+            \]
+        </div>
+    
+        <div class="math-scroll">
+            \[
+                X(x)=Ae^{\mu x}+Be^{-\mu x}.
+            \]
+        </div>
+    
+        <p>
+            Applying the boundary conditions again forces \(A=B=0\), giving only the trivial solution.
+        </p>
+     
+        <h4>Case 3: \(\lambda > 0\)</h4>
+    
+        <p>
+            Let \(\lambda=k^2\). Then:
+        </p>
+    
+        <div class="math-scroll">
+            \[
+                X''+k^2X=0.
+            \]
+        </div>
+    
+        <p>
+            General solution:
+        </p>
+    
+        <div class="math-scroll">
+            \[
+                X(x)=A\sin(kx)+B\cos(kx).
+            \]
+        </div>
+    
+        <p><b>Apply boundary conditions:</b></p>
+    
+        <p>At \(x=0\):</p>
+    
+        <div class="math-scroll">
+            \[
+                X(0)=0 \Rightarrow B=0.
+            \]
+        </div>
+    
+        <p>So:</p>
+    
+        <div class="math-scroll">
+            \[
+                X(x)=A\sin(kx).
+            \]
+        </div>
+    
+        
+    
+        <div class="math-scroll">
+            \[
+                X'(x)=Ak\cos(kx),
+            \]
+        </div>
+
+        <p>At \(x=L\):</p>
+    
+        <div class="math-scroll">
+            \[
+                X'(L)=Ak\cos(kL)=0.
+            \]
+        </div>
+    
+        <p>
+            For nontrivial solutions:
+        </p>
+
+         
+
+        <div class="math-scroll">
+            \[
+                \cos(kL)=0  
+            \]
+        </div> 
+
+        <div class="math-scroll">
+            \[
+                \Longrightarrow k=\frac{n\pi}{2L}, \quad n=1,3,5,\dots
+            \]
+        </div>
+
+        <p>
+            Hence the eigenfunctions are:
+        </p>
+
+        <div class="math-scroll">
+            \[
+                X_n(x)=\sin\left(\frac{n\pi}{2L}x\right), \quad n \text{ odd}.
+            \]
+        </div>
+
+        <h4>3. Time equation</h4>
+
+        <p>
+            For each \(n\), the time equation becomes:
+        </p>
+
+        <div class="math-scroll">
+            \[
+                T_n'' + a^2 \left(\frac{n\pi}{2L}\right)^2 T_n = 0.
+            \]
+        </div>
+
+        <p>
+            The general solution is:
+        </p>
+
+        <div class="math-scroll">
+            \[
+                T_n(t)=C_n \cos\left(\frac{n\pi a}{2L}t\right)
+                + D_n \sin\left(\frac{n\pi a}{2L}t\right).
+            \]
+        </div>
+
+        <p>
+            Using \(y_t(x,0)=0\), we get \(D_n=0\).
+        </p>
+ 
+
+
+        <h4>4. Full solution</h4>
+
+        <p>
+            Hence each solution (building block) is:
+        </p>
+
+        <div class="math-scroll">
+            \[
+                y_n(x,t)=T_n(t)X_n(x)
+                =\cos\left(\frac{n\pi a}{2L}t\right)
+                \sin\left(\frac{n\pi}{2L}x\right),
+                \quad n \text{ odd}.
+            \]
+        </div>
+
+        <p>
+            By superposition, the general solution is obtained by summing over all odd integers \(n\):
+        </p>
+
+        <div class="math-scroll">
+            \[
+                y(x,t)=\sum_{\substack{n=1 \\ n\ \text{odd}}}^{\infty}
+                A_n \cos\left(\frac{n\pi a}{2L}t\right)
+                \sin\left(\frac{n\pi}{2L}x\right).
+            \]
+        </div>
+
+        <h4>5. Coefficients</h4>
+
+        <p>
+            From \(y(x,0)=f(x)\), we obtain:
+        </p>
+
+        <div class="math-scroll">
+            \[
+                f(x)=\sum_{\substack{n=1 \\ n\ \text{odd}}}^{\infty}
+                A_n \sin\left(\frac{n\pi}{2L}x\right).
+            \]
+        </div>
+
+        <p>
+            This is a Fourier sine series expansion of \(f(x)\) on \((0,L)\). Hence
+        </p>
+
+        <div class="math-scroll">
+            \[
+                A_n=\frac{2}{L}\int_0^L f(x)
+                \sin\left(\frac{n\pi}{2L}x\right)\,dx,
+                \quad n \text{ odd}.
+            \]
+        </div>
+    
+    
+    </div>
+    
+    <!-- done ex 8 -->
+
+
+    <!-- example 9 -->
+
+    <div class="example" id="ex-find-Tn">
+
+        <h3>Example 6.9: </h3>
+    
+        <p>
+            A string of length \(\pi\) is fixed at the left end and the right end is allowed to move vertically but not horizontally, so
+        </p>
+    
+        <div class="math-scroll">
+            \[
+                y(0,t)=0, \qquad y_x(\pi,t)=0.
+            \]
+        </div>
+    
+        <p>
+            The tension and density are such that \(a^2=1\), giving the wave equation:
+        </p>
+    
+        <div class="math-scroll">
+            \[
+                y_{tt}=y_{xx}.
+            \]
+        </div>
+    
+        <p>
+            The string has initial displacement \(f(x)=x\), \(0 \le x \le \pi\), and no initial velocity.
+            The solution can be written as:
+        </p>
+    
+        <div class="math-scroll">
+            \[
+                y(x,t)=\sum_{n=1}^{\infty} c_n T_n(t) X_n(x),
+            \]
+        </div>
+    
+        <p>
+            where \(c_n\) are constants determined by the initial condition.
+            Find \(T_n(t)\).
+        </p>
+    
+        
+    
+        <ol type="A">
+            <li>
+                <div class="math-scroll">
+                    \[
+                        \boxed{T_n(t)=\cos\left(\frac{2n-1}{2}t\right)}
+                    \]
+                </div>
+            </li>
+        
+            <li>
+                <div class="math-scroll">
+                    \[
+                        T_n(t)=\sinh\left(\frac{2n-1}{2}t\right)
+                    \]
+                </div>
+            </li>
+        
+            <li>
+                <div class="math-scroll">
+                    \[
+                        T_n(t)=\sin\left(\frac{2n-1}{2}t\right)
+                    \]
+                </div>
+            </li>
+        
+            <li>
+                <div class="math-scroll">
+                    \[
+                        T_n(t)=\cos(nt)
+                    \]
+                </div>
+            </li>
+        
+            <li>
+                <div class="math-scroll">
+                    \[
+                        T_n(t)=\sin(nt)
+                    \]
+                </div>
+            </li>
+        </ol>
+    
+    </div>
+
+    <!-- done ex9 -->
+
+    <!-- ex 10  -->
+
+    <div class="example" id="dalembert-method"> 
+        <h3>Example 10: The d’Alembert solution (an alternate method)</h3>
+ 
+        <p><strong>Part 1:</strong> 
+            Suppose that the function \(F\) is twice differentiable for all \(x\). 
+            Use the chain rule to verify that \(F(x+at)\) and \(F(x-at)\) are solutions to the wave equation 
+        </p>
+
+        <div class="math-scroll">
+            \[ 
+            y_{tt} = a^2 y_{xx}
+            \]
+        </div>
+ 
+        
+        <p><strong>Part 2:</strong> 
+            Let \(F\) be the odd periodic extension of the initial displacement \(f(x)\) with period \(2L\). 
+            Verify that the solution 
+            <div class="math-scroll">
+                \[ 
+                y(x,t) = \frac{1}{2}[F(x-at) + F(x+at)]
+                \]
+            </div>
+            satisfies the boundary conditions 
+
+            <div class="math-scroll">
+                \[ 
+                y(0,t) = 0, \quad y(L,t) = 0
+                \]
+            </div>
+
+             
+            the initial conditions 
+
+            <div class="math-scroll">
+                \[ 
+                y(x,0) = F(x), \quad y_t(x,0) = 0
+                \]
+            </div>
+     
+
+        <hr style="margin: 25px 0; border: 0; border-top: 1px solid var(--border-light);">
+
+        <p><strong>Solution:</strong></p>
+
+        <p style="margin: 20px 0;"><strong>Part 1: Verification via Chain Rule</strong></p>
+        <p>Let \(u = x+at\). By the chain rule:</p>
+        <div class="math-scroll">
+            \[ y_x = F'(u), \quad y_t = aF'(u) \]
+            \[ y_{xx} = F''(u), \quad y_{tt} = a^2F''(u) \]
+        </div>
+
+        
+        <p>Substituting into the wave equation gives \(a^2F''(u) = a^2(F''(u))\), confirming it is a solution. 
+            The verification for \(F(x-at)\) follows the same logic.
+        </p>
+ 
+
+        <p style="margin: 20px 0;"><strong>Part 2: Verification of Conditions</strong></p>
+        <p>Given </p>
+
+        <div class="math-scroll">
+            \[ y(x,t) = \frac{1}{2}[F(x-at) + F(x+at)] \]
+        </div>
+
+        <ul>
+            <li><strong>Boundary Conditions:</strong> 
+                Due to odd symmetry
+                <div class="math-scroll">
+                    \[ y(0,t)  
+                    = \frac{1}{2}[F(-at) + F(at)] = 0 \]
+                </div>
+                and similarly for \(x=L\).
+            </li>
+            <li><strong>Initial Displacement:</strong> 
+                <div class="math-scroll">
+                    \[ y(x,0) = \frac{1}{2}[F(x) + F(x)] = F(x) = f(x), \quad \forall x \in (0,L). \]
+                </div>
+            </li>
+            <li><strong>Initial Velocity:</strong> 
+                <div class="math-scroll">
+                    \[y_t(x,t) = \frac{1}{2}[-aF'(x-at) + aF'(x+at)\]
+                </div>
+                At \(t=0\),  
+                <div class="math-scroll">
+                    \[y_t(x,0) = \frac{1}{2}[-aF'(x) + aF'(x)] = 0\]
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!-- done ex 10 -->
+
+
+    <!-- ex 11 -->
+
+    <div class="example" id="ex-dalembert-question">
+        <h3>Example 11:  The d’Alembert solution</h3>
+
+        <p>
+            A vibrating string of length \(L=\pi\) is fixed at both ends and released from rest at time \(t=0\).
+            Its initial displacement is given by
+        </p>
+
+        <div class="math-scroll">
+            \[
+                f(x)=2\sin^2 x = 1 - \cos(2x), \quad 0 \le x \le \pi.
+            \]
+        </div>
+
+        <p>
+            The motion of the string satisfies the wave equation
+        </p>
+
+        <div class="math-scroll">
+            \[
+                y_{tt}=y_{xx}, \quad 0 < x < \pi,\; t > 0,
+            \]
+        </div>
+
+        <p>
+            with boundary conditions \(y(0,t)=y(\pi,t)=0\), and zero initial velocity:
+            \(y_t(x,0)=0\).
+        </p>
+
+         
+         
+        
+        <ol type="1" style="margin-top: 1rem;">
+
+            <li>
+                Find the odd periodic extension \(F(x)\) of \(f(x)\) with period \(2\pi\).
+            </li>
+
+            <li>
+                Use the d’Alembert’s formula to determine the displacement \(y(x,t)\) of the string.
+            </li>
+        
+            <li>
+                Evaluate and graph the displacement \(y(x,t)\) at \(t=\frac{\pi}{4}\).
+            </li>
+        </ol>
+
+        <!-- solution -->
+
+        <h3>Solution: </h3>
+
+        <strong>1. Odd Periodic Extension \(F(x)\)</strong>
+        <p>To satisfy the boundary conditions \(y(0,t)=y(\pi,t)=0\), we extend \(f(x)=1-\cos(2x)\) as an odd function, then periodically with period \(2\pi\). For \(x \in [-\pi, 0]\), we use the odd property \(F(x) = -f(-x)\).</p>
+        <div class="math-scroll">
+            \[ F(x) = \begin{cases} 1 - \cos(2x), & 0 \le x \le \pi \\ \cos(2x) - 1, & -\pi \le x < 0 \end{cases} \]
+        </div>
+        
+
+        <strong>2. The d’Alembert’s Formula</strong>
+        <p>With wave speed \(a=1\) and zero initial velocity \(y_t(x,0)=0\), the general solution simplifies to the superposition of two traveling waves:</p>
+        <div class="math-scroll">
+            \[ y(x,t) = \frac{1}{2} [F(x-t) + F(x+t)] \]
+        </div>
+
+        <strong>3. Evaluation and Graphing at \(t=\frac{\pi}{4}\)</strong>
+        <p>Substituting \(t=\frac{\pi}{4}\) into the formula gives:</p>
+        <div class="math-scroll">
+            \[ y(x, \frac{\pi}{4}) = \frac{1}{2} \left[ F\left(x - \frac{\pi}{4}\right) + F\left(x + \frac{\pi}{4}\right) \right] \]
+        </div>
+        <p>
+            The first term, \(\frac{1}{2}F(x-\frac{\pi}{4})\), shifts the wave to the right, 
+            and the second term, \(\frac{1}{2}F(x+\frac{\pi}{4})\), shifts it to the left. 
+            The total displacement is the sum of these two components.
+        </p>
+
+         
+
+        <!-- done solution -->
+ 
+        
+        <div id="wave-container" style="text-align: center; margin: 2rem auto; padding: 20px; border: 1px solid #ccc; max-width: 650px; background: #fff;">
+            <h3>Wave Propagation: d’Alembert’s Solution</h3>
+            <canvas id="waveCanvas" width="600" height="300" style="background: #f9f9f9; border: 1px solid #ddd;"></canvas>
+            
+            <div style="margin-top: 15px;">
+                <label for="tSlider">Time (t): </label>
+                <input type="range" id="tSlider" min="0" max="6.28" step="0.05" value="0" style="width: 300px;">
+                <span id="tValue">0.00</span>
+            </div>
+        </div>
+        
+        <script>
+            (function() {
+                const canvas = document.getElementById("waveCanvas");
+                const ctx = canvas.getContext("2d");
+                const tSlider = document.getElementById("tSlider");
+                const tDisplay = document.getElementById("tValue");
+        
+                function F(x) {
+                    let modX = ((x + Math.PI) % (2 * Math.PI)) - Math.PI;
+                    if (modX >= 0 && modX <= Math.PI) return 1 - Math.cos(2 * modX);
+                    if (modX >= -Math.PI && modX < 0) return Math.cos(2 * modX) - 1;
+                    return 0;
+                }
+        
+                function draw() {
+                    const t = parseFloat(tSlider.value);
+                    tDisplay.innerText = t.toFixed(2);
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+                    const centerX = canvas.width / 2;
+                    const centerY = canvas.height / 2;
+                    const scaleX = 80, scaleY = 40;
+        
+                    // Draw Axes
+                    ctx.strokeStyle = "#bbb";
+                    ctx.beginPath();
+                    ctx.moveTo(0, centerY); ctx.lineTo(canvas.width, centerY);
+                    ctx.moveTo(centerX, 50); ctx.lineTo(centerX, 250);
+                    ctx.stroke();
+        
+                    // Helper to draw a segment
+                    function drawSegment(start, end, isDashed) {
+                        ctx.setLineDash(isDashed ? [5, 5] : []);
+                        ctx.strokeStyle = isDashed ? "#aaa" : "#005a9c";
+                        ctx.lineWidth = isDashed ? 1 : 3;
+                        ctx.beginPath();
+                        for (let px = start; px <= end; px++) {
+                            let x = (px - centerX) / scaleX;
+                            let y = 0.5 * (F(x - t) + F(x + t));
+                            let py = centerY - (y * scaleY);
+                            if (px === start) ctx.moveTo(px, py); else ctx.lineTo(px, py);
+                        }
+                        ctx.stroke();
+                    }
+        
+                    // Draw: Left Extension (-pi to 0), Main String (0 to pi), Right Extension (pi to 2pi)
+                    drawSegment(centerX - Math.PI * scaleX, centerX, true);         // Dashed
+                    drawSegment(centerX, centerX + Math.PI * scaleX, false);        // Solid
+                    drawSegment(centerX + Math.PI * scaleX, centerX + 2 * Math.PI * scaleX, true); // Dashed
+                }
+        
+                tSlider.addEventListener("input", draw);
+                draw();
+            })();
+        </script>
+    
+    </div>
+
+    <!-- done ex 10 -->
 
     <!-- practice -->
 
