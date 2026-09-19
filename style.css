@@ -321,7 +321,7 @@ h1 {
   display: grid;
   grid-template-columns: 54px 1fr;
   gap: 28px;
-  padding: 30px 0 34px;
+  padding: 23px 0 26px;
   border-bottom: 1px solid var(--line);
 }
 
@@ -335,7 +335,7 @@ h1 {
 
 .paper h2 {
   max-width: 900px;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   font-size: clamp(24px, 2.4vw, 34px);
   line-height: 1.12;
   font-weight: 500;
@@ -356,7 +356,7 @@ h1 {
 
 .paper-authors,
 .paper-meta {
-  margin-bottom: 3px;
+  margin-bottom: 2px;
   color: var(--muted);
   font-size: 15px;
 }
@@ -504,7 +504,7 @@ h1 {
   .home-grid,
   .mentoring-grid { grid-template-columns: 1fr; }
   .home-grid { margin-top: 72px; }
-  .paper { grid-template-columns: 34px 1fr; gap: 14px; }
+  .paper { grid-template-columns: 34px 1fr; gap: 14px; padding: 20px 0 23px; }
   .course-row { grid-template-columns: 95px 1fr; gap: 16px; }
   .course-row strong { font-size: 19px; }
   .timeline-item { grid-template-columns: 1fr; gap: 12px; }
@@ -620,7 +620,7 @@ h1 { font-size: clamp(44px, 5.8vw, 72px); }
 .home-grid h2,
 .home-grid h2.simple-heading { font-size: clamp(25px, 2.35vw, 34px); }
 .topic-line { font-size: 12px; }
-.paper h2 { font-size: clamp(21px, 2vw, 29px); }
+.paper h2 { font-size: clamp(20px, 1.85vw, 27px); }
 .paper-authors { font-size: 14px; }
 .paper-meta { font-size: 12px; }
 .course-row strong { font-size: 19px; }
@@ -713,6 +713,58 @@ h1 { font-size: clamp(44px, 5.8vw, 72px); }
   }
 }
 
+
+/* Teaching: mentoring is a quieter subsection within Purdue University.
+   The label uses the same left column as course numbers; the programs align
+   with the course names in the right column. */
+.mentoring-subsection {
+  margin-top: 42px;
+  border-top: 0;
+}
+
+.mentoring-row {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 28px;
+  align-items: start;
+  padding: 20px 0 20px;
+  border-top: 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.mentoring-title {
+  margin: 0;
+  padding-top: 1px;
+  font-family: var(--serif);
+  font-size: 18px;
+  line-height: 1.3;
+  font-weight: 500;
+  letter-spacing: -.015em;
+  color: var(--teal);
+}
+
+.mentoring-list {
+  border-top: 0;
+}
+
+.mentoring-list li {
+  padding: 0 0 13px;
+  border-bottom: 0;
+  font-size: 18px;
+  line-height: 1.45;
+}
+
+@media (max-width: 680px) {
+  .mentoring-subsection { margin-top: 34px; }
+  .mentoring-row {
+    grid-template-columns: 95px 1fr;
+    gap: 16px;
+    padding: 17px 0 17px;
+  }
+  .mentoring-title { font-size: 16px; }
+  .mentoring-list li { font-size: 17px; }
+}
+
 /* Cleaner rule treatment across inner pages:
    keep section-start and between-item rules, but avoid redundant ending rules. */
 .page-hero {
@@ -724,4 +776,29 @@ h1 { font-size: clamp(44px, 5.8vw, 72px); }
 .mentoring-list li:last-child,
 .timeline .timeline-item:last-child {
   border-bottom: 0;
+}
+
+/* Inner pages: a tighter transition from the page heading to the first section. */
+.page-hero .lead:last-child {
+  margin-bottom: 0;
+}
+
+.teaching-hero h1 {
+  margin-bottom: 0;
+}
+
+.inner-page > .page-hero {
+  padding-bottom: 0;
+}
+
+.inner-page > .page-hero + .research-section,
+.inner-page > .page-hero + .teaching-block {
+  margin-top: 56px;
+}
+
+@media (max-width: 680px) {
+  .inner-page > .page-hero + .research-section,
+  .inner-page > .page-hero + .teaching-block {
+    margin-top: 44px;
+  }
 }
