@@ -144,7 +144,7 @@ h1 {
   color: #30332f;
 }
 
-.lead.narrow { max-width: 750px; }
+.lead.narrow { max-width: none; }
 
 .hero-copy > .lead:first-of-type {
   margin-top: 6px;
