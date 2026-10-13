@@ -1,20 +1,7 @@
-# Hanh Vo — Personal Academic Website
+# Personal Webpage
 
-This repository contains the source files for my personal academic website.
+This repository contains the source code for my personal website.
 
-## Files
 
-* `index.html`
-* `research.html`
-* `teaching.html`
-* `style.css`
-* `hanh.png`
-* `.gitignore`
+**[https://hanhv.github.io/](https://hanhv.github.io/)**
 
-## Public URLs
-
-GitHub Pages:
-https://hanhv.github.io/
-
-Purdue Mathematics:
-https://www.math.purdue.edu/~vo84/
